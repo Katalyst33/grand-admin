@@ -8,4 +8,4 @@ const Route = getInstanceRouter();
  * Url: "/" points to AppController@index
  * The index method of the controller.
  */
-Route.get('/', 'App@index').name('index');
+// Route.get('/', 'App@index').name('index');

@@ -7,9 +7,6 @@ export = {
     name: 'Xpresser-Simple-Typescript-App',
 
     // app environment
-
-
-
     env: 'development',
 
     /**
@@ -18,7 +15,7 @@ export = {
     server: {
         domain: 'localhost',
         // Server Port
-        port: 3300,
+        port: 5300,
     },
 
     /**
@@ -37,5 +34,14 @@ export = {
          * Point routes file to routes.ts
          */
         routesFile: "backend://routes.ts"
+    },
+    // Connection Config
+    mongodb: {
+        url: 'mongodb://127.0.0.1:27017',
+        database: 'test',
+        options: {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        }
     }
 };

@@ -16,8 +16,10 @@
   },
   "dependencies": {
     "@xpresser/auth": "^0.2.0",
+    "@xpresser/xpress-mongo": "^1.1.1",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
+    "xpress-mongo": "^1.4.1",
     "xpresser": "^0.18.1"
   },
   "devDependencies": {
