@@ -38,7 +38,7 @@ export = {
     // Connection Config
     mongodb: {
         url: 'mongodb://127.0.0.1:27017',
-        database: 'test',
+        database: 'grandDb',
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true

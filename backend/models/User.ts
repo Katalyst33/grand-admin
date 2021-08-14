@@ -6,6 +6,7 @@ import {UseCollection} from '@xpresser/xpress-mongo';
  * Optional if accessing data using model helper functions
  */
 export interface UserDataType {
+    _id: UserDataType;
     updatedAt?: Date,
     createdAt: Date,
 }
