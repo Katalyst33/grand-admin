@@ -41,7 +41,8 @@ const AppController = <Controller.Object>{
     return http.send({ user, appData });
   },
 
-  async postData(http: Http): Promise<Http.Response> {
+  async create(http: Http): Promise<Http.Response> {
+
     const body = http.$body.all();
 
     try {

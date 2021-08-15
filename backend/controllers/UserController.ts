@@ -2,6 +2,8 @@ import { ControllerClass } from 'xpresser';
 import { Http } from 'xpresser/types/http';
 import User from '../models/User';
 import Joi from 'joi';
+import {pickKeys} from "xpress-mongo";
+import {omitKeys} from "xpress-mongo/fn/projection";
 const jwt = require('jsonwebtoken');
 
 const maxAge = 3 * 24 * 60 * 60;
@@ -20,7 +22,7 @@ class UserController extends ControllerClass {
      * @param {Http} http
      */
 
-    async signup(http: Http): Promise<Http.Response> {
+    async register(http: Http): Promise<Http.Response> {
         let body = http.$body.all();
 
         // await User.native().deleteMany({});

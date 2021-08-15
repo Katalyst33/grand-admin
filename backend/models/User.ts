@@ -1,6 +1,8 @@
-import { joi, is, XMongoDataType } from 'xpress-mongo';
+import {joi, is, XMongoDataType, omitIdAndPick} from 'xpress-mongo';
 import { DBCollection } from '@xpresser/xpress-mongo';
 const bcrypt = require('bcrypt');
+
+const userRoles = ["user", "staff", "admin", "superuser"];
 
 // Model Interface (optional)
 export interface UserDataType {
@@ -31,12 +33,14 @@ class User extends DBCollection('users') {
 
     static strict = { removeNonSchemaFields: true };
 
+
     // Set Model Schema
     static schema = {
         updatedAt: is.Date(),
         createdAt: is.Date().required(),
         email: joi.string().email().required(),
         password: joi.string(),
+        role:is.InArray(userRoles,'user')
     };
 
     // Set Model data type (optional)
