@@ -8,11 +8,10 @@ import UserRoutes from './routes/UserRoutes';
 const Router = getInstanceRouter();
 
 UserRoutes();
-
 Router.path('/api/', () => {
     require('./routes/AppRoutes');
 
-}).middlewares(['UserAuthMiddleware.requireAuth']);
+}).middlewares(['UserAuth.requireBasic']);
 
 
 Router.routesAfterPlugins = () => {

@@ -7,5 +7,4 @@ export default function UserRoutes() {
     Route.post('/api/login', 'User@login');
     Route.get('/api/logout', 'User@logout');
 
-
 }

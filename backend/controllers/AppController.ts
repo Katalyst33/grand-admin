@@ -9,7 +9,10 @@ const AppController = <Controller.Object>{
    * @type {string}
    */
   name: 'AppController',
-
+    //middle ware as key and value as method that will run middle ware
+middlewares:{
+    'UserAuth.getCurrentUser':['ping']
+},
   /**
    * Index Method for "/"
    * @returns {string}
@@ -27,18 +30,13 @@ const AppController = <Controller.Object>{
       },
       { projection: { _id: 0 } }
     );
-    let user: User | null = null;
 
-    if (http.state.has('authUser')) {
-      user = await User.findById(http.state.get('authUser'), {
-        projection: {
-          email: 1,
-          _id: 0,
-        },
-      });
-    }
+    //get user from server state coming from middleware ^^
+    let user: User | null = http.state.get('currentUser');
 
-    return http.send({ user, appData });
+
+
+    return http.send({  appData, user:user?.toCollection().pick(['email','role']) });
   },
 
   async create(http: Http): Promise<Http.Response> {
@@ -56,31 +54,8 @@ const AppController = <Controller.Object>{
       message: 'App Data Added Successfully',
     });
   },
-  async setCookie(http: Http): Promise<Http.Response> {
-    http.res.cookie('newUser', false);
-    http.res.cookie('isEmployee', true, {
-      maxAge: 1000 * 60 * 60 * 24,
-      httpOnly: true,
-    });
 
-    return http.send('you got cookies');
-  },
 
-  async readCookie(http: Http): Promise<Http.Response> {
-    const bigCookie = http.req.cookies;
-    console.log(bigCookie.newUser);
-    return http.res.json(bigCookie);
-    // return http.send('you got cookies');
-  },
-
-  async contactMail(http) {
-    const formData = http.$body.all();
-
-    $.events.emit('Contact.sendMail', http, formData);
-    return http.res.send({
-      msg: 'Contact mail has been sent',
-    });
-  },
 
   api404(http: Http): Http.Response {
     return http.toApiFalse(

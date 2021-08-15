@@ -2,8 +2,6 @@ import { ControllerClass } from 'xpresser';
 import { Http } from 'xpresser/types/http';
 import User from '../models/User';
 import Joi from 'joi';
-import {pickKeys} from "xpress-mongo";
-import {omitKeys} from "xpress-mongo/fn/projection";
 const jwt = require('jsonwebtoken');
 
 const maxAge = 3 * 24 * 60 * 60;
@@ -79,12 +77,14 @@ class UserController extends ControllerClass {
 
             const user = await User.LOGIN_CHECK(email, password);
             const token = createToken(user._id);
+
             http.res.cookie('jwt', token, {
                 httpOnly: true,
                 maxAge: maxAge * 1000,
             });
 
             return http.send({
+                token,
                 user: user._id,
                 message: 'Login was successful',
                 proceed: true,

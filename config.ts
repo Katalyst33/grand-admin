@@ -28,6 +28,15 @@ export = {
     /**
      * Path settings.
      */
+    // Connection Config
+    mongodb: {
+        url: 'mongodb://127.0.0.1:27017',
+        database: 'grandDb',
+        options: {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        }
+    },
     paths: {
         /**
          * Base Folder
@@ -42,13 +51,6 @@ export = {
          */
         routesFile: "backend://routes.ts"
     },
-    // Connection Config
-    mongodb: {
-        url: 'mongodb://127.0.0.1:27017',
-        database: 'grandDb',
-        options: {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        }
-    }
+
+
 };
