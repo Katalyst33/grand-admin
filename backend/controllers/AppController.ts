@@ -1,5 +1,5 @@
 import { Controller, Http } from 'xpresser/types/http';
-import AppInfo from '../models/AppConfig';
+import AppConfig from '../models/AppConfig';
 import User from '../models/User';
 import { $ } from '../exports';
 
@@ -20,7 +20,7 @@ const AppController = <Controller.Object>{
   async ping(http: Http): Promise<Http.Response> {
     // check if included in excluded routes
 
-    const appData = await AppInfo.native().findOne(
+    const appData = await AppConfig.native().findOne(
       {
         $query: {},
         $orderby: { $natural: -1 },
@@ -45,8 +45,8 @@ const AppController = <Controller.Object>{
     const body = http.$body.all();
 
     try {
-      await AppInfo.native().deleteMany({});
-      await AppInfo.new(body);
+      await AppConfig.native().deleteMany({});
+      await AppConfig.new(body);
     } catch (e) {
       return http.res.send({ error: e.message });
     }

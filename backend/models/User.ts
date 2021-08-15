@@ -1,35 +1,51 @@
-import {is, XMongoSchema, XMongoModel} from 'xpress-mongo';
-import {UseCollection} from '@xpresser/xpress-mongo';
+import { joi, is, XMongoDataType } from 'xpress-mongo';
+import { DBCollection } from '@xpresser/xpress-mongo';
+const bcrypt = require('bcrypt');
 
-/**
- * Interface for Model's `this.data`.
- * Optional if accessing data using model helper functions
- */
+// Model Interface (optional)
 export interface UserDataType {
-    _id: UserDataType;
-    updatedAt?: Date,
-    createdAt: Date,
+    _id: Object;
+    updatedAt?: Date;
+    createdAt: Date;
+    password: string;
 }
 
 /**
- * User Model
- * Collection: `users`
+ * @class User
+ * @extends XMongoModel
  */
-class User extends XMongoModel {
+class User extends DBCollection('users') {
+    static async LOGIN_CHECK(email: any, password: any) {
+        const user = await this.native().findOne({ email });
+
+        if (user) {
+            const auth = await bcrypt.compare(password, user.password);
+
+            if (auth) {
+                return user;
+            }
+            throw Error('incorrect password');
+        }
+        throw Error('This user does not exist');
+    }
+
+    static strict = { removeNonSchemaFields: true };
 
     // Set Model Schema
-    static schema: XMongoSchema = {
+    static schema = {
         updatedAt: is.Date(),
-        createdAt: is.Date().required()
+        createdAt: is.Date().required(),
+        email: joi.string().email().required(),
+        password: joi.string(),
     };
 
+    // Set Model data type (optional)
     public data!: UserDataType;
 }
 
-/**
-* Map Model to Collection: `users`
-* .native() will be made available for use.
-*/
-UseCollection(User, "users");
+User.on('create', async (user) => {
+    const salt = await bcrypt.genSalt();
+    user.data.password = await bcrypt.hash(user.data.password, salt);
+});
 
 export default User;

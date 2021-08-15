@@ -7,5 +7,5 @@ export default function ShipmentRoutes() {
     Route.post('/api/login', 'User@login');
     Route.get('/api/logout', 'User@logout');
 
-    // Route.get('/api/signup', 'User@signup');
+
 }

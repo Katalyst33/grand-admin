@@ -6,7 +6,7 @@
   "repository": "https://github.com/xpresserjs/new-app-lite-ts",
   "author": "xpresserjs",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "scripts": {
     "start": "npm run build && node build/app.js",
     "build": "npx xjs @stack tsc",
@@ -17,6 +17,7 @@
   "dependencies": {
     "@xpresser/auth": "^0.2.0",
     "@xpresser/xpress-mongo": "^1.1.1",
+    "bcrypt": "^5.0.1",
     "jsonwebtoken": "^8.5.1",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
