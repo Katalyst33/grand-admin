@@ -5,19 +5,25 @@ import {getInstanceRouter} from "xpresser";
 
 import UserRoutes from './routes/UserRoutes';
 
-const Router = getInstanceRouter();
+const router = getInstanceRouter();
 
 UserRoutes();
-Router.path('/api/', () => {
+
+router.path('/api', () => {
     require('./routes/AppRoutes');
+
+    require('./routes/admin.routes')
 
 }).middlewares(['UserAuth.requireBasic']);
 
+// Api Routes
 
-Router.routesAfterPlugins = () => {
-    Router.any('/api/*', 'AppController@api404');
 
-    Router.sendFile('/*', 'dist/index.html');
+
+router.routesAfterPlugins = () => {
+    router.any('/api/*', 'AppController@api404');
+
+    router.sendFile('/*', 'dist/index.html');
 };
 
 

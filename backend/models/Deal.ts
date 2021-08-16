@@ -19,7 +19,8 @@ class Deal extends XMongoModel {
     // Set Model Schema
     static schema: XMongoSchema = {
         updatedAt: is.Date(),
-        createdAt: is.Date().required()
+        createdAt: is.Date().required(),
+        title:is.String().required(),
     };
 
     public data!: DealDataType;
