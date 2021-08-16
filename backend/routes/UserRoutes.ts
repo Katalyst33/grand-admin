@@ -1,10 +1,14 @@
 import { getInstanceRouter } from 'xpresser';
-const Route = getInstanceRouter();
+const router = getInstanceRouter();
 
 export default function UserRoutes() {
-    // Shipment Routes
-    Route.post('/api/register', 'User@register');
-    Route.post('/api/login', 'User@login');
-    Route.get('/api/logout', 'User@logout');
+    // User Routes
+    router.path('/api/', () => {
+        router.post('@register');
+        router.post('@login');
+        router.get('@logout');
+    }).controller('User');
 
 }
+
+
