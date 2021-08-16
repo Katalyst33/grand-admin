@@ -1,12 +1,13 @@
-import { ControllerClass } from 'xpresser';
-import { Http } from 'xpresser/types/http';
+import {ControllerClass} from 'xpresser';
+import {Http} from 'xpresser/types/http';
 import User from '../models/User';
 import Joi from 'joi';
+
 const jwt = require('jsonwebtoken');
 
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id: any) => {
-    return jwt.sign({ id }, 'actionfilm', {
+    return jwt.sign({id}, 'actionfilm', {
         expiresIn: maxAge,
     });
 };
@@ -50,7 +51,7 @@ class UserController extends ControllerClass {
                 throw new Error('Email has been taken');
             }
 
-            const { data } = await User.new(body);
+            const {data} = await User.new(body);
             //genrate token
             const token = createToken(data._id);
             http.res.cookie('jwt', token, {
@@ -65,12 +66,12 @@ class UserController extends ControllerClass {
             });
         } catch (e) {
             console.log(e);
-            return http.send({ error: e.message });
+            return http.send({error: e.message});
         }
     }
 
     async login(http: Http): Promise<Http.Response> {
-        const { email, password } = http.$body.all();
+        const {email, password} = http.$body.all();
 
         try {
             // @ts-ignore
@@ -86,11 +87,12 @@ class UserController extends ControllerClass {
             return http.send({
                 token,
                 user: user._id,
+                role:user.role,
                 message: 'Login was successful',
                 proceed: true,
             });
         } catch (err) {
-            console.log('cut a bug');
+
             return http.send({
                 error: err.message,
                 proceed: false,
@@ -99,9 +101,13 @@ class UserController extends ControllerClass {
     }
 
     async logout(http: Http): Promise<Http.Response> {
-        http.res.cookie('jwt', '', {
+        console.log("looog", http.state.get('authUser'))
+        // http.state.set('authUser', {})
+
+
+   /*     http.res.cookie('jwt', '', {
             maxAge: 1,
-        });
+        });*/
         // http.res.redirect('/');
 
         return http.send({

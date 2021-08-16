@@ -35,7 +35,6 @@ middlewares:{
     let user: User | null = http.state.get('currentUser');
 
 
-
     return http.send({  appData, user:user?.toCollection().pick(['email','role']) });
   },
 
