@@ -19,7 +19,10 @@ class AppConfig extends XMongoModel {
     // Set Model Schema
     static schema: XMongoSchema = {
         updatedAt: is.Date(),
-        createdAt: is.Date().required()
+        createdAt: is.Date().required(),
+        phone:is.String().required(),
+        companyName:is.String().required(),
+
     };
 
     public data!: AppConfigDataType;

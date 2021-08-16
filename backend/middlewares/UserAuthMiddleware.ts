@@ -60,8 +60,10 @@ export = {
 
   async  getCurrentUser(http:Http){
 
+
         if (http.state.has('authUser')) {
           const  user = await User.findById(http.state.get('authUser'));
+
           http.state.set('currentUser', user)
         }
 

@@ -10,9 +10,7 @@ const AppController = <Controller.Object>{
    */
   name: 'AppController',
     //middle ware as key and value as method that will run middle ware
-middlewares:{
-    'UserAuth.getCurrentUser':['ping']
-},
+
   /**
    * Index Method for "/"
    * @returns {string}
@@ -23,19 +21,20 @@ middlewares:{
   async ping(http: Http): Promise<Http.Response> {
     // check if included in excluded routes
 
+
     const appData = await AppConfig.native().findOne(
       {
         $query: {},
         $orderby: { $natural: -1 },
       },
-      { projection: { _id: 0 } }
+      { projection: { _id: 0, createdAt:0 } }
     );
 
     //get user from server state coming from middleware ^^
     let user: User | null = http.state.get('currentUser');
 
-
-    return http.send({  appData, user:user?.toCollection().pick(['email','role']) });
+    return http.send({  appData,
+        user:user?.toCollection().pick(['email','role']) });
   },
 
   async create(http: Http): Promise<Http.Response> {
@@ -50,9 +49,18 @@ middlewares:{
     }
 
     return http.send({
-      message: 'App Data Added Successfully',
+      message: 'App information Added Successfully',
     });
   },
+
+    async update(http: Http):Promise<Http.Response>{
+
+        return http.send({
+            message: 'App Information Updated Successfully',
+        });
+
+
+    },
 
 
 
