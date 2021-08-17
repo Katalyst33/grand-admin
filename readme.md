@@ -34,3 +34,10 @@ Example app with no views just an index routes that has a message for you.
 
 Please, Star Project :)
 Thank you so much.
+
+
+
+Seed Users
+
+Run `xjs @ SeedDeals` 
+
