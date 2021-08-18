@@ -14,6 +14,7 @@ export interface DealDataType {
   expiresIn: Date;
   price: number;
   image: string;
+  enabled: boolean;
 }
 
 /**
@@ -23,6 +24,7 @@ export interface DealDataType {
 class Deal extends XMongoModel {
   // Set Model Schema
   static schema: XMongoSchema = {
+    uuid: is.Uuid(4).required(),
     updatedAt: is.Date(),
     createdAt: is.Date().required(),
     title: is.String().required(),
@@ -31,6 +33,7 @@ class Deal extends XMongoModel {
     expiresIn: is.Date(),
     image: is.String(),
     price: is.Number(),
+    enabled: is.Boolean(),
   };
 
   public data!: DealDataType;

@@ -2,6 +2,8 @@ import JobHelper from "xpresser/src/Console/JobHelper";
 import Deal from "../models/Deal";
 const chance = require("chance").Chance();
 
+import moment from "moment";
+
 /**
  *  Job: SeedDeals
  */
@@ -13,29 +15,54 @@ export = {
 
     const activity = [
       "Travel",
-      // "School",
+      "School",
       "Romance",
       "Vacation",
       "Seminars",
       "Religious",
     ];
 
-    const FormattedActivity = `${
-      activity[chance.integer({ min: 0, max: 5 })]
-    } `;
+    const country = [
+      "Nigeria",
+      "United Kingdom",
+      "Australia",
+      "United states of America",
+      "Jerusalem",
+      "mecca",
+      "Dubai",
+      "Ireland",
+      "Turkey",
+      "Ukraine",
+      "South Africa",
+      "Maldives",
+    ];
 
     // const  time =
-    const deals = {
-      title: "School visa",
-      description: `${FormattedActivity} `,
-      country: chance.country({ full: true }),
-      expiresIn: "2021-08-15T20:43:34.489+00:00",
-      price: chance.integer({ min: -20, max: 20 }),
-    };
-
-    await Deal.new(deals);
 
     // End current job process.
+
+    let count = process.argv[2] || 100;
+
+    count = Number(count);
+
+    let counter = 0;
+
+    do {
+      const deals = {
+        title: `${activity[chance.integer({ min: 0, max: 5 })]} in/at/ ${
+          country[chance.integer({ min: 0, max: 12 })]
+        } , `,
+        description: chance.sentence(),
+        country: chance.country({ full: true }),
+        expiresIn: "2021-08-15T20:43:34.489+00:00",
+        price: chance.integer({ min: 150000, max: 650000 }),
+        enabled: [true, false][chance.integer({ min: 0, max: 1 })],
+      };
+
+      await Deal.new(deals);
+
+      counter++;
+    } while (counter < 10);
     return job.end();
   },
 };

@@ -23,9 +23,10 @@
     "cookie-parser": "^1.4.5",
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
-    "prettier": "^2.2.1",
+    "moment": "^2.29.1",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
+    "prettier": "^2.2.1",
     "xpress-mongo": "^1.4.1",
     "xpresser": "^0.18.1"
   },

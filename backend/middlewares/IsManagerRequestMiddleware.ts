@@ -12,10 +12,12 @@ export = {
   async staff(http: Http) {
     let user = null;
     // run check here
+
     if (http.state.has("authUser")) {
       user = await User.findById(http.state.get("authUser"));
     }
-    if (user?.data.role === "user") {
+    const userRoles = ["admin", "staff"];
+    if (!userRoles.includes(`${user?.data.role}`)) {
       return http.toApiFalse({
         error: "You are not authorised !!",
       });
@@ -30,7 +32,7 @@ export = {
     if (http.state.has("authUser")) {
       user = await User.findById(http.state.get("authUser"));
     }
-    if (user?.data.role === "user") {
+    if (user?.data.role !== "admin") {
       return http.toApiFalse({
         error: "You are not authorised !!",
       });

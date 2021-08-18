@@ -6,7 +6,7 @@ import { getInstanceRouter } from "xpresser";
 const router = getInstanceRouter();
 router.path("/api", () => {
   require("./routes/client.routes");
-  require("./routes/admin.routes");
+  require("./routes/manager.routes");
 });
 
 // Api Routes
