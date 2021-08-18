@@ -29,10 +29,28 @@ class DealsController extends ControllerClass {
   }
 
   async deal(http: Http) {
-    return http.send({ message: "successful" });
+    const dealId = http.params.dealId;
+
+    const deal = await Deal.findOne({ uuid: dealId });
+    if (!deal) {
+      return http.res.send({ error: "Deal not Found" });
+    }
+
+    return http.send(deal);
   }
+
   async update(http: Http) {
-    return http.send({ message: "successful" });
+    const dealId = http.params.dealId;
+    const newDeal = http.$body.all();
+    console.log("new deal", newDeal);
+    let deal = await Deal.findOne({ uuid: dealId });
+    if (!deal) {
+      return http.res.send({ error: "Customer not Found" });
+    }
+
+    await deal.update(newDeal);
+
+    return http.send({ newDeal, message: "Deal was Edited" });
   }
   async delete(http: Http) {
     return http.send({ message: "successful" });

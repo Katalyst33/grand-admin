@@ -20,9 +20,9 @@ router
 
     // Single Deal
     router
-      .path("deals/:deal", () => {
+      .path("deals/:dealId", () => {
         router.get("=deal");
-        router.post("=update");
+        router.patch("=update");
         router.delete("=delete");
         router.post("image", "updateImage");
       })

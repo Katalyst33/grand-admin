@@ -41,7 +41,7 @@ export = {
 
     // End current job process.
 
-    let count = process.argv[2] || 100;
+    let count = process.argv[4] || 5;
 
     count = Number(count);
 
@@ -62,7 +62,8 @@ export = {
       await Deal.new(deals);
 
       counter++;
-    } while (counter < 10);
+    } while (counter < count);
+
     return job.end();
   },
 };
