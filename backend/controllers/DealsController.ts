@@ -13,13 +13,24 @@ class DealsController extends ControllerClass {
   async all(http: Http): Promise<Http.Response> {
     const page = http.query("page", 1);
 
-    const perPage = 2;
+    const perPage = 10;
 
     const allDeals = await Deal.paginate(page, perPage);
 
-    return http.toApi({ allDeals });
+    return http.toApi(allDeals);
 
     // Pagination of all users with age >= 18, sort by firstName
+  }
+
+  async deal(http: Http) {
+    const dealId = http.params.dealId;
+
+    const deal = await Deal.findOne({ uuid: dealId });
+    if (!deal) {
+      return http.res.send({ error: "Deal not Found" });
+    }
+
+    return http.send(deal);
   }
 }
 

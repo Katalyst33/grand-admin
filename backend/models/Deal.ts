@@ -1,4 +1,9 @@
-import { is, XMongoSchema, XMongoModel } from "xpress-mongo";
+import {
+  is,
+  XMongoSchema,
+  XMongoModel,
+  RefreshDateOnUpdate,
+} from "xpress-mongo";
 import { UseCollection } from "@xpresser/xpress-mongo";
 
 /**
@@ -33,6 +38,7 @@ class Deal extends XMongoModel {
     expiresIn: is.Date(),
     image: is.String(),
     price: is.Number(),
+    included: is.Array(),
     enabled: is.Boolean(),
   };
 
@@ -44,5 +50,7 @@ class Deal extends XMongoModel {
  * .native() will be made available for use.
  */
 UseCollection(Deal, "deals");
+
+RefreshDateOnUpdate(Deal, "updatedAt");
 
 export default Deal;

@@ -51,11 +51,18 @@ export = {
       const deals = {
         title: `${activity[chance.integer({ min: 0, max: 5 })]} in/at/ ${
           country[chance.integer({ min: 0, max: 12 })]
-        } , `,
+        } , this ${chance.month()}`,
         description: chance.sentence(),
         country: chance.country({ full: true }),
         expiresIn: "2021-08-15T20:43:34.489+00:00",
         price: chance.integer({ min: 150000, max: 650000 }),
+        included: [
+          "Economy Class Ticket",
+          "5 nights in Beach resort",
+          "Daily breakFast",
+          "Return Airport transfer",
+          "Travel Insurance",
+        ],
         enabled: [true, false][chance.integer({ min: 0, max: 1 })],
       };
 
@@ -63,6 +70,8 @@ export = {
 
       counter++;
     } while (counter < count);
+
+    console.log(`Seeded ${counter} Deals`);
 
     return job.end();
   },

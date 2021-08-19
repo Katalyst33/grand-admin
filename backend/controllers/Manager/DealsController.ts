@@ -13,7 +13,7 @@ class DealsController extends ControllerClass {
   async all(http: Http): Promise<Http.Response> {
     const page = http.query("page", 1);
 
-    const perPage = 2;
+    const perPage = 10;
 
     const allDeals = await Deal.paginate(page, perPage);
 
@@ -45,15 +45,25 @@ class DealsController extends ControllerClass {
     console.log("new deal", newDeal);
     let deal = await Deal.findOne({ uuid: dealId });
     if (!deal) {
-      return http.res.send({ error: "Customer not Found" });
+      return http.res.send({ error: "Deal not Found" });
     }
 
     await deal.update(newDeal);
 
-    return http.send({ newDeal, message: "Deal was Edited" });
+    return http.toApi({ newDeal, message: "Deal was Edited" });
   }
   async delete(http: Http) {
-    return http.send({ message: "successful" });
+    const dealId = http.params.dealId;
+
+    const deal = await Deal.findOne({ uuid: dealId });
+
+    if (!deal) {
+      return http.res.send({ error: "Deal not Found" });
+    }
+
+    await deal.delete();
+
+    return http.res.send({ message: "Staff Deleted Successfully" });
   }
   async updateImage(http: Http) {
     return http.send({ message: "successful" });

@@ -15,7 +15,7 @@ const createToken = (id: any) => {
 /**
  * UserController
  */
-class UserController extends ControllerClass {
+class AuthController extends ControllerClass {
   /**
    * Example controller action.
    * @param {Http} http
@@ -97,8 +97,8 @@ class UserController extends ControllerClass {
     // http.state.set('authUser', {})
 
     /*     http.res.cookie('jwt', '', {
-            maxAge: 1,
-        });*/
+                maxAge: 1,
+            });*/
     // http.res.redirect('/');
 
     return http.send({
@@ -107,4 +107,4 @@ class UserController extends ControllerClass {
   }
 }
 
-export = UserController;
+export = AuthController;
