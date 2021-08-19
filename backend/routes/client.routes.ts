@@ -1,14 +1,15 @@
 import { getInstanceRouter } from "xpresser";
-const router = getInstanceRouter();
 
-router.get("deals", "Deals@all");
-router.get("deals/:dealId", "Deals@deal");
+const router = getInstanceRouter();
 
 router
   .path("/client/", () => {
     router.post("@register");
     router.post("@login");
     router.get("@logout");
+
+    router.get("deals", "Deals@all");
+    router.get("deals/:dealId", "Deals@deal");
   })
   .controller("Auth");
 router
