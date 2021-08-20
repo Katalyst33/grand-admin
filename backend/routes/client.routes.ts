@@ -7,14 +7,14 @@ router
     router.post("@register");
     router.post("@login");
     router.get("@logout");
-
     router.get("deals", "Deals@all");
     router.get("deals/:dealId", "Deals@deal");
   })
   .controller("Auth");
+
 router
   .path("/client/", () => {
     router.get("@ping");
   })
   .controller("App")
-  .middlewares(["UserAuth.requireBasic", "UserAuth.getCurrentUser"]);
+  .middlewares(["UserAuth.requireAuth", "UserAuth.getCurrentUser"]);

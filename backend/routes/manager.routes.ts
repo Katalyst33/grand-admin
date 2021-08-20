@@ -30,7 +30,7 @@ router
     /**End of Route**/
   })
   .middlewares([
-    "UserAuth.requireBasic",
+    "UserAuth.requireAuth",
     "UserAuth.getCurrentUser",
     "IsManagerRequest.staff",
   ]);
