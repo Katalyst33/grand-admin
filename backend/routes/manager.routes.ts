@@ -6,7 +6,12 @@ const router = getInstanceRouter();
 //create app /company infor mation
 router
   .path("/manager", () => {
-    router.post("create", "App@create");
+    router
+      .path("", () => {
+        router.post("@create");
+      })
+      .controller("App")
+      .middlewares(["IsManagerRequest.admin"]);
 
     //deals routes
 

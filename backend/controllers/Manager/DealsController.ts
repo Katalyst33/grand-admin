@@ -17,7 +17,7 @@ class DealsController extends ControllerClass {
 
     const allDeals = await Deal.paginate(page, perPage);
 
-    return http.toApi({ allDeals });
+    return http.toApi(allDeals);
 
     // Pagination of all users with age >= 18, sort by firstName
   }
