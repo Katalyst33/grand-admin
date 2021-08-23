@@ -4,15 +4,9 @@ const router = getInstanceRouter();
 // deals  routes
 
 //create app /company infor mation
+
 router
   .path("/manager", () => {
-    router
-      .path("", () => {
-        router.post("@create");
-      })
-      .controller("App")
-      .middlewares(["IsManagerRequest.admin"]);
-
     //deals routes
 
     router
@@ -39,6 +33,12 @@ router
     "UserAuth.getCurrentUser",
     "IsManagerRequest.staff",
   ]);
+router
+  .path("/manager", () => {
+    router.post("@create");
+  })
+  .controller("App")
+  .middlewares(["IsManagerRequest.admin"]);
 
 /*
 long method
