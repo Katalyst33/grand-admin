@@ -14,5 +14,5 @@ router.path("/api", () => {
 router.routesAfterPlugins = () => {
   router.any("/api/*", "AppController@api404");
 
-  router.sendFile("/*", "dist/index.html");
+  router.sendFile("/*", "../grand-front/dist/index.html");
 };

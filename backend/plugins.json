@@ -1,4 +1,7 @@
 {
+  "npm://@xpresser/ngrok": {
+    "env": "development"
+  },
   "npm://@xpresser/xpress-mongo": true,
   "npm://@xpresser/session": true
 }

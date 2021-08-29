@@ -45,7 +45,6 @@ export = {
       },
       {
         full: "Dubai",
-
         code: "AE",
       },
       {
@@ -68,36 +67,14 @@ export = {
         full: "Maldives",
         code: "MV",
       },
+      {
+        full: "Singapore",
+        code: "SG",
+      },
     ];
 
     let countryCodeString: string | never[] = [];
     let countryFullString = null;
-
-    function countryCode() {
-      for (let value of countryArray) {
-        countryCodeString = value.code;
-        countryFullString = value.full;
-      }
-    }
-
-    const country = [
-      "Nigeria",
-      "United Kingdom",
-      "Australia",
-      "United states of America",
-      "Jerusalem",
-      "mecca",
-      "Dubai",
-      "Ireland",
-      "Turkey",
-      "Ukraine",
-      "South Africa",
-      "Maldives",
-    ];
-
-    // const  time =
-
-    // End current job process.
 
     let count = process.argv[4] || 5;
 
@@ -106,25 +83,36 @@ export = {
     let counter = 0;
 
     do {
+      const backDate = moment().subtract(3, "months").format();
+      const startDate = moment(backDate)
+        .add(counter++, "months")
+        .format();
+
+      const twoWeeks = moment(startDate).add(1, "weeks").format();
       const country = countryArray[randomInt(0, countryArray.length - 1)];
       const activity = activities[randomInt(0, activities.length - 1)];
+      const month = chance.month();
       const deals = {
-        title: `${activity}  ${country.full} , this ${chance.month()}`,
+        title: `${activity}  ${country.full} , this ${month}`,
         description: `${activity}  ${
           country.full
-        } , this ${chance.month()}, ${chance.sentence()}`,
-        countryCode: country.code,
-        country: country.full,
+        } , this ${month}, ${chance.sentence()}`,
+        country: {
+          name: country.full,
+          code: country.code,
+        },
         activity,
         expiresIn: new Date("2021-08-15T20:43:34.489+00:00"),
+        duration: {
+          start: startDate,
+          end: twoWeeks,
+        },
         price: randomInt(150000, 650000),
-        included: [
-          "Economy Class Ticket",
-          "5 nights in Beach resort",
-          "Daily breakFast",
-          "Return Airport transfer",
-          "Travel Insurance",
-        ],
+        included: `  "Economy Class Ticket",<br>
+          "5 nights in Beach resort",<br>
+          "Daily breakFast",<br>
+          "Return Airport transfer",<br>
+          "Travel Insurance",`,
         enabled: [true, false][chance.integer({ min: 0, max: 1 })],
       };
 

@@ -15,7 +15,14 @@ class DealsController extends ControllerClass {
 
     const perPage = 10;
 
-    const allDeals = await Deal.paginate(page, perPage);
+    const allDeals = await Deal.paginate(
+      page,
+      perPage,
+      {},
+      {
+        projection: Deal.projectPublicFields(),
+      }
+    );
 
     return http.toApi(allDeals);
 
@@ -31,7 +38,12 @@ class DealsController extends ControllerClass {
   async deal(http: Http) {
     const dealId = http.params.dealId;
 
-    const deal = await Deal.findOne({ uuid: dealId });
+    const deal = await Deal.findOne(
+      { uuid: dealId },
+      {
+        projection: Deal.projectPublicFields(),
+      }
+    );
     if (!deal) {
       return http.res.send({ error: "Deal not Found" });
     }

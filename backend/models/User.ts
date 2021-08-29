@@ -2,7 +2,7 @@ import { joi, is, XMongoDataType, omitIdAndPick } from "xpress-mongo";
 import { DBCollection } from "@xpresser/xpress-mongo";
 const bcrypt = require("bcrypt");
 
-const userRoles = ["user", "staff", "admin", "superuser"];
+const userRoles = ["user", "staff", "admin", "taliban"];
 
 // Model Interface (optional)
 export interface UserDataType {

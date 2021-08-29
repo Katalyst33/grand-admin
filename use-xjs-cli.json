@@ -1,4 +1,7 @@
 {
+  "extensions": [
+    "npm://@xpresser/ngrok"
+  ],
   "dev": {
     "main": "app.ts",
     "start_cron": "npx ts-node",

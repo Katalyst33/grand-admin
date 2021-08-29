@@ -5,6 +5,7 @@ import {
   RefreshDateOnUpdate,
 } from "xpress-mongo";
 import { UseCollection } from "@xpresser/xpress-mongo";
+import MainModel from "./MainModel";
 
 /**
  * Interface for Model's `this.data`.
@@ -15,8 +16,16 @@ export interface DealDataType {
   createdAt: Date;
   title: string;
   description: string;
-  country: string;
-  expiresIn: Date;
+  country: {
+    code: string;
+    name: string;
+  };
+
+  duration: {
+    start: Date;
+    end: Date;
+  };
+  featured: boolean;
   price: number;
   image: string;
   enabled: boolean;
@@ -26,22 +35,44 @@ export interface DealDataType {
  * Deal Model
  * Collection: `deals`
  */
-class Deal extends XMongoModel {
+class Deal extends MainModel {
   // Set Model Schema
+  static publicFields = [
+    "title",
+    "description",
+    "uuid",
+    "image",
+    "price",
+    "included",
+    "country",
+    "activity",
+    "duration",
+    "promoted",
+    "enabled",
+  ];
   static schema: XMongoSchema = {
     uuid: is.Uuid(4).required(),
     updatedAt: is.Date(),
     createdAt: is.Date().required(),
     title: is.String().required(),
     description: is.String().required(),
-    country: is.String(),
+
+    country: is.Object(() => ({
+      code: null,
+      name: null,
+    })),
     countryCode: is.String(),
+    duration: is.Object(() => ({
+      start: is.Date(),
+      end: is.Date(),
+    })),
     expiresIn: is.Date(),
     activity: is.String(),
     image: is.String("/hero/vacation.jpg"),
     price: is.Number(),
-    included: is.Array(),
+    included: is.String(),
     enabled: is.Boolean(),
+    promoted: is.Boolean(false),
   };
 
   public data!: DealDataType;
