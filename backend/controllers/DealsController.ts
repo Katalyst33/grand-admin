@@ -42,6 +42,8 @@ class DealsController extends ControllerClass {
       .find({ promoted: true })
       .toArray();
 
+
+
     const allDeals = await Deal.paginate(
       page,
       perPage,
