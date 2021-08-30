@@ -7,6 +7,7 @@ const userRoles = ["user", "staff", "admin", "taliban"];
 // Model Interface (optional)
 export interface UserDataType {
   _id: Object;
+  uuid: string;
   updatedAt?: Date;
   createdAt: Date;
   role: string;
@@ -39,6 +40,7 @@ class User extends DBCollection("users") {
   static schema = {
     updatedAt: is.Date(),
     createdAt: is.Date().required(),
+    uuid: is.Uuid(4).required(),
     email: joi.string().email().required(),
     password: joi.string(),
     role: is.InArray(userRoles, "user"),

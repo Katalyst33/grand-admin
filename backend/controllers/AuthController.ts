@@ -2,6 +2,7 @@ import { ControllerClass } from "xpresser";
 import { Http } from "xpresser/types/http";
 import User from "../models/User";
 import Joi from "joi";
+import Profile from "../models/Profile";
 
 const jwt = require("jsonwebtoken");
 
@@ -50,6 +51,15 @@ class AuthController extends ControllerClass {
       }
 
       const { data } = await User.new(body);
+
+      await Profile.new({
+        user: {
+          uuid: data.uuid,
+          email: data.email,
+        },
+      });
+      // console.log(profile, "new user data");
+
       //genrate token
       const token = createToken(data._id);
       http.res.cookie("jwt", token, {
