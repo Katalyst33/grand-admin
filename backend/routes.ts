@@ -7,6 +7,7 @@ const router = getInstanceRouter();
 router.path("/api", () => {
   require("./routes/client.routes");
   require("./routes/manager.routes");
+  require("./routes/profile.routes");
 });
 
 // Api Routes
