@@ -13,7 +13,7 @@ class DealsController extends ControllerClass {
   async all(http: Http): Promise<Http.Response> {
     const page = http.query("page", 1);
 
-    const perPage = 10;
+    const perPage = 20;
 
     const allDeals = await Deal.paginate(
       page,
