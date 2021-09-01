@@ -9,7 +9,11 @@ import { isString } from "util";
 export interface ProfileDataType {
   updatedAt?: Date;
   createdAt: Date;
-  images: string[];
+  images: Object;
+  user: {
+    email: string;
+    uuid: string;
+  };
 }
 
 /**
@@ -26,7 +30,7 @@ class Profile extends XMongoModel {
     lastname: is.String(),
     phone: is.String(),
     address: is.String(),
-    images: is.Array(),
+    images: is.Object(),
   };
 
   public data!: ProfileDataType;

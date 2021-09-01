@@ -18,7 +18,11 @@ const fileTypes = {
   image: ["png", "jpg", "jpeg"],
   doc: ["pdf", "docx"],
 };
-
+const labels = {
+  passport: "Passport",
+  "bank-statement": "Bank Statement",
+  "nepa-bill": "Nepa Bill",
+};
 /**
  * ProfileController
  */
@@ -54,8 +58,6 @@ class ProfileController extends ControllerClass {
     if (file.error()) {
       return http.res.send(file.error());
     }
-
-    console.log("file path", $.path.storage("uploads/"));
 
     // Save File
     await file.saveTo($.path.storage(""), {
@@ -101,53 +103,63 @@ class ProfileController extends ControllerClass {
     if (!profile) {
       return http.res.send({ error: "Profile  not Found" });
     }
-    const images = await http.files(["passport", "nepa-bill", "pictures"], {
-      files: 10,
-      size: 10,
-      // mimetype: "image",
+    const images = await http.files(
+      ["passport", "bank-statement", "nepa-bill"],
+      {
+        files: 5,
+        size: 1,
+        mimetype: "image",
+      }
+    );
+
+    // Or save files to specific folder using conditions by passing a function
+
+    await images.saveFiles(
+      (file) => {
+        return `${uploadsFolder}/${today}/${file.input}`;
+      },
+      (file) => {
+        return {
+          name: `${profile.data.user.uuid}`,
+          prependExtension: true,
+        };
+      }
+    );
+
+    images.filesWithoutError().forEach((i) => {
+      profile.set(`images.${i.input}`, i.path.replace(uploadsFolder, ""));
+      profile.set(`docs.${i.input}`, false);
     });
 
+    await profile.save();
     // check errors
+    const errorMessage: string[] = [];
+
     if (images.hasFilesWithErrors()) {
       const filesWithErrors = images.filesWithError();
 
       // Do something with filesWithErrors
 
-      return http.send({
-        message: "Upload encountered some errors",
-      });
+      for (const f of filesWithErrors) {
+        // @ts-ignore
+        const input = labels[f.input];
+        const error = f.error()!;
+        if (error.type === "mimetype") {
+          errorMessage.push(
+            `${input} format not supported, upload image with (.png, .jpg,jpeg)`
+          );
+        } else if (error.type === "size") {
+          errorMessage.push(`${input} is too large`);
+        }
+      }
     }
-
-    // Or save files to specific folder using conditions by passing a function
-
-    await images.saveFiles((file) => {
-      console.log(file.dotExtension());
-
-      return `${uploadsFolder}/${today}/${file.extension()}`;
-    });
-
-    // console.log(images.filesWithoutError());
-
-    /* for (const item of images.filesWithoutError()) {
-
-      console.log(item.name, "array item");
-    }*/
-    const paths = images.filesWithoutError().map((i) => {
-      return {
-        path: i.path.replace(uploadsFolder, ""),
-        type: fileTypes.image.includes(i.extension()) ? "image" : "doc",
-        label: "passport",
-      };
-    });
-    await profile.updateRaw({
-      $push: {
-        images: { $each: paths },
-      },
-    });
 
     // return response
     return http.send({
-      message: `${images.files.length} files has been uploaded successfully!.`,
+      errorMessage,
+      message: `${
+        images.filesWithoutError().length
+      } files has been uploaded successfully!.`,
     });
   }
 }
@@ -162,14 +174,3 @@ export = ProfileController;
   }
   // console.log(file.name, file.path);
   return $.path.storage("/uploads") + file.dotExtension();*/
-
-const images = [
-  {
-    path: "uploads/01-09-2021/passport.pdf",
-    type: "docs",
-  },
-  {
-    path: "uploads/01-09-2021/passport.png",
-    type: "image",
-  },
-];
