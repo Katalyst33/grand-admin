@@ -54,6 +54,7 @@ class AuthController extends ControllerClass {
 
       await Profile.new({
         user: {
+          _id: data._id,
           uuid: data.uuid,
           email: data.email,
         },

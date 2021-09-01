@@ -17,4 +17,14 @@ declare module "xpresser/types" {
     }
 }*/
 
+import "xpresser/types";
+
 import "@xpresser/session/xpresser";
+
+import "@xpresser/file-uploader/xpresser";
+
+declare module "xpresser/types" {
+  interface DollarSign {
+    key: value;
+  }
+}

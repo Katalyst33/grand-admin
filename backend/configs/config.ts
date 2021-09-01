@@ -1,21 +1,28 @@
+import path = require("path");
+const env = require("./env");
+const isDev = env.NODE_ENV === "development";
+const base = path.resolve(`${__dirname}/../../`);
+
 /**
  * Your Config File.
  * See https://xpresserjs.com/configuration/
  */
 export = {
   // name of app
-  name: "Xpresser-Simple-Typescript-App",
+  name: env.appName,
 
   // app environment
-  env: "development",
+  env: env.NODE_ENV,
 
   /**
    * By default xpresser sets this for you.
    */
   server: {
-    domain: "localhost",
+    domain: env.appDomain,
+
     // Server Port
-    port: 5300,
+    port: env.appPort,
+
     use: {
       cors: true,
       session: false,
@@ -30,8 +37,8 @@ export = {
    */
   // Connection Config
   mongodb: {
-    url: "mongodb://127.0.0.1:27017",
-    database: "grandDb",
+    url: env.MongoServer,
+    database: env.dbName,
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -44,12 +51,24 @@ export = {
      *
      * Best value for this is: __dirname
      */
-    base: __dirname,
+    base,
     public: "../grand-front/dist",
+    storage: "storage",
 
     /**
      * Point routes file to routes.ts
      */
     routesFile: "backend://routes.ts",
+  },
+  session: {
+    startOnBoot: false,
+    secret: env.sessionSecret,
+    cookie: {
+      path: "/",
+      domain: env.appName,
+      maxAge: 5000 * 60 * 24,
+    },
+    resave: true,
+    saveUninitialized: true,
   },
 };

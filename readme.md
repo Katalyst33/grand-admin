@@ -9,7 +9,7 @@ Example app with no views just an index routes that has a message for you.
 1. Clone Or Download
 2. Run `yarn` or `npm` install.
 3. Run `npm run ts-dev` or `yarn run ts-dev`
-4. check config in [config.ts](./config.ts)
+4. check config in [config.ts](backend/configs/config.ts)
 5. Read [Xpresser Documentation](https://xpresserjs.com/typescript)
 
 ### Package Commands

@@ -39,7 +39,7 @@ export = ($: DollarSign): XpresserNgrokConfig => ({
     default: {
       port: $.config.get("server.port"),
       authtoken: "3RHwjdprJqrSVJrjruPh7_6iqiu5smFJhzSjsBcNih7",
-      subdomain: "grandeagle",
+      subdomain: "eegrandeagle",
     },
   },
 

@@ -54,7 +54,6 @@ class DealsController extends ControllerClass {
   async update(http: Http) {
     const dealId = http.params.dealId;
     const newDeal = http.$body.all();
-    console.log("new deal", newDeal);
     let deal = await Deal.findOne({ uuid: dealId });
     if (!deal) {
       return http.res.send({ error: "Deal not Found" });
