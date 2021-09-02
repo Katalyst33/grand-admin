@@ -25,7 +25,8 @@ router
         router.delete("=delete");
         router.post("image", "updateImage");
       })
-      .controller("Manager/Deals");
+      .controller("Manager/Deals")
+      .middlewares(["IsManagerRequest.admin"]);
     /**End of Route**/
   })
   .middlewares([
