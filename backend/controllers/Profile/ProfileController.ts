@@ -32,6 +32,17 @@ class ProfileController extends ControllerClass {
    * @param {Http} http
    */
 
+  async profile(http: Http) {
+    const profileId = http.params.profileId;
+
+    let profile = await Profile.findOne({ uuid: profileId });
+
+    if (!profile) {
+      return http.res.send({ error: "Profile not Found" });
+    }
+    return http.send(profile);
+  }
+
   async update(http: Http) {
     const profileId = http.params.dealId;
     const newProfile = http.$body.all();

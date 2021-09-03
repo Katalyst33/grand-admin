@@ -59,7 +59,7 @@ class AuthController extends ControllerClass {
           email: data.email,
         },
       });
-      // console.log(profile, "new user data");
+      // console.log(Profile, "new user data");
 
       //genrate token
       const token = createToken(data._id);
