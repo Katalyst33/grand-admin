@@ -4,7 +4,7 @@ const router = getInstanceRouter();
 
 router.path("/profile", () => {
   router
-    .path("/data/:profileId", () => {
+    .path("/data/:referenceId", () => {
       router.get("=profile");
     })
     .controller("Profile/Profile");
@@ -12,9 +12,9 @@ router.path("/profile", () => {
 
 router.path("/profile", () => {
   router
-    .path("/upload/:profileId", () => {
+    .path("/upload/:referenceId", () => {
       router.patch("=update");
-      router.post("/image", "uploadDoc");
+      router.patch("/image", "uploadDoc");
       router.patch("/images", "uploadDocs");
     })
     .controller("Profile/Profile");

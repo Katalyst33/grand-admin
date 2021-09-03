@@ -1,5 +1,6 @@
 import { joi, is, XMongoDataType, omitIdAndPick } from "xpress-mongo";
 import { DBCollection } from "@xpresser/xpress-mongo";
+import { $ } from "../exports";
 const bcrypt = require("bcrypt");
 
 const userRoles = ["user", "staff", "admin", "taliban"];
@@ -11,6 +12,7 @@ export interface UserDataType {
   updatedAt?: Date;
   createdAt: Date;
   role: string;
+  reference: string;
   email: string;
   password: string;
 }
@@ -41,6 +43,14 @@ class User extends DBCollection("users") {
     updatedAt: is.Date(),
     createdAt: is.Date().required(),
     uuid: is.Uuid(4).required(),
+    reference: is
+      .String(
+        `${$.helpers.randomStr(3).toUpperCase()}0${$.helpers.randomInteger(
+          100000,
+          1000000
+        )}`
+      )
+      .required(),
     email: joi.string().email().required(),
     password: joi.string(),
     role: is.InArray(userRoles, "user"),

@@ -2,8 +2,9 @@ import ILovePDFApi from "@ilovepdf/ilovepdf-nodejs/ILovePDFApi";
 import ImagePdfTask from "@ilovepdf/ilovepdf-js-core/tasks/ImagePdfTask";
 import ILovePDFFile from "@ilovepdf/ilovepdf-js-core/utils/ILovePDFFile";
 import fs from "fs";
-import { UploadedFile } from "@xpresser/file-uploader/types";
+// import { UploadedFile } from "@xpresser/file-uploader/types";
 import * as http from "http";
+import UploadedFile from "@xpresser/file-uploader/js/src/UploadedFile";
 
 const env = require("../configs/env");
 
@@ -16,8 +17,8 @@ export async function ImageToPdf(file: UploadedFile) {
     .start()
     .then(() => {
       console.log("add");
-      const pdffile = new ILovePDFFile(file.path);
-      return task.addFile(pdffile);
+      const pdfFile = new ILovePDFFile(file.path!);
+      return task.addFile(pdfFile);
     })
     .then(() => {
       console.log("process");

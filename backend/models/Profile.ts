@@ -42,4 +42,6 @@ class Profile extends XMongoModel {
  */
 UseCollection(Profile, "profiles");
 
+Profile.native().createIndex({ "user.reference": 1 }, { unique: true }).catch();
+
 export default Profile;

@@ -33,9 +33,9 @@ class ProfileController extends ControllerClass {
    */
 
   async profile(http: Http) {
-    const profileId = http.params.profileId;
+    const userReference = http.params.referenceId;
 
-    let profile = await Profile.findOne({ uuid: profileId });
+    let profile = await Profile.findOne({ "user.reference": userReference });
 
     if (!profile) {
       return http.res.send({ error: "Profile not Found" });
@@ -107,10 +107,10 @@ class ProfileController extends ControllerClass {
     // return response.
   }
 
-  async uploadDocs(http: Http) {
-    const profileId = http.params.profileId;
+  /* async uploadDocs(http: Http) {
+    const userReference = http.params.referenceId;
 
-    const profile = await Profile.findOne({ uuid: profileId });
+    const profile = await Profile.findOne({ "user.reference": userReference });
     if (!profile) {
       return http.res.send({ error: "Profile  not Found" });
     }
@@ -127,6 +127,7 @@ class ProfileController extends ControllerClass {
 
     await images.saveFiles(
       (file) => {
+        console.log(file);
         return `${uploadsFolder}/${today}/${file.input}`;
       },
       (file) => {
@@ -172,6 +173,37 @@ class ProfileController extends ControllerClass {
         images.filesWithoutError().length
       } files has been uploaded successfully!.`,
     });
+  }*/
+  async uploadDocs(http: Http) {
+    const userReference = http.params.referenceId;
+
+    const profile = await Profile.findOne({ "user.reference": userReference });
+    if (!profile) {
+      return http.res.send({ error: "Profile  not Found" });
+    }
+
+    const images = await http.files(
+      ["passport", "bank-statement", "nepa-bill"],
+      {
+        files: 5,
+        size: 1,
+        mimetype: "image",
+        customErrors: {
+          field: (err) => `field not found: ${err.field}`,
+          file: (err) => `No file found for field: ${err.field}`,
+          size: "File is too large", // can also be plain string.
+          mimetype: (err) =>
+            `${err.filename}--${err.field} mimetype does not match the expected mimetype: ${err.received}`,
+          extension: (err) => `${err.filename} has unsupported file extension`,
+        },
+      }
+    );
+    if (images.hasFilesWithErrors()) {
+      return images.errorMessages(); // [ 'File size is too large.']
+    }
+
+    console.log("hhhh");
+    return http.send("done!!");
   }
 }
 

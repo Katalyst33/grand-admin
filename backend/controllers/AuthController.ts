@@ -57,6 +57,7 @@ class AuthController extends ControllerClass {
           _id: data._id,
           uuid: data.uuid,
           email: data.email,
+          reference: data.reference,
         },
       });
       // console.log(Profile, "new user data");
