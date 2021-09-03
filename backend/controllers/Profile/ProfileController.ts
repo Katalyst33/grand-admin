@@ -7,6 +7,7 @@ import slugify from "slugify";
 import moment from "moment";
 import { CompressPdf, ImageToPdf } from "../utilities";
 import { type } from "os";
+import UploadedFile from "@xpresser/file-uploader/js/src/UploadedFile";
 
 // declarations
 const today = moment().format("DD-MM-YYYY");
@@ -57,8 +58,17 @@ class ProfileController extends ControllerClass {
   }
 
   async uploadDoc(http: Http) {
+    const userReference = http.params.referenceId;
+    const label = http.$body.all();
+
+    console.log(label, "here labels");
+
+    const profile = await Profile.findOne({ "user.reference": userReference });
+    if (!profile) {
+      return http.res.send({ error: "Profile  not Found" });
+    }
     // Get File
-    const file = await http.file("image", {
+    const document = await http.file("image", {
       size: 10, // size in megabyte
       // extensions: ["png", "jpg", "gif", "svg", "pdf"],
       includeBody: true,
@@ -66,12 +76,12 @@ class ProfileController extends ControllerClass {
     });
 
     // Check for error
-    if (file.error()) {
-      return http.res.send(file.error());
+    if (document.error()) {
+      return http.res.send(document.error());
     }
 
     // Save File
-    await file.saveTo($.path.storage(""), {
+    await document.saveTo(uploadsFolder, {
       // name: `new-doc`,
       name: slugify(`passport-${moment().format()}`, {
         replacement: "-",
@@ -87,19 +97,19 @@ class ProfileController extends ControllerClass {
     });
 
     // check for save error()
-    if (!file.isSaved()) {
-      return http.res.send(file.saveError());
+    if (!document.isSaved()) {
+      return http.res.send(document.saveError());
     }
-    if (file.isSaved()) {
+    if (document.isSaved()) {
       //*********************** start ilove pdf
 
       // await ImageToPdf(file);
 
-      await CompressPdf(file);
-      //******************** start ilove pdf
+      await CompressPdf(document);
+      //!******************** start ilove pdf
 
       return http.res.send({
-        file: file,
+        file: document,
         msg: "File uploaded successfully!.",
       });
     }
@@ -107,7 +117,7 @@ class ProfileController extends ControllerClass {
     // return response.
   }
 
-  /* async uploadDocs(http: Http) {
+  async uploadDocs(http: Http) {
     const userReference = http.params.referenceId;
 
     const profile = await Profile.findOne({ "user.reference": userReference });
@@ -127,8 +137,7 @@ class ProfileController extends ControllerClass {
 
     await images.saveFiles(
       (file) => {
-        console.log(file);
-        return `${uploadsFolder}/${today}/${file.input}`;
+        return `${uploadsFolder}/${today}/${file.field!}`;
       },
       (file) => {
         return {
@@ -139,8 +148,8 @@ class ProfileController extends ControllerClass {
     );
 
     images.filesWithoutError().forEach((i) => {
-      profile.set(`images.${i.input}`, i.path.replace(uploadsFolder, ""));
-      profile.set(`docs.${i.input}`, false);
+      profile.set(`images.${i.field}`, i.path!.replace(uploadsFolder, ""));
+      profile.set(`docs.${i.field}`, false);
     });
 
     await profile.save();
@@ -173,8 +182,8 @@ class ProfileController extends ControllerClass {
         images.filesWithoutError().length
       } files has been uploaded successfully!.`,
     });
-  }*/
-  async uploadDocs(http: Http) {
+  }
+  /*async uploadDocs(http: Http) {
     const userReference = http.params.referenceId;
 
     const profile = await Profile.findOne({ "user.reference": userReference });
@@ -204,7 +213,7 @@ class ProfileController extends ControllerClass {
 
     console.log("hhhh");
     return http.send("done!!");
-  }
+  }*/
 }
 
 export = ProfileController;

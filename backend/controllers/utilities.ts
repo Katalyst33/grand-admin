@@ -2,7 +2,6 @@ import ILovePDFApi from "@ilovepdf/ilovepdf-nodejs/ILovePDFApi";
 import ImagePdfTask from "@ilovepdf/ilovepdf-js-core/tasks/ImagePdfTask";
 import ILovePDFFile from "@ilovepdf/ilovepdf-js-core/utils/ILovePDFFile";
 import fs from "fs";
-// import { UploadedFile } from "@xpresser/file-uploader/types";
 import * as http from "http";
 import UploadedFile from "@xpresser/file-uploader/js/src/UploadedFile";
 
