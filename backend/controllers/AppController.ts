@@ -41,7 +41,7 @@ const AppController = <Controller.Object>{
     try {
       await AppConfig.native().deleteMany({});
       await AppConfig.new(body);
-    } catch (e) {
+    } catch (e: any) {
       return http.res.send({ error: e.message });
     }
 

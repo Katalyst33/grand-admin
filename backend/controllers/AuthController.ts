@@ -74,7 +74,7 @@ class AuthController extends ControllerClass {
         data,
         message: "Registration successful",
       });
-    } catch (e) {
+    } catch (e: any) {
       console.log(e);
       return http.send({ error: e.message });
     }
@@ -96,7 +96,7 @@ class AuthController extends ControllerClass {
         message: "Login was successful",
         proceed: true,
       });
-    } catch (err) {
+    } catch (err: any) {
       return http.send({
         error: err.message,
         proceed: false,
