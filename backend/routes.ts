@@ -2,6 +2,8 @@ import { getInstanceRouter } from "xpresser";
 /**
  * See https://xpresserjs.com/router/
  */
+import env from "./configs/env";
+import path from "path";
 
 const router = getInstanceRouter();
 router.path("/api", () => {
@@ -15,5 +17,7 @@ router.path("/api", () => {
 router.routesAfterPlugins = () => {
   router.any("/api/*", "AppController@api404");
 
-  router.sendFile("/*", "../grand-front/dist/index.html");
+  router.sendFile("/*", path.resolve(`${env.publicPath}/index.html`));
 };
+
+console.log(path.resolve(`${env.publicPath}/index.html`), "resolve");
