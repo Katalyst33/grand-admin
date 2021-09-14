@@ -20,6 +20,7 @@ export = envLoader(pathToEnv, {
     "sessionSecret",
     "pdfPublicKey",
     "pdfSecretKey",
+    "publicPath",
   ],
 }) as {
   NODE_ENV: string;
@@ -32,4 +33,5 @@ export = envLoader(pathToEnv, {
   sessionSecret: string;
   pdfPublicKey: string;
   pdfSecretKey: string;
+  publicPath: string;
 };

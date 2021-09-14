@@ -52,7 +52,7 @@ export = {
      * Best value for this is: __dirname
      */
     base,
-    public: "../grand-front/dist",
+    public: env.publicPath,
     storage: "storage",
 
     /**
