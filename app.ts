@@ -11,7 +11,6 @@ $.initializeTypescript(__filename);
 $.on.expressInit((next) => {
   const express = require("express");
   const folder = $.path.storage();
-  console.log(folder);
 
   $.app!.use("", express.static(folder));
   $.app!.use(cookieParser());

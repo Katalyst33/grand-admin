@@ -31,12 +31,11 @@
     "moment": "^2.29.1",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0",
-    "pm2": "^5.1.1",
     "prettier": "^2.2.1",
     "promise-polyfill": "^8.2.0",
     "slugify": "^1.6.0",
     "xpress-mongo": "^1.4.1",
-    "xpresser": "^0.18.1"
+    "xpresser": "^0.21.0"
   },
   "devDependencies": {
     "@types/node": "^15.12.4",
