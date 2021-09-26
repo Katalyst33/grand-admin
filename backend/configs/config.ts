@@ -22,6 +22,13 @@ export = {
 
     // Server Port
     port: env.appPort,
+    ssl: {
+      enabled: env["SSL"],
+      files: {
+        cert: env["SSL_CERT"],
+        key: env["SSL_KEY"],
+      },
+    },
 
     use: {
       cors: true,

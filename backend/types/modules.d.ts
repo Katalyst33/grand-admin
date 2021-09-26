@@ -5,3 +5,5 @@
  */
 // For Example:
 // declare module "a-module-without-types";
+
+declare module "xpresser/dist/src/Console/JobHelper";

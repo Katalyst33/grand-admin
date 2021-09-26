@@ -20,4 +20,4 @@ router.routesAfterPlugins = () => {
   router.sendFile("/*", path.resolve(`${env.publicPath}/index.html`));
 };
 
-console.log(path.resolve(`${env.publicPath}/index.html`), "resolve");
+// console.log(path.resolve(`${env.publicPath}/index.html`), "resolve");

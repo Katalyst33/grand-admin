@@ -22,6 +22,14 @@ router
       .controller("Manager/Deals");
 
     /**End of Route**/
+
+    //tool box
+
+    router
+      .path("/seed-data", () => {
+        router.get("=seed");
+      })
+      .controller("Manager/Seeder");
   })
   .middlewares([
     "UserAuth.requireAuth",

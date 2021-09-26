@@ -2,6 +2,7 @@ import { Controller, Http } from "xpresser/types/http";
 import AppConfig from "../models/AppConfig";
 import User from "../models/User";
 import { $ } from "../exports";
+import JobHelper from "xpresser/dist/src/Console/JobHelper";
 
 const AppController = <Controller.Object>{
   /**
