@@ -59,7 +59,7 @@ export = {
      * Best value for this is: __dirname
      */
     base,
-    public: env.publicPath,
+    public: path.resolve(env.publicPath),
     storage: "storage",
 
     /**
