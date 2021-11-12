@@ -48,10 +48,7 @@ export = {
 
       http.next();
     } catch {
-      return http.toApiFalse({
-        next: "logout",
-        error: "Session Expired!",
-      });
+      http.next();
     }
   },
 

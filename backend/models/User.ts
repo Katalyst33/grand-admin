@@ -1,4 +1,11 @@
-import { joi, is, XMongoDataType, omitIdAndPick } from "xpress-mongo";
+import {
+  joi,
+  is,
+  XMongoModel,
+  XMongoDataType,
+  omitIdAndPick,
+  XMongoSchema,
+} from "xpress-mongo";
 import { DBCollection } from "@xpresser/xpress-mongo";
 import { $ } from "../exports";
 const bcrypt = require("bcrypt");
@@ -37,9 +44,9 @@ class User extends DBCollection("users") {
   }
 
   static strict = { removeNonSchemaFields: true };
-
+  static publicFields = ["email", "role"];
   // Set Model Schema
-  static schema = {
+  static schema: XMongoSchema = {
     updatedAt: is.Date(),
     createdAt: is.Date().required(),
     uuid: is.Uuid(4).required(),

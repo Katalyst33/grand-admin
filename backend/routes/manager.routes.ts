@@ -3,6 +3,13 @@ const router = getInstanceRouter();
 
 router
   .path("/manager", () => {
+    // all users
+
+    router
+      .path("/users", () => {
+        router.get("=all");
+      })
+      .controller("Manager/User");
     //deals routes
     router
       .path("/deals", () => {

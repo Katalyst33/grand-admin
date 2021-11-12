@@ -11,6 +11,7 @@ class DealsController extends ControllerClass {
    * Example controller action.
    * @param {Http} http
    */
+
   async all(http: Http): Promise<Http.Response> {
     const search = http.query("search");
     const page = http.query("page", 1);
@@ -49,7 +50,6 @@ class DealsController extends ControllerClass {
 
       {
         sort: sort,
-
         projection: Deal.projectPublicFields(),
       }
     );
