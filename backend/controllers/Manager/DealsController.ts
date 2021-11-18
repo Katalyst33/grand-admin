@@ -61,7 +61,7 @@ class DealsController extends ControllerClass {
 
     await deal.update(newDeal);
 
-    return http.toApi({ newDeal, message: "Deal was Edited" });
+    return http.send({ newDeal, message: "Deal was Edited" });
   }
   async delete(http: Http) {
     const dealId = http.params.dealId;

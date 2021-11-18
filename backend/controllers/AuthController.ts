@@ -84,10 +84,10 @@ class AuthController extends ControllerClass {
     const { email, password } = http.$body.all();
 
     try {
-      // @ts-ignore
-
       const user = await User.LOGIN_CHECK(email, password);
       const token = createToken(user._id);
+
+      // http.req.headers["ge-apikey"] = token;
 
       return http.send({
         token,

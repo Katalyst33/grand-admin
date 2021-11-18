@@ -20,11 +20,9 @@ export = {
    */
 
   requireAuth(http: Http) {
-    console.log("require-auth", http.req.originalUrl);
     const skip = ["/api/client/ping"];
 
     const authToken = http.req.headers["ge-apikey"];
-
     //get current url
     const currentUrl = http.req.originalUrl;
 
