@@ -39,11 +39,11 @@ class DealsController extends ControllerClass {
 
     const perPage = 10;
 
-    const promotedDeals = await Deal.native()
+    const promotedDestinations = await Deal.native()
       .find({ promoted: true })
       .toArray();
 
-    const allDeals = await Deal.paginate(
+    const allDestinations = await Deal.paginate(
       page,
       perPage,
       query,
@@ -54,7 +54,7 @@ class DealsController extends ControllerClass {
       }
     );
 
-    return http.toApi({ allDeals, promotedDeals });
+    return http.toApi({ allDestinations, promotedDestinations });
 
     // Pagination of all users with age >= 18, sort by firstName
   }
@@ -69,7 +69,7 @@ class DealsController extends ControllerClass {
       }
     );
     if (!deal) {
-      return http.res.send({ error: "Deal not Found" });
+      return http.res.send({ error: "Destination not Found" });
     }
 
     return http.send(deal);
