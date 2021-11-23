@@ -3,7 +3,7 @@ import { Http } from "xpresser/types/http";
 import Deal from "../../models/Deal";
 
 /**
- * DealsController
+ * DestinationController
  */
 class DealsController extends ControllerClass {
   /**
@@ -13,7 +13,7 @@ class DealsController extends ControllerClass {
   async all(http: Http): Promise<Http.Response> {
     const page = http.query("page", 1);
 
-    const perPage = 20;
+    const perPage = 10;
 
     const allDeals = await Deal.paginate(
       page,
@@ -32,7 +32,7 @@ class DealsController extends ControllerClass {
   async create(http: Http): Promise<Http.Response> {
     const body = http.$body.all();
     await Deal.new(body);
-    return http.send({ message: "New Deal created" });
+    return http.send({ message: "New Destination created" });
   }
 
   async deal(http: Http) {
@@ -45,7 +45,7 @@ class DealsController extends ControllerClass {
       }
     );
     if (!deal) {
-      return http.res.send({ error: "Deal not Found" });
+      return http.res.send({ error: "Destination not Found" });
     }
 
     return http.send(deal);
@@ -56,12 +56,12 @@ class DealsController extends ControllerClass {
     const newDeal = http.$body.all();
     let deal = await Deal.findOne({ uuid: dealId });
     if (!deal) {
-      return http.res.send({ error: "Deal not Found" });
+      return http.res.send({ error: "Destination not Found" });
     }
 
     await deal.update(newDeal);
 
-    return http.send({ newDeal, message: "Deal was Edited" });
+    return http.send({ newDeal, message: "Destination was Updated" });
   }
   async delete(http: Http) {
     const dealId = http.params.dealId;
@@ -69,12 +69,12 @@ class DealsController extends ControllerClass {
     const deal = await Deal.findOne({ uuid: dealId });
 
     if (!deal) {
-      return http.res.send({ error: "Deal not Found" });
+      return http.res.send({ error: "Destination not Found" });
     }
 
     await deal.delete();
 
-    return http.res.send({ message: "Staff Deleted Successfully" });
+    return http.res.send({ message: "Destination Deleted Successfully" });
   }
   async updateImage(http: Http) {
     return http.send({ message: "successful" });

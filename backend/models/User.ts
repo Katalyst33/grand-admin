@@ -6,8 +6,10 @@ import {
   omitIdAndPick,
   XMongoSchema,
 } from "xpress-mongo";
-import { DBCollection } from "@xpresser/xpress-mongo";
+import { DBCollection, UseCollection } from "@xpresser/xpress-mongo";
 import { $ } from "../exports";
+import Deal from "./Deal";
+import MainModel from "./MainModel";
 const bcrypt = require("bcrypt");
 
 const userRoles = ["user", "staff", "admin", "taliban"];
@@ -28,7 +30,7 @@ export interface UserDataType {
  * @class User
  * @extends XMongoModel
  */
-class User extends DBCollection("users") {
+class User extends MainModel {
   static async LOGIN_CHECK(email: any, password: any) {
     const user = await this.native().findOne({ email });
 
@@ -44,7 +46,7 @@ class User extends DBCollection("users") {
   }
 
   static strict = { removeNonSchemaFields: true };
-  static publicFields = ["email", "role"];
+  static publicFields = ["email", "role", "reference"];
   // Set Model Schema
   static schema: XMongoSchema = {
     updatedAt: is.Date(),
@@ -71,5 +73,6 @@ User.on("create", async (user) => {
   const salt = await bcrypt.genSalt();
   user.data.password = await bcrypt.hash(user.data.password, salt);
 });
+UseCollection(User, "users");
 
 export default User;

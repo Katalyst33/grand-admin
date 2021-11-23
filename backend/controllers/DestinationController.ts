@@ -4,9 +4,9 @@ import Deal from "../models/Deal";
 import { omitIdAndPick, pickKeys } from "xpress-mongo";
 
 /**
- * DealsController
+ * DestinationController
  */
-class DealsController extends ControllerClass {
+class DestinationController extends ControllerClass {
   /**
    * Example controller action.
    * @param {Http} http
@@ -76,4 +76,4 @@ class DealsController extends ControllerClass {
   }
 }
 
-export = DealsController;
+export = DestinationController;

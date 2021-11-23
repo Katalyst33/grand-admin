@@ -12,7 +12,7 @@ router
       .controller("Manager/User");
     //deals routes
     router
-      .path("/deals", () => {
+      .path("/destination", () => {
         router.post("=create");
         router.get("=all");
       })
