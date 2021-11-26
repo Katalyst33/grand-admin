@@ -216,6 +216,7 @@ class ProfileController extends ControllerClass {
   }*/
 }
 
+
 export = ProfileController;
 
 /*  if (file.dotExtension() === ".jpg") {
