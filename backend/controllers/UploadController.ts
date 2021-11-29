@@ -30,7 +30,7 @@ export = <Controller.Object>{
   async destinationImage(http) {
     console.log("upload destination");
     const images = await http.files("images", {
-      size: 0.5, //mb
+      size: 20, //mb
     });
     await images.saveFiles(folderPath.default);
     for (const image of images.filesWithoutError()) {
@@ -42,15 +42,29 @@ export = <Controller.Object>{
         size: image.size,
         ext: image.extension(),
       });
-      file.data.path = file.data.path.replace($.path.storage(), "");
-      //crop file here
+      //
+      let optimizedPath = image.path!;
+      console.log(image.size, "size??");
+      if (image.size > 1000000) {
+        optimizedPath = `${folderPath.default}/opt_${image.name}`;
 
+        await sharp(image.path).jpeg({ quality: 20 }).toFile(optimizedPath);
+        $.file.delete(image.path!);
+      }
+
+      //
+      file.data.path = optimizedPath.replace($.path.storage(), "");
+      //crop file here
       for (let folder of Object.keys(folderPath) as any) {
         if (folder !== "default") {
           folder = parseInt(folder);
           //crop file here
           const fullPath = `${folderPath[folder]}/${image.name}`;
-          await sharp(image.path).resize(folder, folder).toFile(fullPath);
+          await sharp(optimizedPath)
+            .resize(folder, folder)
+            .jpeg({ quality: 80 })
+
+            .toFile(fullPath);
           // set full path
           (file.data.crop as any)[folder] = fullPath.replace(
             $.path.storage(),
