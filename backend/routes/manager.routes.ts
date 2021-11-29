@@ -15,6 +15,8 @@ router
       .path("/destination", () => {
         router.post("=create");
         router.get("=all");
+
+        router.get("@gallery");
       })
       .controller("Manager/Deals");
 
@@ -37,7 +39,10 @@ router
         router.get("=seed");
       })
       .controller("Manager/Seeder");
+
+    router.post("/destination-image", "upload@destinationImage");
   })
+
   .middlewares([
     "UserAuth.requireAuth",
     "UserAuth.getCurrentUser",

@@ -14,6 +14,7 @@ export interface ProfileDataType {
     email: string;
     uuid: string;
   };
+  comment: string;
 }
 
 /**
@@ -26,11 +27,13 @@ class Profile extends XMongoModel {
     updatedAt: is.Date(),
     createdAt: is.Date().required(),
     uuid: is.Uuid(4).required(),
+    userId: is.ObjectId().required(),
     firstName: is.String(),
     lastname: is.String(),
     phone: is.String(),
     address: is.String(),
     images: is.Object(),
+    comment: is.String(),
   };
 
   public data!: ProfileDataType;

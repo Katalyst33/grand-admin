@@ -1,6 +1,7 @@
 import { ControllerClass } from "xpresser";
 import { Http } from "xpresser/types/http";
 import Deal from "../../models/Deal";
+import File from "../../models/File";
 
 /**
  * DestinationController
@@ -78,6 +79,12 @@ class DealsController extends ControllerClass {
   }
   async updateImage(http: Http) {
     return http.send({ message: "successful" });
+  }
+
+  async gallery(http: Http) {
+    const images = await File.find({ for: "destination" });
+    console.log("images");
+    return http.send({ images });
   }
 }
 

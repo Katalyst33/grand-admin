@@ -36,11 +36,12 @@ class ProfileController extends ControllerClass {
   async profile(http: Http) {
     const userReference = http.params.referenceId;
 
-    let profile = await Profile.findOne({ "user.reference": userReference });
+    let profile = await Profile.findOne({ "user._id": userReference });
 
     if (!profile) {
       return http.res.send({ error: "Profile not Found" });
     }
+    console.log(userReference, "profile ???");
     return http.send(profile);
   }
 
@@ -215,7 +216,6 @@ class ProfileController extends ControllerClass {
     return http.send("done!!");
   }*/
 }
-
 
 export = ProfileController;
 
