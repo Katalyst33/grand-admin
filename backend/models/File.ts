@@ -1,4 +1,4 @@
-import { is, XMongoSchema, XMongoModel } from "xpress-mongo";
+import { is, XMongoSchema, XMongoModel, joi } from "xpress-mongo";
 import { UseCollection } from "@xpresser/xpress-mongo";
 
 /**
@@ -17,6 +17,10 @@ export interface FileDataType {
   ext: string;
   used: boolean;
   status?: string;
+  crop: {
+    100: string;
+    200: string;
+  };
 }
 
 /**
@@ -37,6 +41,13 @@ class File extends XMongoModel {
     ext: is.String().required(),
     used: is.Boolean().required(),
     status: is.String(),
+    crop: joi
+      .object()
+      .keys({
+        100: joi.string().required(),
+        500: joi.string().required(),
+      })
+      .default({}),
   };
 
   public data!: FileDataType;

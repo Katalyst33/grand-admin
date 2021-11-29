@@ -82,9 +82,12 @@ class DealsController extends ControllerClass {
   }
 
   async gallery(http: Http) {
-    const images = await File.find({ for: "destination" });
+    const images = await File.find(
+      { for: "destination" },
+      { sort: { createdAt: -1 } }
+    );
     console.log("images");
-    return http.send({ images });
+    return http.send(images);
   }
 }
 
