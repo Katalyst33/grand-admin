@@ -19,7 +19,7 @@ router
         router.get("@gallery");
       })
       .controller("Manager/Deals");
-
+    router.post("delete-images", "Manager/Deals@deleteImages");
     // Single Deal
     router
       .path("/deals/:dealId", () => {

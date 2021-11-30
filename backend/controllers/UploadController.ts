@@ -1,18 +1,8 @@
 import { Controller, Http } from "xpresser/types/http";
-import { getInstance } from "xpresser";
 import File, { FileDataType } from "../models/File";
 import sharp from "sharp";
+import { $, folderPath } from "../exports";
 
-const $ = getInstance();
-const folderPath: Record<any, string> = {
-  default: $.path.storage("uploads/destination"),
-  100: $.path.storage("uploads/destination/100"),
-  500: $.path.storage("uploads/destination/500"),
-};
-
-for (const folder of Object.values(folderPath)) {
-  $.file.makeDirIfNotExist(folder);
-}
 /**
  * UploadController
  */
@@ -28,7 +18,6 @@ export = <Controller.Object>{
    * @param http - Current Http Instance
    */
   async destinationImage(http) {
-    console.log("upload destination");
     const images = await http.files("images", {
       size: 20, //mb
     });
@@ -76,6 +65,7 @@ export = <Controller.Object>{
       await file.save();
       console.log(file);
     }
+    console.log(images.filesWithoutError().length, "erros ??");
     return http.send(images);
   },
 };

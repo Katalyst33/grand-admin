@@ -1,7 +1,8 @@
 import { ControllerClass } from "xpresser";
 import { Http } from "xpresser/types/http";
 import Deal from "../../models/Deal";
-import File from "../../models/File";
+import File, { FileDataType } from "../../models/File";
+import { $, folderPath } from "../../exports";
 
 /**
  * DestinationController
@@ -88,6 +89,25 @@ class DealsController extends ControllerClass {
     );
     console.log("images");
     return http.send(images);
+  }
+
+  async deleteImages(http: Http) {
+    let imageIds = http.body<string[]>("images");
+    console.log(imageIds, "body ??");
+    const ids = imageIds.map((id) => File.id(id));
+    const images = await File.find({ _id: { $in: ids } });
+    for (let image of File.fromArray(images)) {
+      const imagePath = $.path.storage(image.data.path);
+      const crop100 = $.path.storage(image.data.crop["100"]);
+      const crop500 = $.path.storage(image.data.crop["500"]);
+      $.file.delete(imagePath);
+      $.file.delete(crop100);
+      $.file.delete(crop500);
+      await image.delete();
+      console.log({ crop100, crop500 });
+    }
+
+    return http.send({ message: "successful" });
   }
 }
 

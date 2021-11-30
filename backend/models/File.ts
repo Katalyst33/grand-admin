@@ -19,7 +19,7 @@ export interface FileDataType {
   status?: string;
   crop: {
     100: string;
-    200: string;
+    500: string;
   };
 }
 
