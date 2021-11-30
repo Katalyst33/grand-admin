@@ -15,6 +15,7 @@ export interface DealDataType {
   updatedAt?: Date;
   createdAt: Date;
   title: string;
+  uuid: string;
   description: string;
   country: {
     code: string;
@@ -27,7 +28,7 @@ export interface DealDataType {
   };
   featured: boolean;
   price: number;
-  image: string;
+  images: string[];
   enabled: boolean;
 }
 
@@ -41,7 +42,7 @@ class Deal extends MainModel {
     "title",
     "description",
     "uuid",
-    "image",
+    "images",
     "price",
     "included",
     "country",
@@ -68,7 +69,7 @@ class Deal extends MainModel {
     })),
     expiresIn: is.Date(),
     activity: is.String(),
-    image: is.String("/hero/vacation.jpg"),
+    images: is.Array(),
     price: is.Number(),
     included: is.String(),
     enabled: is.Boolean(),

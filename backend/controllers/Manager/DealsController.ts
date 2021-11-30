@@ -1,17 +1,49 @@
-import { ControllerClass } from "xpresser";
-import { Http } from "xpresser/types/http";
+import { Controller, Http } from "xpresser/types/http";
 import Deal from "../../models/Deal";
-import File, { FileDataType } from "../../models/File";
-import { $, folderPath } from "../../exports";
+import File from "../../models/File";
+import { $ } from "../../exports";
 
 /**
- * DestinationController
+ * DealsController
  */
-class DealsController extends ControllerClass {
+export = <
+  Controller.Object<{
+    deal: Deal;
+  }>
+>{
+  // Controller Name
+  name: "Manager/DealsController",
+
+  // Controller Default Error Handler.
+  e: (http: Http, status: number, message: string, error: string) =>
+    http.status(status).json({ status, message, error }),
+
+  /*   async deal(http, { deal }, e) {
+        console.log(e, "??");
+        // return http.send(deal);
+        return e(200, "deal not found", "deal found ???");
+    },
+*/
+
+  async boot(http: Http) {
+    const data: Record<string, any> = {};
+    if (http.hasParam("dealId")) {
+      const dealId = http.params.dealId;
+      data.deal = await Deal.findOne({ uuid: dealId });
+      //
+      if (!data.deal) {
+        return http.status(404).send({ error: "Deal not found" });
+      }
+    }
+    return data;
+  },
+
   /**
    * Example controller action.
    * @param {Http} http
    */
+
+  // get all destinations
   async all(http: Http): Promise<Http.Response> {
     const page = http.query("page", 1);
 
@@ -29,58 +61,40 @@ class DealsController extends ControllerClass {
     return http.toApi(allDeals);
 
     // Pagination of all users with age >= 18, sort by firstName
-  }
+  },
 
+  //crate a new destination
   async create(http: Http): Promise<Http.Response> {
     const body = http.$body.all();
     await Deal.new(body);
     return http.send({ message: "New Destination created" });
-  }
+  },
 
-  async deal(http: Http) {
-    const dealId = http.params.dealId;
-
-    const deal = await Deal.findOne(
-      { uuid: dealId },
-      {
-        projection: Deal.projectPublicFields(),
-      }
-    );
-    if (!deal) {
-      return http.res.send({ error: "Destination not Found" });
-    }
-
+  //get a single destination
+  async deal(http, { deal }, e) {
+    // console.log(e, "??");
     return http.send(deal);
-  }
+  },
 
-  async update(http: Http) {
-    const dealId = http.params.dealId;
+  //update a single destination
+  async update(http, { deal }, e) {
     const newDeal = http.$body.all();
-    let deal = await Deal.findOne({ uuid: dealId });
-    if (!deal) {
-      return http.res.send({ error: "Destination not Found" });
-    }
 
     await deal.update(newDeal);
 
     return http.send({ newDeal, message: "Destination was Updated" });
-  }
-  async delete(http: Http) {
-    const dealId = http.params.dealId;
+  },
 
-    const deal = await Deal.findOne({ uuid: dealId });
-
-    if (!deal) {
-      return http.res.send({ error: "Destination not Found" });
-    }
-
+  //delete a single destination
+  async delete(http, { deal }) {
     await deal.delete();
 
     return http.res.send({ message: "Destination Deleted Successfully" });
-  }
+  },
+
   async updateImage(http: Http) {
     return http.send({ message: "successful" });
-  }
+  },
 
   async gallery(http: Http) {
     const images = await File.find(
@@ -89,7 +103,7 @@ class DealsController extends ControllerClass {
     );
     console.log("images");
     return http.send(images);
-  }
+  },
 
   async deleteImages(http: Http) {
     let imageIds = http.body<string[]>("images");
@@ -108,7 +122,13 @@ class DealsController extends ControllerClass {
     }
 
     return http.send({ message: "successful" });
-  }
-}
+  },
 
-export = DealsController;
+  async useImages(http, { deal }) {
+    {
+      console.log("using images", deal.data.uuid);
+
+      return http.send({ message: "use images", deal });
+    }
+  },
+};

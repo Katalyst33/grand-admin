@@ -21,7 +21,13 @@ export = <Controller.Object>{
     const images = await http.files("images", {
       size: 20, //mb
     });
-    await images.saveFiles(folderPath.default);
+    await images.saveFiles(folderPath.default, (file) => {
+      const filename = file.name.replace(file.dotExtension(), "");
+      return {
+        name: `${filename}_${$.helpers.randomStr(5)}`,
+        prependExtension: true,
+      };
+    });
     for (const image of images.filesWithoutError()) {
       const file = File.make(<FileDataType>{
         for: "destination",

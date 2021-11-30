@@ -27,6 +27,7 @@ router
         router.patch("=update");
         router.delete("=delete");
         router.post("image", "updateImage");
+        router.post("use-images", "useImages");
       })
       .controller("Manager/Deals");
 
