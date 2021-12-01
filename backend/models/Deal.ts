@@ -6,6 +6,7 @@ import {
 } from "xpress-mongo";
 import { UseCollection } from "@xpresser/xpress-mongo";
 import MainModel from "./MainModel";
+import File from "./File";
 
 /**
  * Interface for Model's `this.data`.
@@ -77,6 +78,14 @@ class Deal extends MainModel {
   };
 
   public data!: DealDataType;
+
+  async images() {
+    return File.find({
+      publicId: {
+        $in: this.data.images || [],
+      },
+    });
+  }
 }
 
 /**

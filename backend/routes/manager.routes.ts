@@ -28,6 +28,7 @@ router
         router.delete("=delete");
         router.post("image", "updateImage");
         router.post("use-images", "useImages");
+        router.post("deselect-images", "deselectImages");
       })
       .controller("Manager/Deals");
 

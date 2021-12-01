@@ -73,7 +73,8 @@ export = <
   //get a single destination
   async deal(http, { deal }, e) {
     // console.log(e, "??");
-    return http.send(deal);
+    const images = await deal.images();
+    return http.send({ deal, images });
   },
 
   //update a single destination
@@ -108,8 +109,7 @@ export = <
   async deleteImages(http: Http) {
     let imageIds = http.body<string[]>("images");
     console.log(imageIds, "body ??");
-    const ids = imageIds.map((id) => File.id(id));
-    const images = await File.find({ _id: { $in: ids } });
+    const images = await File.find({ publicId: { $in: imageIds } });
     for (let image of File.fromArray(images)) {
       const imagePath = $.path.storage(image.data.path);
       const crop100 = $.path.storage(image.data.crop["100"]);
@@ -118,17 +118,36 @@ export = <
       $.file.delete(crop100);
       $.file.delete(crop500);
       await image.delete();
+
       console.log({ crop100, crop500 });
     }
-
+    await Deal.native().update({}, { $pull: { images: { $in: imageIds } } });
     return http.send({ message: "successful" });
   },
 
   async useImages(http, { deal }) {
-    {
-      console.log("using images", deal.data.uuid);
+    let imageIds = http.body<string[]>("images");
+    console.log(deal, "deal");
+    console.log("using images", imageIds);
+    //update unique id to db (prevents repeated IDS)
+    imageIds.forEach((imageId) => {
+      deal.pushToArray("images", imageId, true);
+    });
 
-      return http.send({ message: "use images", deal });
-    }
+    await deal.save();
+    return http.send({ message: "use images", deal });
+  },
+
+  async deselectImages(http, { deal }) {
+    let imageId = http.body("images");
+    await deal.updateRaw({
+      $pull: {
+        images: imageId,
+      },
+    });
+
+    return http.send({ message: "deselect images" });
+    // console.log(deal, "deal");
+    console.log("image", imageId);
   },
 };
