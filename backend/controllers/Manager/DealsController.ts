@@ -93,6 +93,7 @@ export = <
     return http.res.send({ message: "Destination Deleted Successfully" });
   },
 
+  //uses selected images on destination
   async useImages(http, { deal }) {
     let imageIds = http.body<string[]>("images");
     console.log(deal, "deal");
