@@ -1,7 +1,8 @@
 import { Controller, Http } from "xpresser/types/http";
-import File, { FileDataType } from "../models/File";
+import File, { FileDataType } from "../../models/File";
 import sharp from "sharp";
-import { $, folderPath } from "../exports";
+import { $, folderPath } from "../../exports";
+import Deal from "../../models/Deal";
 
 /**
  * UploadController
@@ -73,5 +74,35 @@ export = <Controller.Object>{
     }
     console.log(images.filesWithoutError().length, "erros ??");
     return http.send(images);
+  },
+  //get all galley images
+  async gallery(http: Http) {
+    const images = await File.find(
+      { for: "destination" },
+      { sort: { createdAt: -1 } }
+    );
+    return http.send(images);
+  },
+
+  //delete gallery images
+  async deleteImages(http: Http) {
+    //get image ids
+    let imageIds = http.body<string[]>("images");
+    // find images
+    const images = await File.find({ publicId: { $in: imageIds } });
+
+    //loop and delete images
+    for (let image of File.fromArray(images)) {
+      const imagePath = $.path.storage(image.data.path);
+      const crop100 = $.path.storage(image.data.crop["100"]);
+      const crop500 = $.path.storage(image.data.crop["500"]);
+      $.file.delete(imagePath);
+      $.file.delete(crop100);
+      $.file.delete(crop500);
+      await image.delete();
+    }
+    //delete images from db
+    await Deal.native().update({}, { $pull: { images: { $in: imageIds } } });
+    return http.send({ message: "Image(s) successfully deleted" });
   },
 };

@@ -15,18 +15,15 @@ router
       .path("/destination", () => {
         router.post("=create");
         router.get("=all");
-
-        router.get("@gallery");
       })
       .controller("Manager/Deals");
-    router.post("delete-images", "Manager/Deals@deleteImages");
+
     // Single Deal
     router
       .path("/deals/:dealId", () => {
         router.get("=deal");
         router.patch("=update");
         router.delete("=delete");
-        router.post("image", "updateImage");
         router.post("use-images", "useImages");
         router.post("deselect-images", "deselectImages");
       })
@@ -41,8 +38,10 @@ router
         router.get("=seed");
       })
       .controller("Manager/Seeder");
-
+    // gallery routes
     router.post("/destination-image", "upload@destinationImage");
+    router.get("/gallery", "Manager/upload@gallery");
+    router.post("delete-images", "Manager/upload@deleteImages");
   })
 
   .middlewares([

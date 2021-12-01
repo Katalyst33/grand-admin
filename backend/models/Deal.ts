@@ -44,6 +44,7 @@ class Deal extends MainModel {
     "description",
     "uuid",
     "images",
+    "image",
     "price",
     "included",
     "country",

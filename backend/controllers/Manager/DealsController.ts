@@ -93,38 +93,6 @@ export = <
     return http.res.send({ message: "Destination Deleted Successfully" });
   },
 
-  async updateImage(http: Http) {
-    return http.send({ message: "successful" });
-  },
-
-  async gallery(http: Http) {
-    const images = await File.find(
-      { for: "destination" },
-      { sort: { createdAt: -1 } }
-    );
-    console.log("images");
-    return http.send(images);
-  },
-
-  async deleteImages(http: Http) {
-    let imageIds = http.body<string[]>("images");
-    console.log(imageIds, "body ??");
-    const images = await File.find({ publicId: { $in: imageIds } });
-    for (let image of File.fromArray(images)) {
-      const imagePath = $.path.storage(image.data.path);
-      const crop100 = $.path.storage(image.data.crop["100"]);
-      const crop500 = $.path.storage(image.data.crop["500"]);
-      $.file.delete(imagePath);
-      $.file.delete(crop100);
-      $.file.delete(crop500);
-      await image.delete();
-
-      console.log({ crop100, crop500 });
-    }
-    await Deal.native().update({}, { $pull: { images: { $in: imageIds } } });
-    return http.send({ message: "successful" });
-  },
-
   async useImages(http, { deal }) {
     let imageIds = http.body<string[]>("images");
     console.log(deal, "deal");
@@ -147,7 +115,5 @@ export = <
     });
 
     return http.send({ message: "deselect images" });
-    // console.log(deal, "deal");
-    console.log("image", imageId);
   },
 };
