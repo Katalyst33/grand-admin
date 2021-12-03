@@ -26,7 +26,9 @@ export interface ProfileDataType {
  */
 class Profile extends XMongoModel {
   // Set Model Schema
+  // static strict = true;
   static strict = { removeNonSchemaFields: true };
+
   static schema: XMongoSchema = {
     updatedAt: is.Date(),
     createdAt: is.Date().required(),

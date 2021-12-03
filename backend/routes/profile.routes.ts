@@ -9,8 +9,12 @@ router.path("/profile", () => {
       router.post("=update");
     })
     .controller("Profile/Profile");
+  router
+    .path("/all-profiles/:userId", () => {
+      router.get("=allProfiles");
+    })
+    .controller("Profile/Profile");
   router.post("/make-profile/:userId", "Profile/profile@makeProfile");
-  router.get("/all-profiles/:userId", "Profile/profile@allProfiles");
 });
 
 router.path("/profile", () => {
