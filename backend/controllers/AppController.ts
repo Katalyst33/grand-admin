@@ -32,7 +32,7 @@ const AppController = <Controller.Object>{
     let user: User | null = http.state.get("currentUser");
     return http.send({
       appData,
-      user: user?.toCollection().pick(["email", "role", "reference"]),
+      user: user?.toCollection().pick(["email", "role", "uuid"]),
     });
   },
 

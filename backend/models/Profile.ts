@@ -1,6 +1,7 @@
 import { is, XMongoSchema, XMongoModel } from "xpress-mongo";
 import { UseCollection } from "@xpresser/xpress-mongo";
 import { isString } from "util";
+import { $, randomStr } from "../exports";
 
 /**
  * Interface for Model's `this.data`.
@@ -10,11 +11,13 @@ export interface ProfileDataType {
   updatedAt?: Date;
   createdAt: Date;
   images: Object;
-  user: {
-    email: string;
-    uuid: string;
-  };
+  ownerId: string;
   comment: string;
+  reference: string;
+  contactInformation: Object;
+  personalInformation: Object;
+  otherInformation: Object;
+  EducationInfo: Object;
 }
 
 /**
@@ -23,15 +26,17 @@ export interface ProfileDataType {
  */
 class Profile extends XMongoModel {
   // Set Model Schema
+  static strict = { removeNonSchemaFields: true };
   static schema: XMongoSchema = {
     updatedAt: is.Date(),
     createdAt: is.Date().required(),
     uuid: is.Uuid(4).required(),
-    userId: is.ObjectId().required(),
-    firstName: is.String(),
-    lastname: is.String(),
-    phone: is.String(),
-    address: is.String(),
+    ownerId: is.String().required(),
+    reference: is.String(() => randomStr()).required(),
+    personalInformation: is.Object(),
+    contactInformation: is.Object(),
+    otherInformation: is.Object(),
+    EducationInfo: is.Object(),
     images: is.Object(),
     comment: is.String(),
   };
@@ -45,6 +50,7 @@ class Profile extends XMongoModel {
  */
 UseCollection(Profile, "profiles");
 
-Profile.native().createIndex({ "user.reference": 1 }, { unique: true }).catch();
+//index field for searching
+// Profile.native().createIndex({ reference: 1 }, { unique: true }).catch();
 
 export default Profile;

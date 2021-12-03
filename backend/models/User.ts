@@ -52,14 +52,7 @@ class User extends MainModel {
     updatedAt: is.Date(),
     createdAt: is.Date().required(),
     uuid: is.Uuid(4).required(),
-    reference: is
-      .String(
-        `${$.helpers.randomStr(3).toUpperCase()}0${$.helpers.randomInteger(
-          100000,
-          1000000
-        )}`
-      )
-      .required(),
+
     email: joi.string().email().required(),
     password: joi.string(),
     role: is.InArray(userRoles, "user"),

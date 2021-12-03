@@ -39,7 +39,7 @@ router
       })
       .controller("Manager/Seeder");
     // gallery routes
-    router.post("/destination-image", "upload@destinationImage");
+    router.post("/destination-image", "Manager/upload@destinationImage");
     router.get("/gallery", "Manager/upload@gallery");
     router.post("delete-images", "Manager/upload@deleteImages");
   })

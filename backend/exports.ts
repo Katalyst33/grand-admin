@@ -11,3 +11,10 @@ export const folderPath: Record<any, string> = {
 for (const folder of Object.values(folderPath)) {
   $.file.makeDirIfNotExist(folder);
 }
+
+export function randomStr() {
+  return `${$.helpers.randomStr(3).toUpperCase()}0${$.helpers.randomInteger(
+    100000,
+    1000000
+  )}`;
+}
