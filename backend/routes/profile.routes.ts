@@ -15,9 +15,7 @@ router.path("/profile", () => {
     })
     .controller("Profile/Profile");
   router.post("/make-profile/:userId", "Profile/profile@makeProfile");
-});
 
-router.path("/profile", () => {
   router
     .path("/upload/:referenceId", () => {
       router.patch("=update");
@@ -25,4 +23,12 @@ router.path("/profile", () => {
       router.patch("/images", "uploadDocs");
     })
     .controller("Profile/Profile");
+
+  router
+    .path("/doc", () => {
+      router.post("/upload", "upload");
+    })
+    .controller("Profile/Upload");
+
+  router.get("/upload-doc", "Profile/Upload@upload");
 });

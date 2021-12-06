@@ -29,10 +29,15 @@ export = <
     const data: Record<string, any> = {};
     if (http.hasParam("dealId")) {
       const dealId = http.params.dealId;
-      data.deal = await Deal.findOne({ uuid: dealId });
+      data.deal = await Deal.findOne(
+        { uuid: dealId },
+        {
+          projection: Deal.projectPublicFields(),
+        }
+      );
       //
       if (!data.deal) {
-        return http.status(404).send({ error: "Deal not found" });
+        return http.status(404).send({ error: "Destination not found" });
       }
     }
     return data;

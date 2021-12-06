@@ -17,6 +17,8 @@ export interface FileDataType {
   ext: string;
   used: boolean;
   status?: string;
+  referenceId?: string;
+  ownerId?: string;
   crop: {
     100: string;
     500: string;
