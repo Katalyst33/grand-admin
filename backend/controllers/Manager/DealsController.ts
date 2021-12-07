@@ -2,6 +2,7 @@ import { Controller, Http } from "xpresser/types/http";
 import Deal from "../../models/Deal";
 import File from "../../models/File";
 import { $ } from "../../exports";
+import { log } from "util";
 
 /**
  * DealsController
@@ -29,12 +30,7 @@ export = <
     const data: Record<string, any> = {};
     if (http.hasParam("dealId")) {
       const dealId = http.params.dealId;
-      data.deal = await Deal.findOne(
-        { uuid: dealId },
-        {
-          projection: Deal.projectPublicFields(),
-        }
-      );
+      data.deal = await Deal.findOne({ uuid: dealId });
       //
       if (!data.deal) {
         return http.status(404).send({ error: "Destination not found" });
@@ -85,6 +81,8 @@ export = <
   //update a single destination
   async update(http, { deal }, e) {
     const newDeal = http.$body.all();
+
+    console.log("newDeal", newDeal);
 
     await deal.update(newDeal);
 
