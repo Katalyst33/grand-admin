@@ -8,6 +8,7 @@ import ILovePDFApi from "@ilovepdf/ilovepdf-nodejs/ILovePDFApi";
 import { type } from "os";
 import UploadedFile from "@xpresser/file-uploader/js/src/UploadedFile";
 import User from "../../models/User";
+import Deal from "../../models/Deal";
 
 // declarations
 const today = moment().format("DD-MM-YYYY");
@@ -27,13 +28,34 @@ const labels = {
 /**
  * ProfileController
  */
-export = <Controller.Object>{
+export = <
+  Controller.Object<{
+    profile: Profile;
+  }>
+>{
   // Controller Name
   name: "ProfileController",
 
   // Controller Default Error Handler.
   e: (http: Http, error: string) => http.status(401).json({ error }),
 
+  async boot(http: Http) {
+    const data: Record<string, any> = {};
+    if (http.hasParam("referenceId")) {
+      const referenceId = http.params.referenceId;
+      data.profile = await Profile.findOne(
+        { reference: referenceId },
+        {
+          projection: Profile.projectPublicFields(),
+        }
+      );
+      //
+      if (!data.profile) {
+        return http.status(404).send({ error: "Profile not found" });
+      }
+    }
+    return data;
+  },
   /**
    * Example Action.
    * @param http - Current Http Instance
@@ -61,30 +83,20 @@ export = <Controller.Object>{
     http.send(userProfiles);
   },
 
-  async profile(http: Http) {
-    const referenceId = http.params.referenceId;
-
-    let profile = await Profile.findOne({ reference: referenceId });
-
-    if (!profile) {
-      return http.res.send({ error: "Profile not Found" });
-    }
-    console.log(referenceId, "profile ???");
+  async profile(http, { profile }) {
     return http.send(profile);
   },
 
-  async update(http: Http) {
-    const referenceId = http.params.referenceId;
-
+  async update(http, { profile }) {
     const body = http.$body.all();
-    let profile = await Profile.findOne({ reference: referenceId });
+    console.log(body, "body");
 
-    if (!profile) {
-      return http.res.send({ error: "Profile not Found" });
-    }
-
+    await profile.$refreshDataUsing("reference");
+    console.log(profile, "body");
+    // const newProfile = profile.toCollection().omit(["_id", " createdAt"]);
     await profile.update(body);
 
+    // console.log("new profile", newProfile);
     return http.send({ body, message: "Profile was Update " });
   },
 
@@ -213,6 +225,12 @@ export = <Controller.Object>{
         images.filesWithoutError().length
       } files has been uploaded successfully!.`,
     });
+  },
+
+  async delete(http, { profile }) {
+    await profile.$refreshDataUsing("reference");
+    await profile.delete();
+    return http.send({ message: "Profile has been deleted" });
   },
 
   async docUpload(http) {},

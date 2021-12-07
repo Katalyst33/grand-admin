@@ -7,6 +7,7 @@ router.path("/profile", () => {
     .path("/:referenceId", () => {
       router.get("=profile");
       router.post("=update");
+      router.delete("=delete");
     })
     .controller("Profile/Profile");
   router

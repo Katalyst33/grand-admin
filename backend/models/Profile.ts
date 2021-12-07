@@ -2,6 +2,7 @@ import { is, XMongoSchema, XMongoModel } from "xpress-mongo";
 import { UseCollection } from "@xpresser/xpress-mongo";
 import { isString } from "util";
 import { $, randomStr } from "../exports";
+import MainModel from "./MainModel";
 
 /**
  * Interface for Model's `this.data`.
@@ -33,10 +34,22 @@ export interface ProfileDataType {
  * Profile Model
  * Collection: `profiles`
  */
-class Profile extends XMongoModel {
+class Profile extends MainModel {
   // Set Model Schema
   // static strict = true;
   static strict = { removeNonSchemaFields: true };
+
+  static publicFields = [
+    "updatedAt",
+    "createdAt",
+    "images",
+    "contactInformation",
+    "personalInformation",
+    "otherInformation",
+    "EducationInfo",
+    "comment",
+    "reference",
+  ];
 
   static schema: XMongoSchema = {
     updatedAt: is.Date(),
