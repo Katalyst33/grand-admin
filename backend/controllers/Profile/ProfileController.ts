@@ -165,7 +165,12 @@ export = <
   async deleteDoc(http, { profile }) {
     const documentId = http.params.referenceId;
 
-    await Document.delete({ _id: documentId });
+    const document = await Document.findOne({ referenceId: documentId });
+
+    if (!document) {
+      return http.res.send({ error: "Document not found" });
+    }
+    await document.delete();
 
     return http.res.send({
       documentId,
