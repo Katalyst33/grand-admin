@@ -35,8 +35,8 @@
     "promise-polyfill": "^8.2.1",
     "sharp": "^0.29.3",
     "slugify": "^1.6.2",
-    "xpress-mongo": "^1.5.1",
-    "xpresser": "^0.24.0"
+    "xpress-mongo": "^2.1.0",
+    "xpresser": "^0.25.4"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
@@ -45,6 +45,6 @@
     "nodemon": "^2.0.15",
     "ts-node-dev": "^1.1.6",
     "typescript": "^4.4.4",
-    "xjs-cli": "^0.4.2"
+    "xjs-cli": "^1.1.3"
   }
 }

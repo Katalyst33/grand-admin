@@ -9,22 +9,15 @@ import { type } from "os";
 import UploadedFile from "@xpresser/file-uploader/js/src/UploadedFile";
 import User from "../../models/User";
 import Deal from "../../models/Deal";
+import File, { FileDataType } from "../../models/File";
+import Document, { DocumentDataType } from "../../models/Document";
 
 // declarations
 const today = moment().format("DD-MM-YYYY");
 const env = require("../../configs/env");
-const uploadsFolder = $.path.storage("uploads");
+const uploadsFolder = $.path.storage("uploads/profile");
 const instance = new ILovePDFApi(env.pdfPublicKey, env.pdfSecretKey);
 
-const fileTypes = {
-  image: ["png", "jpg", "jpeg"],
-  doc: ["pdf", "docx"],
-};
-const labels = {
-  passport: "Passport",
-  "bank-statement": "Bank Statement",
-  "nepa-bill": "Nepa Bill",
-};
 /**
  * ProfileController
  */
@@ -100,33 +93,34 @@ export = <
     return http.send({ body, message: "Profile was Update " });
   },
 
-  async uploadDoc(http: Http) {
+  async uploadDoc(http, { profile }) {
     const userReference = http.params.referenceId;
-    const label = http.$body.all();
 
-    console.log(label, "here labels");
+    console.log(userReference, "userReference");
 
-    const profile = await Profile.findOne({ reference: userReference });
+    // console.log(body, "here labels");
+
+    /*   const profile = await Profile.findOne({ reference: userReference });
     if (!profile) {
-      return http.res.send({ error: "Profile  not Found" });
-    }
+      return http.res.send({ error: "Profile  not Found ?????" });
+    }*/
     // Get File
-    const document = await http.file("image", {
+    const document = await http.file("document", {
       size: 10, // size in megabyte
-      // extensions: ["png", "jpg", "gif", "svg", "pdf"],
+      extensions: ["png", "jpg", "jpeg", "pdf", "docx", "doc"],
       includeBody: true,
-      // mimetype: 'image',
     });
 
+    console.log(document, "document");
     // Check for error
     if (document.error()) {
       return http.res.send(document.error());
     }
 
     // Save File
-    await document.saveTo(uploadsFolder, {
+    await document.saveTo(`${uploadsFolder}/${userReference}`, {
       // name: `new-doc`,
-      name: slugify(`passport-${moment().format()}`, {
+      name: slugify(`${document.name}`, {
         replacement: "-",
         remove: undefined,
         lower: false,
@@ -139,91 +133,26 @@ export = <
       overwrite: true,
     });
 
-    // check for save error()
-    if (!document.isSaved()) {
-      return http.res.send(document.saveError());
-    }
-    if (document.isSaved()) {
-      //*********************** start ilove pdf
+    console.log(document, "saved");
 
-      // await ImageToPdf(file);
+    const fileData = Document.make(<DocumentDataType>{
+      for: "user",
+      name: document.name,
+      path: document.path,
+      size: document.size,
+      type: document.field,
+      referenceId: userReference,
+      ext: document.dotExtension(),
+      category: document.body.documentCategory,
 
-      await CompressPdf(document);
-      //!******************** start ilove pdf
-
-      return http.res.send({
-        file: document,
-        msg: "File uploaded successfully!.",
-      });
-    }
-
-    // return response.
-  },
-
-  async uploadDocs(http: Http) {
-    const userReference = http.params.referenceId;
-
-    const profile = await Profile.findOne({ reference: userReference });
-    if (!profile) {
-      return http.res.send({ error: "Profile  not Found" });
-    }
-    const images = await http.files(
-      ["passport", "bank-statement", "nepa-bill"],
-      {
-        files: 5,
-        size: 1,
-        mimetype: "image",
-      }
-    );
-
-    // Or save files to specific folder using conditions by passing a function
-
-    await images.saveFiles(
-      (file) => {
-        return `${uploadsFolder}/${today}/${file.field!}`;
-      },
-      (file) => {
-        return {
-          name: `${profile.data.ownerId}`,
-          prependExtension: true,
-        };
-      }
-    );
-
-    images.filesWithoutError().forEach((i) => {
-      profile.set(`images.${i.field}`, i.path!.replace(uploadsFolder, ""));
-      profile.set(`docs.${i.field}`, false);
+      // ownerId: http.params.userId,
     });
 
-    await profile.save();
-    // check errors
-    const errorMessage: string[] = [];
-
-    if (images.hasFilesWithErrors()) {
-      const filesWithErrors = images.filesWithError();
-
-      // Do something with filesWithErrors
-
-      for (const f of filesWithErrors) {
-        // @ts-ignore
-        const input = labels[f.input];
-        const error = f.error()!;
-        if (error.type === "mimetype") {
-          errorMessage.push(
-            `${input} format not supported, upload image with (.png, .jpg, .jpeg)`
-          );
-        } else if (error.type === "size") {
-          errorMessage.push(`${input} is too large`);
-        }
-      }
-    }
-
-    // return response
-    return http.send({
-      errorMessage,
-      message: `${
-        images.filesWithoutError().length
-      } files has been uploaded successfully!.`,
+    await fileData.save();
+    console.log(fileData, "DBBBB");
+    return http.res.send({
+      file: document,
+      message: "File uploaded successfully!.",
     });
   },
 
@@ -232,6 +161,4 @@ export = <
     await profile.delete();
     return http.send({ message: "Profile has been deleted" });
   },
-
-  async docUpload(http) {},
 };

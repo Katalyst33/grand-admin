@@ -21,10 +21,7 @@ const AppController = <Controller.Object>{
     // check if included in excluded routes
 
     const appData = await AppConfig.native().findOne(
-      {
-        $query: {},
-        $orderby: { $natural: -1 },
-      },
+      {},
       { projection: { _id: 0, createdAt: 0 } }
     );
 

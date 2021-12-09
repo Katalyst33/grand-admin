@@ -21,7 +21,7 @@ router.path("/profile", () => {
     .path("/upload/:referenceId", () => {
       router.patch("=update");
       router.patch("/image", "uploadDoc");
-      router.patch("/images", "uploadDocs");
+      // router.patch("/images", "uploadDocs");
     })
     .controller("Profile/Profile");
 

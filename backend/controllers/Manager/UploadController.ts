@@ -102,7 +102,7 @@ export = <Controller.Object>{
       await image.delete();
     }
     //delete images from Deal/destination collection too
-    await Deal.native().update({}, { $pull: { images: { $in: imageIds } } });
+    await Deal.native().updateOne({}, { $pull: { images: { $in: imageIds } } });
     return http.send({ message: "Image(s) successfully deleted" });
   },
 };

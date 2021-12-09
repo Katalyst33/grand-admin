@@ -75,7 +75,7 @@ export = <
       query,
 
       {
-        sort: sort,
+        sort: sort as any,
         projection: Deal.projectPublicFields(),
       }
     );
