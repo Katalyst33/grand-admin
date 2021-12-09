@@ -49,6 +49,7 @@ class Profile extends MainModel {
     "EducationInfo",
     "comment",
     "reference",
+    "ownerId",
   ];
 
   static schema: XMongoSchema = {

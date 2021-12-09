@@ -37,6 +37,9 @@ export = {
       ngrok: true,
       helmet: false,
     },
+    router: {
+      pathCase: "kebab",
+    },
   },
 
   /**

@@ -77,7 +77,11 @@ export = <
   },
 
   async profile(http, { profile }) {
-    return http.send(profile);
+    const allDocuments = await Document.find({
+      referenceId: profile.data.reference,
+    });
+
+    return http.send({ profile, allDocuments });
   },
 
   async update(http, { profile }) {
@@ -96,7 +100,7 @@ export = <
   async uploadDoc(http, { profile }) {
     const userReference = http.params.referenceId;
 
-    console.log(userReference, "userReference");
+    console.log(profile.data.ownerId, "the profile");
 
     // console.log(body, "here labels");
 
@@ -133,26 +137,39 @@ export = <
       overwrite: true,
     });
 
-    console.log(document, "saved");
+    let savePath = document.path?.replace($.path.storage(), "");
+    console.log(savePath, "savePath");
 
     const fileData = Document.make(<DocumentDataType>{
       for: "user",
       name: document.name,
-      path: document.path,
+      path: savePath,
       size: document.size,
       type: document.field,
       referenceId: userReference,
       ext: document.dotExtension(),
       category: document.body.documentCategory,
+      ownerId: profile.data.ownerId,
 
       // ownerId: http.params.userId,
     });
 
     await fileData.save();
-    console.log(fileData, "DBBBB");
+    console.log(fileData.data.path.replace($.path.storage(), ""), "DBBBB");
     return http.res.send({
       file: document,
       message: "File uploaded successfully!.",
+    });
+  },
+
+  async deleteDoc(http, { profile }) {
+    const documentId = http.params.referenceId;
+
+    await Document.delete({ _id: documentId });
+
+    return http.res.send({
+      documentId,
+      message: "File deleted successfully! oh.",
     });
   },
 

@@ -20,16 +20,10 @@ router.path("/profile", () => {
   router
     .path("/upload/:referenceId", () => {
       router.patch("=update");
-      router.patch("/image", "uploadDoc");
+      router.patch("/document", "uploadDoc");
+      router.patch("/document", "uploadDoc");
+      router.delete("/document", "deleteDoc");
       // router.patch("/images", "uploadDocs");
     })
     .controller("Profile/Profile");
-
-  router
-    .path("/doc", () => {
-      router.post("/upload", "upload");
-    })
-    .controller("Profile/Upload");
-
-  router.get("/upload-doc", "Profile/Upload@upload");
 });
