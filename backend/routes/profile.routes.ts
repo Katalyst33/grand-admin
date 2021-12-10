@@ -16,7 +16,7 @@ router
         router.get("=allProfiles");
       })
       .controller("Profile/Profile");
-    router.post("/make-profile/:userId", "Profile/profile@makeProfile");
+    router.post("/make-profile/:userId", "Profile/Profile@makeProfile");
 
     router
       .path("/upload/:referenceId", () => {
