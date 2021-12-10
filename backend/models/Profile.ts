@@ -42,7 +42,6 @@ class Profile extends MainModel {
   static publicFields = [
     "updatedAt",
     "createdAt",
-    "images",
     "contactInformation",
     "personalInformation",
     "otherInformation",
@@ -62,7 +61,6 @@ class Profile extends MainModel {
     contactInformation: is.Object(),
     otherInformation: is.Object(),
     EducationInfo: is.Object(),
-    images: is.Object(),
     comment: is.String(),
   };
 

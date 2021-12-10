@@ -54,8 +54,25 @@ export = {
     if (http.state.has("authUser")) {
       const user = await User.findById(http.state.get("authUser"));
 
+      console.log(user, "??");
       http.state.set("currentUser", user);
     }
     return http.next();
+  },
+
+  async isCurrentUser(http: Http) {
+    if (http.state.has("authUser")) {
+      const user = await User.findById(http.state.get("authUser"));
+      const currentUser = http.state.get("currentUser");
+
+      console.log(currentUser, "??");
+      if (user?.data._id === currentUser.data._id) {
+        return http.next();
+      }
+    }
+    return http.toApiFalse({
+      next: "logout",
+      error: "User not found, Access Denied!",
+    });
   },
 };

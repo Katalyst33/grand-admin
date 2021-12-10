@@ -2,15 +2,7 @@ import { Controller, Http } from "xpresser/types/http";
 import Joi from "joi";
 import User from "../models/User";
 import Profile from "../models/Profile";
-
-const jwt = require("jsonwebtoken");
-
-const maxAge = 3 * 24 * 60 * 60;
-const createToken = (id: any) => {
-  return jwt.sign({ id }, "actionfilm", {
-    expiresIn: maxAge,
-  });
-};
+import { createToken, maxAge } from "../exports";
 
 /**
  * AuthController

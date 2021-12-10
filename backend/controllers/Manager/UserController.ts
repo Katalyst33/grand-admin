@@ -3,6 +3,7 @@ import User, { UserDataType } from "../../models/User";
 import { createToken } from "../../exports";
 import user from "../../models/User";
 import Profile from "../../models/Profile";
+import Document from "../../models/Document";
 const bcrypt = require("bcrypt");
 
 /**
@@ -53,7 +54,9 @@ export = <
   },
 
   async user(http, { user }) {
-    return http.send(user);
+    const userProfiles = await Profile.find({ ownerId: user.data.uuid });
+
+    return http.send({ user, userProfiles });
   },
 
   async xxx(http) {
