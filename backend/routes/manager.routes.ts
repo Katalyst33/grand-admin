@@ -9,6 +9,14 @@ router
       .path("/users", () => {
         router.get("=all");
       })
+
+      .controller("Manager/User");
+
+    router
+      .path("/user/:userId", () => {
+        router.get("/get-user", "user");
+        router.get("xxx", "xxx");
+      })
       .controller("Manager/User");
     //deals routes
     router
