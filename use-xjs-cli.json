@@ -7,7 +7,8 @@
     "start_cron": "npx ts-node",
     "start_server": "npx ts-node-dev --respawn --transpile-only",
     "start_console": "npx ts-node",
-    "jobs_path": "backend/jobs"
+    "jobs_path": "backend/jobs",
+    "repl": "repl.js"
   },
   "prod": {
     "main": "build/app.js",
@@ -16,7 +17,8 @@
     "start_server": "pm2 start",
     "stop_server": "pm2 stop",
     "start_console": "node",
-    "jobs_path": "backend/jobs"
+    "jobs_path": "backend/jobs",
+    "repl": "repl.js"
   },
   "stacks": {
     "tsc": [

@@ -46,7 +46,14 @@ class User extends MainModel {
   }
 
   static strict = { removeNonSchemaFields: true };
-  static publicFields = ["email", "uuid", "role", "reference"];
+  static publicFields = [
+    "email",
+    "uuid",
+    "role",
+    "reference",
+    "createdAt",
+    "updatedAt",
+  ];
   // Set Model Schema
   static schema: XMongoSchema = {
     updatedAt: is.Date(),

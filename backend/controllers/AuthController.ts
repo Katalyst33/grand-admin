@@ -46,31 +46,36 @@ export = <Controller.Object>{
       if (existingUser) {
         throw new Error("Email has been taken");
       }
+      // const { data } = await User.new({ ...body, ...{ role: "admin" } });
 
-      const { data } = await User.new(body);
-      console.log(data, " > profile");
+      // const { data } = await User.new({ ...body, ...{ role: "admin" } });
+      const numberOfUsers = await User.count();
+      const data = User.make({ ...body, ...{ role: "admin" } });
+
+      if (numberOfUsers === 0) {
+        const { data } = await User.new({ ...body, ...{ role: "admin" } });
+        return http.send({
+          data,
+          message: "Registration successful",
+        });
+      } else {
+        const { data } = await User.new(body);
+        return http.send({
+          data,
+          message: "Registration successful",
+        });
+      }
+
+      // await data.save();
 
       // console.log(Profile, "new user data");
-
-      //generate token
-      const token = createToken(data._id);
-      http.res.cookie("jwt", token, {
-        httpOnly: true,
-        maxAge: maxAge * 1000,
-      });
-      // console.log(data, 'json part');
-
-      return http.send({
-        data,
-        message: "Registration successful",
-      });
     } catch (e: any) {
       console.log(e);
-      return http.send({ error: e.message });
+      return http.status(400).send({ error: e.message });
     }
   },
 
-  async login(http) {
+  async login(http, e) {
     const { email, password } = http.$body.all();
 
     try {
@@ -87,9 +92,8 @@ export = <Controller.Object>{
         proceed: true,
       });
     } catch (err: any) {
-      return http.send({
+      return http.status(400).send({
         error: err.message,
-        proceed: false,
       });
     }
   },
