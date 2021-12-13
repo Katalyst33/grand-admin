@@ -51,20 +51,33 @@ export = <
 
   // get all destinations
   async all(http: Http): Promise<Http.Response> {
+    const search = http.query("search");
+
     const page = http.query("page", 1);
 
     const perPage = 10;
+    const query = {} as Record<string, any>;
+    if (search) {
+      query.$or = [
+        {
+          title: new RegExp(`.*${search}.*`, "i"),
+        },
+        {
+          activity: new RegExp(`.*${search}.*`, "i"),
+        },
+        {
+          description: new RegExp(`.*${search}.*`, "i"),
+        },
+        {
+          "country.name": new RegExp(`.*${search}.*`, "i"),
+        },
+      ];
+    }
+    const allDeals = await Deal.paginate(page, perPage, query, {
+      projection: Deal.projectPublicFields(),
+    });
 
-    const allDeals = await Deal.paginate(
-      page,
-      perPage,
-      {},
-      {
-        projection: Deal.projectPublicFields(),
-      }
-    );
-
-    return http.toApi(allDeals);
+    return http.send(allDeals);
 
     // Pagination of all users with age >= 18, sort by firstName
   },

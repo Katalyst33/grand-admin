@@ -55,6 +55,12 @@ export = <
         {
           description: new RegExp(`.*${search}.*`, "i"),
         },
+        {
+          activity: new RegExp(`.*${search}.*`, "i"),
+        },
+        {
+          "country.name": new RegExp(`.*${search}.*`, "i"),
+        },
       ];
     }
 
