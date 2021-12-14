@@ -1,5 +1,6 @@
 import { is, XMongoSchema, XMongoModel, joi } from "xpress-mongo";
 import { UseCollection } from "@xpresser/xpress-mongo";
+import MainModel from "./MainModel";
 
 /**
  * Interface for Model's `this.data`.
@@ -29,7 +30,7 @@ export interface FileDataType {
  * File Model
  * Collection: `files`
  */
-class File extends XMongoModel {
+class File extends MainModel {
   // Set Model Schema
   static schema: XMongoSchema = {
     updatedAt: is.Date(),

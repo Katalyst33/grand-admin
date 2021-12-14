@@ -19,7 +19,6 @@ export = <Controller.Object>{
    * @param http - Current Http Instance
    */
   async destinationImage(http) {
-
     const images = await http.files("images", {
       size: 20, //mb
     });
@@ -45,6 +44,7 @@ export = <Controller.Object>{
       if (image.size > 1000000) {
         optimizedPath = `${folderPath.default}/opt_${image.name}`;
 
+        await sharp(image.path).jpeg({ quality: 20 }).toFile(optimizedPath);
         await sharp(image.path).jpeg({ quality: 20 }).toFile(optimizedPath);
         $.file.delete(image.path!);
       }

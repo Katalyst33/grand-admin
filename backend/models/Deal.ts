@@ -31,6 +31,7 @@ export interface DealDataType {
   price: number;
   images: string[];
   enabled: boolean;
+  thumbnail: string;
 }
 
 /**
@@ -44,14 +45,16 @@ class Deal extends MainModel {
     "description",
     "uuid",
     "images",
-    "image",
+    "thumbnail",
     "price",
+    "image",
     "included",
     "country",
     "activity",
     "duration",
     "promoted",
     "enabled",
+    "thumbnails",
   ];
   static schema: XMongoSchema = {
     uuid: is.Uuid(4).required(),
@@ -71,6 +74,7 @@ class Deal extends MainModel {
     })),
     expiresIn: is.Date(),
     activity: is.String(),
+    thumbnail: is.String("destinations/no-destination.jpeg"),
     images: is.Array(),
     price: is.Number(),
     included: is.String(),

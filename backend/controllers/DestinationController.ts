@@ -1,5 +1,7 @@
 import { Controller, Http } from "xpresser/types/http";
 import Deal from "../models/Deal";
+import File from "../models/File";
+import { omitIdAndPick } from "xpress-mongo";
 
 /**
  * DestinationController
@@ -81,12 +83,35 @@ export = <
       query,
 
       {
-        sort: sort as any,
+        sort: {
+          createdAt: -1,
+        },
         projection: Deal.projectPublicFields(),
       }
     );
 
-    return http.toApi({ allDestinations, promotedDestinations });
+    const destinations = await Deal.paginateAggregate(page, perPage, [
+      { $match: query },
+      {
+        $lookup: {
+          from: "files",
+          let: {
+            images: "$images",
+          },
+          // localField: "images",
+          // foreignField: "publicId",
+          as: "thumbnails",
+          pipeline: [
+            { $match: { $expr: { $isArray: "$$images" } } },
+            { $match: { $expr: { $in: ["$publicId", "$$images"] } } },
+            { $project: omitIdAndPick(["path", "crop"]) },
+          ],
+        },
+      },
+      { $project: Deal.projectPublicFields() },
+    ]);
+    console.log(destinations.data[0], "??");
+    return http.toApi({ allDestinations: destinations, promotedDestinations });
 
     // Pagination of all users with age >= 18, sort by firstName
   },

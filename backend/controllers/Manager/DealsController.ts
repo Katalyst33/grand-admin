@@ -50,7 +50,7 @@ export = <
    */
 
   // get all destinations
-  async all(http: Http): Promise<Http.Response> {
+  async all(http): Promise<Http.Response> {
     const search = http.query("search");
 
     const page = http.query("page", 1);
@@ -75,6 +75,9 @@ export = <
     }
     const allDeals = await Deal.paginate(page, perPage, query, {
       projection: Deal.projectPublicFields(),
+      sort: {
+        createdAt: -1,
+      },
     });
 
     return http.send(allDeals);

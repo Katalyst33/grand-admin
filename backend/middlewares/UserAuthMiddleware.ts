@@ -54,7 +54,6 @@ export = {
     if (http.state.has("authUser")) {
       const user = await User.findById(http.state.get("authUser"));
 
-      console.log(user, "??");
       http.state.set("currentUser", user);
     }
     return http.next();
