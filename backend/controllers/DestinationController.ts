@@ -67,25 +67,43 @@ export = <
     }
 
     if (sortBy) {
+      console.log(sortBy, "sortBy here");
       const [field, direction] = (sortBy as string).split(",");
       sort[field] = direction === "asc" ? 1 : -1;
     }
 
     const perPage = 10;
 
-    const promotedDestinations = await Deal.native()
-      .find({ promoted: true })
-      .toArray();
+    /* const promotedDestinations = await Deal.native()
+      .find({ promoted: true }, {})
+      .toArray();*/
 
+    const promotedDestinations = await Deal.paginateAggregate(page, perPage, [
+      { $match: { promoted: true } },
+      {
+        $lookup: {
+          from: "files",
+          let: {
+            images: "$images",
+          },
+          // localField: "images",
+          // foreignField: "publicId",
+          as: "thumbnails",
+          pipeline: [
+            { $match: { $expr: { $isArray: "$$images" } } },
+            { $match: { $expr: { $in: ["$publicId", "$$images"] } } },
+            { $project: omitIdAndPick(["path", "crop"]) },
+          ],
+        },
+      },
+      { $project: Deal.projectPublicFields() },
+    ]);
     const allDestinations = await Deal.paginate(
       page,
       perPage,
       query,
 
       {
-        sort: {
-          createdAt: -1,
-        },
         projection: Deal.projectPublicFields(),
       }
     );
@@ -110,7 +128,7 @@ export = <
       },
       { $project: Deal.projectPublicFields() },
     ]);
-    console.log(destinations.data[0], "??");
+    // console.log(destinations.data[0], "??");
     return http.toApi({ allDestinations: destinations, promotedDestinations });
 
     // Pagination of all users with age >= 18, sort by firstName

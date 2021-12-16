@@ -11,12 +11,12 @@ function say() {
   # shellcheck disable=SC2145
   echo "=> $@"
 }
-
 function updateFront() {
   say "Updating Front End..."
   # Run commands
   cd "${thisDirectory}/h2o-front" && git pull origin main && yarn && npm run build-tsc
 }
+
 
 function updateServer() {
   say "Updating Server..."

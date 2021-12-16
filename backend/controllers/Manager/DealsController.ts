@@ -101,13 +101,13 @@ export = <
 
   //update a single destination
   async update(http, { deal }, e) {
-    const newDeal = http.$body.all();
+    const body = http.$body.omit("images");
+    // const newDeal = body;
+    // console.log("newDeal", newDeal);
 
-    console.log("newDeal", newDeal);
+    await deal.update(body);
 
-    await deal.update(newDeal);
-
-    return http.send({ newDeal, message: "Destination was Updated" });
+    return http.send({ body, message: "Destination was Updated" });
   },
 
   //delete a single destination
