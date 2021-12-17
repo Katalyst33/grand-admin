@@ -128,8 +128,14 @@ export = <
       },
       { $project: Deal.projectPublicFields() },
     ]);
+    const everyDestination = await Deal.native().find({}).count();
+
     // console.log(destinations.data[0], "??");
-    return http.toApi({ allDestinations: destinations, promotedDestinations });
+    return http.toApi({
+      allDestinations: destinations,
+      promotedDestinations,
+      everyDestination,
+    });
 
     // Pagination of all users with age >= 18, sort by firstName
   },

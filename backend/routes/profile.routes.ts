@@ -4,6 +4,8 @@ const router = getInstanceRouter();
 
 router
   .path("/profile", () => {
+    router.get("/every-profile", "Profile/Profile@everyProfile");
+
     router
       .path("/:referenceId", () => {
         router.get("=profile");

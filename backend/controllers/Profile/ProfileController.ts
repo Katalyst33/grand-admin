@@ -69,11 +69,26 @@ export = <
     http.send({ profile });
   },
 
+  async everyProfile(http) {
+    const everyProfile = await Profile.native().find({}).count();
+
+    if (everyProfile) {
+      http.send({ everyProfile });
+    } else {
+      http.send({ error: "No profile found" });
+    }
+  },
+
   async allProfiles(http) {
     const ownerId = http.params.userId;
 
     const userProfiles = await Profile.find({ ownerId: ownerId });
-    http.send(userProfiles);
+
+    if (userProfiles) {
+      http.send(userProfiles);
+    } else {
+      http.send({ error: "No profiles found" });
+    }
   },
 
   async profile(http, { profile }) {
@@ -174,7 +189,7 @@ export = <
 
     return http.res.send({
       documentId,
-      message: "File deleted successfully! oh.",
+      message: "File deleted successfully!",
     });
   },
 
