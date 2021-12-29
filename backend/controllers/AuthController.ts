@@ -3,6 +3,7 @@ import Joi from "joi";
 import User from "../models/User";
 import Profile from "../models/Profile";
 import { createToken, maxAge } from "../exports";
+const bcrypt = require("bcrypt");
 
 /**
  * AuthController
@@ -75,7 +76,7 @@ export = <Controller.Object>{
     }
   },
 
-  async login(http, e) {
+  /*async login(http, e) {
     const { email, password } = http.$body.all();
 
     try {
@@ -88,6 +89,44 @@ export = <Controller.Object>{
         token,
         user: user._id,
         role: user.role,
+        message: "Login was successful",
+        proceed: true,
+      });
+    } catch (err: any) {
+      return http.status(400).send({
+        error: err.message,
+      });
+    }
+  },*/
+
+  async login(http, e) {
+    const { email, password } = http.$body.all();
+
+    try {
+      const user = await User.findOne({ email });
+      if (user) {
+        const auth = await bcrypt.compare(password, user.data.password);
+
+        if (auth) {
+          const token = createToken(user.data._id);
+          await user.update({
+            lastSeenAt: new Date(),
+          });
+          return http.send({
+            token,
+            user: user.data._id,
+            role: user.data.role,
+            message: "Login was successful",
+            proceed: true,
+          });
+        } else {
+          throw new Error("Password is incorrect");
+        }
+      } else {
+        throw new Error("This user does not exist");
+      }
+
+      return http.send({
         message: "Login was successful",
         proceed: true,
       });

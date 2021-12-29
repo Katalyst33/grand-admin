@@ -19,8 +19,9 @@ export interface UserDataType {
   _id: Object;
   uuid: string;
   updatedAt?: Date;
+  lastSeenAt?: Date;
   createdAt: Date;
-  role: string;
+  role?: string;
   reference: string;
   email: string;
   password: string;
@@ -53,11 +54,13 @@ class User extends MainModel {
     "reference",
     "createdAt",
     "updatedAt",
+    "lastSeenAt",
   ];
   // Set Model Schema
   static schema: XMongoSchema = {
     updatedAt: is.Date(),
     createdAt: is.Date().required(),
+    lastSeenAt: is.Date(),
     uuid: is.Uuid(4).required(),
 
     email: joi.string().email().required(),

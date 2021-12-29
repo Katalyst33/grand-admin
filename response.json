@@ -1,0 +1,2993 @@
+{
+  "meta": {
+    "count": 20,
+    "links": {
+      "self": "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=ABB&destinationLocationCode=ABV&departureDate=2022-01-05&returnDate=2022-01-10&adults=1&travelClass=ECONOMY&nonStop=false&currencyCode=NGN&max=20"
+    }
+  },
+  "data": [
+    {
+      "type": "flight-offer",
+      "id": "1",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T08:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T09:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7865",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T16:20:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T17:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7862",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "18",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "112625.00",
+        "base": "46176.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "112625.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "112625.00",
+            "base": "46176.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "18",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "2",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T14:50:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T15:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7861",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T16:20:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T17:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7862",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "18",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "112625.00",
+        "base": "46176.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "112625.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "112625.00",
+            "base": "46176.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "18",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "3",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T08:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T09:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7865",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T10:10:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T11:00:00"
+              },
+              "carrierCode": "P4",
+              "number": "7866",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "17",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "114956.00",
+        "base": "48396.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "114956.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "114956.00",
+            "base": "48396.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "17",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "4",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T14:50:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T15:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7861",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T10:10:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T11:00:00"
+              },
+              "carrierCode": "P4",
+              "number": "7866",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "17",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "114956.00",
+        "base": "48396.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "114956.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "114956.00",
+            "base": "48396.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "17",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "5",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T08:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T09:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7865",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT19H15M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T19:00:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T20:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7127",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H10M",
+              "id": "9",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-11T13:20:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-11T14:15:00"
+              },
+              "carrierCode": "P4",
+              "number": "7860",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT55M",
+              "id": "10",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "143860.00",
+        "base": "49284.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "143860.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "143860.00",
+            "base": "49284.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "9",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "10",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "6",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T14:50:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T15:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7861",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT19H15M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T19:00:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T20:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7127",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H10M",
+              "id": "9",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-11T13:20:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-11T14:15:00"
+              },
+              "carrierCode": "P4",
+              "number": "7860",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT55M",
+              "id": "10",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "143860.00",
+        "base": "49284.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "143860.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "143860.00",
+            "base": "49284.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "9",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "10",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "7",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T08:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T09:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7865",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT24H20M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T13:55:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T15:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7443",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "11",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-11T13:20:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-11T14:15:00"
+              },
+              "carrierCode": "P4",
+              "number": "7860",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT55M",
+              "id": "12",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "143860.00",
+        "base": "49284.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "143860.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "143860.00",
+            "base": "49284.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "11",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "12",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "8",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T14:50:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T15:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7861",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT24H20M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T13:55:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T15:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7443",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "11",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-11T13:20:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-11T14:15:00"
+              },
+              "carrierCode": "P4",
+              "number": "7860",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT55M",
+              "id": "12",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "143860.00",
+        "base": "49284.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "143860.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "143860.00",
+            "base": "49284.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "11",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "12",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "9",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T08:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T09:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7865",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT13H10M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T19:00:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T20:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7127",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H10M",
+              "id": "5",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-11T07:10:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-11T08:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7864",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H",
+              "id": "6",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146191.00",
+        "base": "51504.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146191.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146191.00",
+            "base": "51504.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "5",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "6",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "10",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T14:50:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T15:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7861",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT13H10M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T19:00:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T20:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7127",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H10M",
+              "id": "5",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-11T07:10:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-11T08:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7864",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H",
+              "id": "6",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146191.00",
+        "base": "51504.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146191.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146191.00",
+            "base": "51504.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "5",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "6",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "11",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T08:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T09:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7865",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT18H15M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T13:55:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T15:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7443",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "7",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-11T07:10:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-11T08:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7864",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H",
+              "id": "8",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146191.00",
+        "base": "51504.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146191.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146191.00",
+            "base": "51504.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "7",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "8",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "12",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T14:50:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T15:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7861",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT18H15M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T13:55:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T15:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7443",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "7",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-11T07:10:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-11T08:10:00"
+              },
+              "carrierCode": "P4",
+              "number": "7864",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H",
+              "id": "8",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146191.00",
+        "base": "51504.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146191.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146191.00",
+            "base": "51504.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "7",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "8",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "13",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T08:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T09:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7865",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT5H5M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T08:25:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T09:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7121",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "3",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T12:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T13:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7818",
+              "aircraft": {
+                "code": "ER4"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "4",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146658.00",
+        "base": "51948.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146658.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146658.00",
+            "base": "51948.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "3",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "4",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "14",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T14:50:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T15:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7861",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT5H5M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T08:25:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T09:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7121",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "3",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T12:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T13:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7818",
+              "aircraft": {
+                "code": "ER4"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "4",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146658.00",
+        "base": "51948.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146658.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146658.00",
+            "base": "51948.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "3",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "4",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "15",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T08:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T09:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7865",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT5H50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T08:25:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T09:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7121",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "19",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T13:20:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T14:15:00"
+              },
+              "carrierCode": "P4",
+              "number": "7860",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT55M",
+              "id": "20",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146658.00",
+        "base": "51948.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146658.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146658.00",
+            "base": "51948.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "19",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "20",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "16",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T14:50:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T15:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7861",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT5H50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T08:25:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T09:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7121",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "19",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T13:20:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T14:15:00"
+              },
+              "carrierCode": "P4",
+              "number": "7860",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT55M",
+              "id": "20",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146658.00",
+        "base": "51948.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146658.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146658.00",
+            "base": "51948.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "19",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "20",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "17",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T08:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T09:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7865",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT6H45M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T06:45:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T08:00:00"
+              },
+              "carrierCode": "P4",
+              "number": "7139",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "15",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T12:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T13:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7818",
+              "aircraft": {
+                "code": "ER4"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "16",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146658.00",
+        "base": "51948.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146658.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146658.00",
+            "base": "51948.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "15",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "16",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "18",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T14:50:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T15:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7861",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT6H45M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T06:45:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T08:00:00"
+              },
+              "carrierCode": "P4",
+              "number": "7139",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "15",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T12:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T13:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7818",
+              "aircraft": {
+                "code": "ER4"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "16",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146658.00",
+        "base": "51948.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146658.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146658.00",
+            "base": "51948.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "15",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "16",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "19",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T08:40:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T09:30:00"
+              },
+              "carrierCode": "P4",
+              "number": "7865",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "1",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT7H30M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T06:45:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T08:00:00"
+              },
+              "carrierCode": "P4",
+              "number": "7139",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "13",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T13:20:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T14:15:00"
+              },
+              "carrierCode": "P4",
+              "number": "7860",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT55M",
+              "id": "14",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146658.00",
+        "base": "51948.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146658.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146658.00",
+            "base": "51948.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "1",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "13",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "14",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "flight-offer",
+      "id": "20",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "lastTicketingDate": "2021-12-20",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT50M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABB",
+                "at": "2022-01-05T14:50:00"
+              },
+              "arrival": {
+                "iataCode": "ABV",
+                "at": "2022-01-05T15:40:00"
+              },
+              "carrierCode": "P4",
+              "number": "7861",
+              "aircraft": {
+                "code": "735"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT50M",
+              "id": "2",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        },
+        {
+          "duration": "PT7H30M",
+          "segments": [
+            {
+              "departure": {
+                "iataCode": "ABV",
+                "at": "2022-01-10T06:45:00"
+              },
+              "arrival": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T08:00:00"
+              },
+              "carrierCode": "P4",
+              "number": "7139",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT1H15M",
+              "id": "13",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            },
+            {
+              "departure": {
+                "iataCode": "LOS",
+                "at": "2022-01-10T13:20:00"
+              },
+              "arrival": {
+                "iataCode": "ABB",
+                "at": "2022-01-10T14:15:00"
+              },
+              "carrierCode": "P4",
+              "number": "7860",
+              "aircraft": {
+                "code": "E90"
+              },
+              "operating": {
+                "carrierCode": "P4"
+              },
+              "duration": "PT55M",
+              "id": "14",
+              "numberOfStops": 0,
+              "blacklistedInEU": false
+            }
+          ]
+        }
+      ],
+      "price": {
+        "currency": "NGN",
+        "total": "146658.00",
+        "base": "51948.00",
+        "fees": [
+          {
+            "amount": "0.00",
+            "type": "SUPPLIER"
+          },
+          {
+            "amount": "0.00",
+            "type": "TICKETING"
+          }
+        ],
+        "grandTotal": "146658.00"
+      },
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true
+      },
+      "validatingAirlineCodes": [
+        "HR"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "fareOption": "STANDARD",
+          "travelerType": "ADULT",
+          "price": {
+            "currency": "NGN",
+            "total": "146658.00",
+            "base": "51948.00"
+          },
+          "fareDetailsBySegment": [
+            {
+              "segmentId": "2",
+              "cabin": "ECONOMY",
+              "fareBasis": "WRT",
+              "class": "W",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "13",
+              "cabin": "ECONOMY",
+              "fareBasis": "TRT",
+              "class": "T",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            },
+            {
+              "segmentId": "14",
+              "cabin": "ECONOMY",
+              "fareBasis": "VRT",
+              "class": "V",
+              "includedCheckedBags": {
+                "quantity": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dictionaries": {
+    "locations": {
+      "LOS": {
+        "cityCode": "LOS",
+        "countryCode": "NG"
+      },
+      "ABB": {
+        "cityCode": "ABB",
+        "countryCode": "GB"
+      },
+      "ABV": {
+        "cityCode": "ABV",
+        "countryCode": "NG"
+      }
+    },
+    "aircraft": {
+      "735": "BOEING 737-500",
+      "ER4": "EMBRAER RJ145",
+      "E90": "EMBRAER 190"
+    },
+    "currencies": {
+      "NGN": "NIGERIAN NAIRA"
+    },
+    "carriers": {
+      "P4": "AIR PEACE LIMITED"
+    }
+  }
+}
