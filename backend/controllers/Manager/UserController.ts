@@ -59,6 +59,17 @@ export = <
     return http.send({ user, userProfiles });
   },
 
+  async updateRole(http, { user }) {
+    const userId = http.params.userId;
+    const body = http.$body.get("role");
+
+    await user.update({ role: body });
+
+    console.log(body);
+
+    return http.send({ message: "User role updated" });
+  },
+
   async xxx(http) {
     const userId = http.params.userId;
     const user = await User.findOne({ uuid: userId });

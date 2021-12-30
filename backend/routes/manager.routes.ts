@@ -15,6 +15,7 @@ router
     router
       .path("/user/:userId", () => {
         router.get("/get-user", "user");
+        router.put("@updateRole");
         router.get("xxx", "xxx");
       })
       .controller("Manager/User");

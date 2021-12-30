@@ -5,11 +5,7 @@ import moment from "moment";
 import { CompressPdf } from "../utilities";
 import { $, randomStr } from "../../exports";
 import ILovePDFApi from "@ilovepdf/ilovepdf-nodejs/ILovePDFApi";
-import { type } from "os";
-import UploadedFile from "@xpresser/file-uploader/js/src/UploadedFile";
-import User from "../../models/User";
-import Deal from "../../models/Deal";
-import File, { FileDataType } from "../../models/File";
+
 import Document, { DocumentDataType } from "../../models/Document";
 
 // declarations
