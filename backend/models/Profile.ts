@@ -26,7 +26,7 @@ export interface ProfileDataType {
     place_of_birth: string;
   };
   otherInformation: Object;
-  EducationInfo: Object;
+  educationInformation: Object;
   comment: string;
 }
 
