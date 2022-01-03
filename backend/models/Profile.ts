@@ -45,7 +45,7 @@ class Profile extends MainModel {
     "contactInformation",
     "personalInformation",
     "otherInformation",
-    "EducationInfo",
+    "educationInformation",
     "comment",
     "reference",
     "ownerId",
@@ -60,7 +60,7 @@ class Profile extends MainModel {
     personalInformation: is.Object(),
     contactInformation: is.Object(),
     otherInformation: is.Object(),
-    EducationInfo: is.Object(),
+    educationInformation: is.Object(),
     comment: is.String(),
   };
 

@@ -51,21 +51,15 @@ export = <Controller.Object>{
 
       // const { data } = await User.new({ ...body, ...{ role: "admin" } });
       const numberOfUsers = await User.count();
-      const data = User.make({ ...body, ...{ role: "admin" } });
-
-      if (numberOfUsers === 0) {
-        const { data } = await User.new({ ...body, ...{ role: "admin" } });
-        return http.send({
-          data,
-          message: "Registration successful",
-        });
-      } else {
-        const { data } = await User.new(body);
-        return http.send({
-          data,
-          message: "Registration successful",
-        });
-      }
+      const { data } = await User.new({
+        ...body,
+        ...{ role: numberOfUsers === 0 ? "admin" : "user" },
+      });
+      return http.send({
+        data,
+        message: "Registration successful",
+      });
+      //make first user admin
 
       // await data.save();
 
@@ -104,6 +98,7 @@ export = <Controller.Object>{
 
     try {
       const user = await User.findOne({ email });
+
       if (user) {
         const auth = await bcrypt.compare(password, user.data.password);
 

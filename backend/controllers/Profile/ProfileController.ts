@@ -66,7 +66,14 @@ export = <
   },
 
   async everyProfile(http) {
-    const everyProfile = await Profile.native().find({}).count();
+    // const everyProfile = await Profile.native().find({}).count();
+    const everyProfile = await Profile.native().find({}).toArray();
+    /*    const everyProfile = await Profile.native().updateMany(
+      {},
+      { $rename: { EducationInfo: "educationInformation" } }
+    );*/
+
+    console.log(everyProfile, "everyProfile");
 
     if (everyProfile) {
       http.send({ everyProfile });
