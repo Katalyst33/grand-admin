@@ -89,7 +89,12 @@ export = <
   async create(http: Http): Promise<Http.Response> {
     const body = http.$body.all();
     await Deal.new(body);
-    return http.send({ message: "New Destination created" });
+    try {
+      return http.send({ message: "New Destination created" });
+    } catch (err: any) {
+      console.log(err);
+      return http.status(400).send({ error: "errorrr" });
+    }
   },
 
   //get a single destination

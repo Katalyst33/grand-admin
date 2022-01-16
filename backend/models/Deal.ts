@@ -32,6 +32,7 @@ export interface DealDataType {
   images: string[];
   enabled: boolean;
   thumbnail: string;
+  activity: string;
 }
 
 /**
@@ -55,6 +56,7 @@ class Deal extends MainModel {
     "promoted",
     "enabled",
     "thumbnails",
+    "active",
   ];
   static schema: XMongoSchema = {
     uuid: is.Uuid(4).required(),
@@ -62,7 +64,6 @@ class Deal extends MainModel {
     createdAt: is.Date().required(),
     title: is.String().required(),
     description: is.String().required(),
-
     country: is.Object(() => ({
       code: null,
       name: null,
@@ -78,7 +79,7 @@ class Deal extends MainModel {
     images: is.Array(),
     price: is.Number(),
     included: is.String(),
-    enabled: is.Boolean(),
+    enabled: is.Boolean(true),
     promoted: is.Boolean(false),
   };
 

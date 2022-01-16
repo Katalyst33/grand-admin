@@ -1,10 +1,19 @@
 import { getInstanceRouter } from "xpresser";
+import Profile from "../models/Profile";
 
 const router = getInstanceRouter();
 
 router
   .path("/profile", () => {
     router.get("/every-profile", "Profile/Profile@everyProfile");
+
+    router
+      .path("", () => {
+        router.post("@addToCart");
+        router.post("@getCart");
+        router.post("@removeFromCart");
+      })
+      .controller("Profile/Cart");
 
     router
       .path("/:referenceId", () => {
