@@ -20,11 +20,23 @@ export = <Controller.Object>{
   async addToCart(http) {
     const body = http.$body.all();
 
-    await Cart.new(body);
-
-    return http.send({
-      message: "cart saved to profile",
+    const cart = await Cart.find({
+      ownerId: body.ownerId,
+      destinationId: body.destinationId,
     });
+    if (cart) {
+      return http.send({
+        message: "cart has already been saved",
+        cart,
+      });
+    } else {
+      await Cart.new(body);
+
+      return http.send({
+        message: "cart saved to profile",
+        cart,
+      });
+    }
   },
 
   async getCart(http) {

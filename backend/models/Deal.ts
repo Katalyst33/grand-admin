@@ -33,6 +33,7 @@ export interface DealDataType {
   enabled: boolean;
   thumbnail: string;
   activity: string;
+  status: "pending" | "approved" | "expired";
 }
 
 /**
@@ -57,6 +58,7 @@ class Deal extends MainModel {
     "enabled",
     "thumbnails",
     "active",
+    "status",
   ];
   static schema: XMongoSchema = {
     uuid: is.Uuid(4).required(),
@@ -81,6 +83,7 @@ class Deal extends MainModel {
     included: is.String(),
     enabled: is.Boolean(true),
     promoted: is.Boolean(false),
+    status: is.String("pending"),
   };
 
   public data!: DealDataType;
