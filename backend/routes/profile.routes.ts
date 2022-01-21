@@ -11,6 +11,7 @@ router
       .path("", () => {
         router.post("@addToCart");
         router.post("@getCart");
+        router.post("@getOneCart");
         router.post("@removeFromCart");
       })
       .controller("Profile/Cart");

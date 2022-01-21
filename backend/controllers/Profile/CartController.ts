@@ -24,19 +24,47 @@ export = <Controller.Object>{
       ownerId: body.ownerId,
       destinationId: body.destinationId,
     });
-    if (cart) {
+
+    if (cart.length) {
       return http.send({
-        message: "cart has already been saved",
+        message: "Destination has already been saved",
         cart,
       });
     } else {
       await Cart.new(body);
-
       return http.send({
-        message: "cart saved to profile",
-        cart,
+        message: "Destination has been saved",
       });
     }
+
+    /*   return http.send({
+      message: "cart saved to profile",
+      cart,
+    });*/
+  },
+  async getOneCart(http) {
+    const body = http.$body.all();
+
+    const cart = await Cart.findOne({
+      ownerId: body.ownerId,
+      destinationId: body.destinationId,
+    });
+    console.log(cart, "body");
+
+    if (cart) {
+      return http.send({
+        isAdded: true,
+      });
+    } else {
+      return http.send({
+        isAdded: false,
+      });
+    }
+
+    /*  return http.send({
+      message: "testing saved to profile",
+      body,
+    });*/
   },
 
   async getCart(http) {
@@ -49,7 +77,7 @@ export = <Controller.Object>{
       let oneDestination = await Deal.findOne({
         uuid: item.destinationId,
       });
-      await allDestinations.push(oneDestination);
+      allDestinations.push(oneDestination);
     }
 
     return http.send({
@@ -59,21 +87,22 @@ export = <Controller.Object>{
 
   async removeFromCart(http) {
     const body = http.$body.all();
-    //get all user cart items
-    const cart = await Cart.find({
+
+    const cart = await Cart.findOne({
       ownerId: body.ownerId,
       destinationId: body.destinationId,
     });
-
-    // remove item from cart
-    /*    const newArray = cart.filter((item) => {
-      return item.productId !== body.productId;
-    });*/
-
     console.log(cart);
+    if (cart) {
+      await cart?.delete();
 
-    return http.send({
-      cart,
-    });
+      return http.send({
+        message: "Destination has been removed from wishlist",
+      });
+    } else {
+      return http.send({
+        message: "Destination does not exist",
+      });
+    }
   },
 };

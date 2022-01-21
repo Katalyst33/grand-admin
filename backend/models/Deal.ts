@@ -33,7 +33,7 @@ export interface DealDataType {
   enabled: boolean;
   thumbnail: string;
   activity: string;
-  status: "pending" | "approved" | "expired";
+  status: "pending" | "active" | "expired";
 }
 
 /**
