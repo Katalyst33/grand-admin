@@ -34,4 +34,9 @@ export = envLoader(pathToEnv, {
   pdfPublicKey: string;
   pdfSecretKey: string;
   publicPath: string;
+  emailUsername: string;
+  emailPassword: string;
+  emailHost: string;
+  fromEmail: string;
+  emailPort: string;
 };

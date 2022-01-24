@@ -41,7 +41,20 @@ export = {
       pathCase: "kebab",
     },
   },
-
+  mailer: {
+    provider: "smtp", // SMTP
+    configs: {
+      smtp: {
+        host: env.emailHost,
+        fromEmail: env.emailFrom,
+        port: env.emailPort,
+        auth: {
+          user: env.emailUsername,
+          pass: env.emailPassword,
+        },
+      },
+    },
+  },
   /**
    * Path settings.
    */

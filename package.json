@@ -17,6 +17,7 @@
   "dependencies": {
     "@ilovepdf/ilovepdf-js": "^0.1.0",
     "@ilovepdf/ilovepdf-nodejs": "^0.1.1",
+    "@techie04/xpresser-mailer": "^0.2.1",
     "@xpresser/auth": "^0.2.0",
     "@xpresser/env": "^1.0.3",
     "@xpresser/file-uploader": "^2.0.4",
@@ -28,6 +29,7 @@
     "cron-time-generator": "^1.2.0",
     "express-session": "^1.17.2",
     "jsonwebtoken": "^8.5.1",
+    "mjml": "^4.11.0",
     "moment": "^2.29.1",
     "passport": "^0.5.0",
     "passport-google-oauth": "^2.0.0",
@@ -39,6 +41,7 @@
     "xpresser": "^0.25.4"
   },
   "devDependencies": {
+    "@types/mjml": "^4.7.0",
     "@types/node": "^16.11.7",
     "@types/sharp": "^0.29.4",
     "@xpresser/ngrok": "^2.2.1",

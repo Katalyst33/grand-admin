@@ -15,6 +15,7 @@ router
 router
   .path("/client/", () => {
     router.get("@ping");
+    router.post("@contactForm");
   })
   .controller("App")
   .middlewares(["UserAuth.requireAuth", "UserAuth.getCurrentUser"]);

@@ -2,7 +2,7 @@ import { Controller, Http } from "xpresser/types/http";
 import Joi from "joi";
 import User from "../models/User";
 import Profile from "../models/Profile";
-import { createToken, maxAge } from "../exports";
+import { $, createToken, maxAge } from "../exports";
 const bcrypt = require("bcrypt");
 
 /**
@@ -55,6 +55,8 @@ export = <Controller.Object>{
         ...body,
         ...{ role: numberOfUsers === 0 ? "admin" : "user" },
       });
+      $.events.emit("mailer.onRegistration", data); //send email to user
+
       return http.send({
         data,
         message: "Registration successful",
@@ -107,6 +109,7 @@ export = <Controller.Object>{
           await user.update({
             lastSeenAt: new Date(),
           });
+
           return http.send({
             token,
             user: user.data._id,
@@ -120,11 +123,6 @@ export = <Controller.Object>{
       } else {
         throw new Error("This user does not exist");
       }
-
-      return http.send({
-        message: "Login was successful",
-        proceed: true,
-      });
     } catch (err: any) {
       return http.status(400).send({
         error: err.message,

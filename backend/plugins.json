@@ -2,7 +2,9 @@
   "npm://@xpresser/ngrok": {
     "env": "development"
   },
+
   "npm://@xpresser/file-uploader": true,
   "npm://@xpresser/session": true,
-  "npm://@xpresser/xpress-mongo": true
+  "npm://@xpresser/xpress-mongo": true,
+  "npm://@techie04/xpresser-mailer": true
 }

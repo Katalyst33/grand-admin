@@ -54,6 +54,30 @@ const AppController = <Controller.Object>{
     });
   },
 
+  contactForm(http) {
+    const body = http.$body.all();
+    type eventResult = { status: boolean; message: string };
+    $.events.emitWithCallback(
+      "mailer.contactForm",
+      [body],
+      (eventResult: eventResult) => {
+        if (!eventResult.status) http.status(500);
+
+        return http.send({
+          message: eventResult.message,
+          status: eventResult.status,
+        });
+      }
+    );
+
+    /*setTimeout(() => {
+      if (http.res.headersSent) return;
+      http.res.send({
+        message: "event timed out",
+      });
+    }, 10000);*/
+  },
+
   api404(http: Http): Http.Response {
     return http.toApiFalse(
       {
