@@ -1,4 +1,6 @@
 import { getInstance } from "xpresser";
+import mjml2html from "mjml";
+const ejs = require("ejs");
 
 export const $ = getInstance();
 
@@ -27,3 +29,19 @@ export const createToken = (id: any) => {
     expiresIn: maxAge,
   });
 };
+
+export function mjmlToHtmlConverter(layout: string, data?: any) {
+  const templatePath = $.path.views(`layouts/${layout}.mjml`);
+
+  if (!$.file.exists(templatePath)) {
+    throw new Error(`Template file not found: ${templatePath}`);
+  }
+  let template = $.file.read($.path.views(`layouts/${layout}.mjml`)).toString();
+  // parse using ejs and add data
+  if (data) {
+    template = ejs.render(template, data);
+  }
+  //convert mjml to html
+  template = mjml2html(template).html;
+  return template;
+}

@@ -25,6 +25,10 @@ export interface UserDataType {
   reference: string;
   email: string;
   password: string;
+  passwordReset?: {
+    code: string;
+    sentAt: Date;
+  };
 }
 
 /**
@@ -51,6 +55,7 @@ class User extends MainModel {
     "email",
     "uuid",
     "role",
+    "passwordReset",
     "reference",
     "createdAt",
     "updatedAt",
@@ -66,6 +71,12 @@ class User extends MainModel {
     email: joi.string().email().required(),
     password: joi.string(),
     role: is.InArray(userRoles, "user"),
+    passwordReset: joi
+      .object({
+        code: joi.string().required(),
+        sentAt: joi.date().required(),
+      })
+      .label("Password Reset"),
   };
 
   // Set Model data type (optional)

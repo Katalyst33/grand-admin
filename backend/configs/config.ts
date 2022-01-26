@@ -10,6 +10,7 @@ const base = path.resolve(`${__dirname}/../../`);
 export = {
   // name of app
   name: env.appName,
+  url: env.appUrl,
 
   // app environment
   env: env.NODE_ENV,
@@ -46,7 +47,7 @@ export = {
     configs: {
       smtp: {
         host: env.emailHost,
-        fromEmail: env.emailFrom,
+        fromEmail: env.fromEmail,
         port: env.emailPort,
         auth: {
           user: env.emailUsername,

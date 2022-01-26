@@ -7,6 +7,8 @@ router
     router.post("@register");
     router.post("@login");
     router.get("@logout");
+    router.post("@forgotPassword");
+    router.post("@resetPassword");
     router.get("destinations", "Destination@all");
     router.get("deals/:dealId", "Destination@deal");
   })

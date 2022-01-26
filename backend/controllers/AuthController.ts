@@ -1,9 +1,10 @@
 import { Controller, Http } from "xpresser/types/http";
 import Joi from "joi";
-import User from "../models/User";
+import User, { UserDataType } from "../models/User";
 import Profile from "../models/Profile";
 import { $, createToken, maxAge } from "../exports";
 const bcrypt = require("bcrypt");
+import moment from "moment";
 
 /**
  * AuthController
@@ -142,5 +143,69 @@ export = <Controller.Object>{
     return http.send({
       message: "you have been logout",
     });
+  },
+
+  async forgotPassword(http, boot, e) {
+    const userEmail = http.$body.get("email");
+    console.log(userEmail);
+
+    const user = (await User.findOne({ email: userEmail }))!;
+    if (user.data.passwordReset) {
+      const sentAt = moment(user.data.passwordReset.sentAt);
+      const OneMinuteAgo = moment().subtract(1, "minute");
+
+      if (sentAt.isAfter(OneMinuteAgo)) {
+        const secondsRemaining = sentAt.diff(OneMinuteAgo, "seconds");
+        return e(
+          `Please wait for (${secondsRemaining}) seconds and try again.`
+        );
+      }
+    }
+
+    console.log("got here");
+
+    await user.update(<UserDataType>{
+      passwordReset: {
+        code: String(http.$("helpers").randomInteger(111111, 999999)),
+        sentAt: new Date(),
+      },
+    });
+
+    $.events.emit("mailer.forgotPassword", user);
+
+    return {
+      user,
+      message: "Your Password reset code has been sent to your email address.",
+    };
+  },
+
+  async resetPassword(http, boot, e) {
+    const { email, reset_code, password } = http.$body.all() || {};
+    //
+    const user = (await User.findOne({ email }))!;
+
+    console.log(email, reset_code, password);
+
+    if (user.data.passwordReset) {
+      if (user.data.passwordReset.code !== reset_code)
+        return e(`Invalid reset code!`);
+
+      const sentAt = moment(user.data.passwordReset.sentAt);
+      const TenMinutesAgo = moment().subtract(10, "minutes");
+
+      if (sentAt.isBefore(TenMinutesAgo)) {
+        return e(`Reset code has expired!`);
+      }
+    } else {
+      return e(`No password request found on this account.`);
+    }
+
+    // Update Password
+    await user.update({ password: bcrypt.hashSync(password, 10) });
+
+    // Unset PasswordReset
+    await user.unset("passwordReset");
+
+    return { message: "Your password reset was successful." };
   },
 };
