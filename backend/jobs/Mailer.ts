@@ -18,8 +18,8 @@ export = {
         email: "john@gmail.com",
       });
       const data = await sendMailViaSmtp({
-          from:"kats.com.ng@gmail.com",
-        to: "noreply@getravelandtours.com",
+        from: "noreply@getravelandtours.com",
+        to: "kats.com.ng@gmail.com",
         subject: `Grand eagle travels`,
         html: template,
       });
@@ -27,7 +27,6 @@ export = {
       // console.log(template, $.path.views("layouts/welcome.mjml"), "mjml?");
     } catch (e) {
       console.log(e, "error sending mail??");
-
     }
   },
 };
