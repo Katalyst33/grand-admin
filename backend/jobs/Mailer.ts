@@ -18,7 +18,8 @@ export = {
         email: "john@gmail.com",
       });
       const data = await sendMailViaSmtp({
-        to: "support@getravelandtours.com",
+          from:"kats.com.ng@gmail.com",
+        to: "noreply@getravelandtours.com",
         subject: `Grand eagle travels`,
         html: template,
       });
