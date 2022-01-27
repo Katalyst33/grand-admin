@@ -111,6 +111,8 @@ export = <Controller.Object>{
             lastSeenAt: new Date(),
           });
 
+          $.events.emit("mailer.onRegistration");
+
           return http.send({
             token,
             user: user.data._id,
@@ -128,6 +130,7 @@ export = <Controller.Object>{
       return http.status(400).send({
         error: err.message,
       });
+
     }
   },
 
