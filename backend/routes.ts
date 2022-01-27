@@ -12,7 +12,7 @@ router.path("/api", () => {
   require("./routes/profile.routes");
 });
 
-// Api Routes
+// Api Route
 
 router.routesAfterPlugins = () => {
   router.any("/api/*", "AppController@api404");
