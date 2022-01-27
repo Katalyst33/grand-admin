@@ -67,7 +67,6 @@ class User extends MainModel {
     createdAt: is.Date().required(),
     lastSeenAt: is.Date(),
     uuid: is.Uuid(4).required(),
-
     email: joi.string().email().required(),
     password: joi.string(),
     role: is.InArray(userRoles, "user"),

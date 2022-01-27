@@ -48,25 +48,20 @@ export = <Controller.Object>{
       if (existingUser) {
         throw new Error("Email has been taken");
       }
-      // const { data } = await User.new({ ...body, ...{ role: "admin" } });
 
-      // const { data } = await User.new({ ...body, ...{ role: "admin" } });
       const numberOfUsers = await User.count();
       const { data } = await User.new({
         ...body,
         ...{ role: numberOfUsers === 0 ? "admin" : "user" },
       });
-      $.events.emit("mailer.onRegistration", data); //send email to user
+      $.events.emit("mailer.onRegistration", data);
+      //send email to user
 
       return http.send({
         data,
         message: "Registration successful",
       });
       //make first user admin
-
-      // await data.save();
-
-      // console.log(Profile, "new user data");
     } catch (e: any) {
       console.log(e);
       return http.status(400).send({ error: e.message });
@@ -130,7 +125,6 @@ export = <Controller.Object>{
       return http.status(400).send({
         error: err.message,
       });
-
     }
   },
 
