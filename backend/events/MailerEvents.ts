@@ -37,7 +37,7 @@ export = {
 
     await sendMailViaSmtp({
       //currently using deafault mail address you can also change it from here
-      // from: "noreply@getravelandtours.com",
+      from: "noreply@getravelandtours.com",
       to: user.data.email,
       subject: "Reset your Grand Eagle password",
       html: template,
