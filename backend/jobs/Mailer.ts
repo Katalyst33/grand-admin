@@ -27,6 +27,7 @@ export = {
       // console.log(template, $.path.views("layouts/welcome.mjml"), "mjml?");
     } catch (e) {
       console.log(e, "error sending mail??");
+
     }
   },
 };
