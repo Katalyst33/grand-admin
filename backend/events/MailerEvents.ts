@@ -35,6 +35,7 @@ export = {
       companyName: config.name,
     });
 
+
     await sendMailViaSmtp({
       from: "noreply@gmail.com",
       to: user.data.email,
