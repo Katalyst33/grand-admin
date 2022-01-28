@@ -1,73 +1,245 @@
 <mjml>
-    <mj-body background-color="#d7dde5">
-        <mj-section full-width="full-width">
-            <mj-column width="60%" vertical-align="middle">
-                <mj-text align="left" font-size="11px" padding-bottom="0px" padding-top="0"><span style="font-size: 11px"><%= appName %></span></mj-text>
-            </mj-column>
-            <mj-column width="40%" vertical-align="middle">
-                <mj-text align="right" font-size="11px" padding-bottom="0px" padding-top="0"><span style="font-size: 11px"><a href="https://mjml.io" style="text-decoration: none; color: inherit;">contact@<%= url %></a></span></mj-text>
-            </mj-column>
-        </mj-section>
-        <mj-section background-color="#FEFBEB" full-width="full-width">
-            <mj-column width="33.33333333333333%" vertical-align="middle">
-                <mj-image src="https://getravelandtours.com/png/teal-logo.png" alt="OnePage" padding-bottom="0px" padding-top="10px"></mj-image>
-            </mj-column>
-            <mj-column width="66.66666666666666%" vertical-align="middle">
-                <mj-text align="center" padding-bottom="0px" padding-top="10px"><a href="https://getravelandtours.com/" style="text-decoration: none; color: inherit;">Home</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<a href="https://getravelandtours.com/service" style="text-decoration: none; color: inherit;">Services</a>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
-                    <a href="https://getravelandtours.com/all-destinations" style="text-decoration: none; color: inherit;">Destinations</a>
-                </mj-text>
-            </mj-column>
-        </mj-section>
-        <mj-section background-url="https://getravelandtours.com/uploads/destination/brazil_Adl1X.jpeg" vertical-align="middle" background-size="cover" full-width="full-width" background-repeat="no-repeat">
-            <mj-column width="100%" vertical-align="middle">
-                <mj-text align="center" font-size="14px" color="#D3D9EE" padding-bottom="10px" padding-top="45px"><span style="font-size: 20px; line-height: 30px;">Welcome  <%= username%> </span><br /><br />Create <span style="color: #f69e0b">Experiences</span> With  <%=appName %></mj-text>
-                <mj-button align="center" background-color="#F69E0B" color="#fff" border-radius="24px" href="http://getravelandtours.com/" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" padding-bottom="45px" padding-top="10px">Visit</mj-button>
-            </mj-column>
-        </mj-section>
-        <mj-section background-color="#FEFBEB" vertical-align="top" full-width="full-width">
-            <mj-column vertical-align="top" width="33.33333333333333%">
-                <mj-image src="https://cdn-icons.flaticon.com/png/512/3199/premium/3199979.png?token=exp=1643373057~hmac=b3ddc90b62cc67ed41eb0e08c2ab21bd" alt="" width="50px"></mj-image>
-                <mj-text align="center" color="#9da3a3" font-size="11px" padding-bottom="30px"><span style="font-size: 14px; color: #f69e0b">Flight Booking</span><br /><br />We havdle you flight booking and Logistics of traveling
-                    .</mj-text>
-            </mj-column>
-            <mj-column vertical-align="top" width="33.33333333333333%">
-                <mj-image src="https://cdn-icons-png.flaticon.com/512/3168/3168622.png" alt="" width="50px"></mj-image>
-                <mj-text align="center" color="#9da3a3" font-size="11px" padding-bottom="30px"><span style="font-size: 14px; color: #f69e0b">Higher rates</span><br /><br />We will check you into the best hotels around the word
-                </mj-text>
-            </mj-column>
-            <mj-column vertical-align="top" width="33.33333333333333%">
-                <mj-image src="http://191n.mj.am/img/191n/1t/hl.png" alt="" width="50px"></mj-image>
-                <mj-text align="center" color="#9da3a3" font-size="11px" padding-bottom="30px" padding-top="3px"><span style="font-size: 14px; color: #f69e0b">24/7 Support</span><br /><br />Guaranteed visa for over 50 destinations around the world
-                    .</mj-text>
-            </mj-column>
-        </mj-section>
-        <mj-section background-color="#F69E0B" vertical-align="middle" full-width="full-width">
-            <mj-column width="100%" vertical-align="middle">
-                <mj-text align="center" color="#FEFBEB" font-size="18px" padding-bottom="10px">Why choose Grand Eagle Tours?</mj-text>
-                <mj-divider border-color="#fff" border-style="solid" border-width="1px" padding-left="100px" padding-right="100px" padding-bottom="20px" padding-top="20px"></mj-divider>
-                <mj-text align="center" color="#f8d5d1" font-size="11px" padding-bottom="25px">With grand eagle, we are with you all through the journey, from booking a flight to </mj-text>
-            </mj-column>
-        </mj-section>
-        <mj-section vertical-align="middle" background-color="#FEFBEB" full-width="full-width">
-            <mj-column width="50%" vertical-align="middle">
-                <mj-image src="https://getravelandtours.com/uploads/destination/500/student_xjeLf.jpeg" alt="" padding-bottom="20px" padding-top="20px"></mj-image>
-            </mj-column>
-            <mj-column width="50%" vertical-align="middle">
-                <mj-text align="left" color="#9da3a3" font-size="11px" padding-bottom="25px" padding-top="25px"><span style="font-weight: bold; font-size: 14px; color: #45474e">School at United states of America , </span><br /><br />this August
-                </mj-text>
-                <mj-button align="left" background-color="#F69E0B" color="#fff" border-radius="24px" font-size="11px" href="https://getravelandtours.com/destination/c4b9f84a-2888-4dd4-ae50-6d9fe1fc571b" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" padding-bottom="45px" padding-top="10px">READ  MORE</mj-button>
-            </mj-column>
-        </mj-section>
-        <mj-section full-width="full-width">
-            <mj-column width="100%" vertical-align="middle">
-                <mj-text align="center" font-size="11px" padding-bottom="0px" padding-top="0px">
-                    <p style="font-size: 11px"><%= url %></p>
-                </mj-text>
-                <mj-text align="center" font-size="11px" padding-bottom="0px" padding-top="0px">
+  <mj-body background-color="#d7dde5">
+    <mj-section full-width="full-width">
+      <mj-column width="60%" vertical-align="middle">
+        <mj-text
+          align="left"
+          font-size="11px"
+          padding-bottom="0px"
+          padding-top="0"
+          ><span style="font-size: 11px"><%= appName %></span></mj-text
+        >
+      </mj-column>
+      <mj-column width="40%" vertical-align="middle">
+        <mj-text
+          align="right"
+          font-size="11px"
+          padding-bottom="0px"
+          padding-top="0"
+          ><span style="font-size: 11px"
+            ><a
+              href="https://mjml.io"
+              style="text-decoration: none; color: inherit"
+              >contact@<%= url %></a
+            ></span
+          ></mj-text
+        >
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#FEFBEB" full-width="full-width">
+      <mj-column width="33.33333333333333%" vertical-align="middle">
+        <mj-image
+          src="https://getravelandtours.com/png/teal-logo.png"
+          alt="OnePage"
+          padding-bottom="0px"
+          padding-top="10px"
+        ></mj-image>
+      </mj-column>
+      <mj-column width="66.66666666666666%" vertical-align="middle">
+        <mj-text align="center" padding-bottom="0px" padding-top="10px"
+          ><a
+            href="https://getravelandtours.com/"
+            style="text-decoration: none; color: inherit"
+            >Home</a
+          >&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;<a
+            href="https://getravelandtours.com/service"
+            style="text-decoration: none; color: inherit"
+            >Services</a
+          >&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;
+          <a
+            href="https://getravelandtours.com/all-destinations"
+            style="text-decoration: none; color: inherit"
+            >Destinations</a
+          >
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section
+      background-url="https://getravelandtours.com/uploads/destination/brazil_Adl1X.jpeg"
+      vertical-align="middle"
+      background-size="cover"
+      full-width="full-width"
+      background-repeat="no-repeat"
+    >
+      <mj-column width="100%" vertical-align="middle">
+        <mj-text
+          align="center"
+          font-size="14px"
+          color="#D3D9EE"
+          padding-bottom="10px"
+          padding-top="45px"
+          ><span style="font-size: 20px; line-height: 30px"
+            >Welcome <%= username%> </span
+          ><br /><br />Create
+          <span style="color: #f69e0b">Experiences</span> With <%=appName
+          %></mj-text
+        >
+        <mj-button
+          align="center"
+          background-color="#F69E0B"
+          color="#fff"
+          border-radius="24px"
+          href="http://getravelandtours.com/"
+          font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif"
+          padding-bottom="45px"
+          padding-top="10px"
+          >Visit</mj-button
+        >
+      </mj-column>
+    </mj-section>
+    <mj-section
+      background-color="#FEFBEB"
+      vertical-align="top"
+      full-width="full-width"
+    >
+      <mj-column vertical-align="top" width="33.33333333333333%">
+        <mj-image
+          src="https://cdn-icons.flaticon.com/png/512/3199/premium/3199979.png?token=exp=1643373057~hmac=b3ddc90b62cc67ed41eb0e08c2ab21bd"
+          alt=""
+          width="50px"
+        ></mj-image>
+        <mj-text
+          align="center"
+          color="#9da3a3"
+          font-size="11px"
+          padding-bottom="30px"
+          ><span style="font-size: 14px; color: #f69e0b">Flight Booking</span
+          ><br /><br />We havdle you flight booking and Logistics of traveling
+          .</mj-text
+        >
+      </mj-column>
+      <mj-column vertical-align="top" width="33.33333333333333%">
+        <mj-image
+          src="https://cdn-icons-png.flaticon.com/512/3168/3168622.png"
+          alt=""
+          width="50px"
+        ></mj-image>
+        <mj-text
+          align="center"
+          color="#9da3a3"
+          font-size="11px"
+          padding-bottom="30px"
+          ><span style="font-size: 14px; color: #f69e0b">Higher rates</span
+          ><br /><br />We will check you into the best hotels around the word
+        </mj-text>
+      </mj-column>
+      <mj-column vertical-align="top" width="33.33333333333333%">
+        <mj-image
+          src="http://191n.mj.am/img/191n/1t/hl.png"
+          alt=""
+          width="50px"
+        ></mj-image>
+        <mj-text
+          align="center"
+          color="#9da3a3"
+          font-size="11px"
+          padding-bottom="30px"
+          padding-top="3px"
+          ><span style="font-size: 14px; color: #f69e0b">24/7 Support</span
+          ><br /><br />Guaranteed visa for over 50 destinations around the world
+          .</mj-text
+        >
+      </mj-column>
+    </mj-section>
+    <mj-section
+      background-color="#F69E0B"
+      vertical-align="middle"
+      full-width="full-width"
+    >
+      <mj-column width="100%" vertical-align="middle">
 
-                    <p style="font-size: 11px">www.<%= phoneNumber %></p>
-                </mj-text>
-            </mj-column>
-        </mj-section>
-    </mj-body>
+        <mj-divider
+          border-color="#fff"
+          border-style="solid"
+          border-width="1px"
+          padding-left="100px"
+          padding-right="100px"
+          padding-bottom="20px"
+          padding-top="20px"
+        ></mj-divider>
+        <mj-text
+          align="center"
+          color="#63413D"
+          font-size="15px"
+          padding-bottom="25px"
+        >
+          Thank you <%=  username%>, For Opening An Account With <%= appName %>,You Are Now
+          Connected To Over 100 countries Around The World,In Store Or By
+          Phone,The Benefits Of Working With Us Gives Our Customers An Easy
+          Access To The World By Making Their Travel Plans Stress Free With
+          Exclusive Offers Which Includes Flights Booking,Hotels/Apartments
+          Reservations And Visa Processing (Business Visa,Tourism And Students)
+        <br></br>
+            Our Website is designed To Work Perfectly On Any Devices And In Any Location As Long As You Have An Active Network And Stable Browser Using A Smart Phone On The Train Or Any Moving Automobiles,A Tablet In Front Of A Tv Or Sitting At The Desk Once You Have An Offer Suitable For Your Trip,Click On it And Fill Up Your Details,A Representative Will get back to You,Thanks
+        </mj-text>
+          <mj-divider
+                  border-color="#fff"
+                  border-style="solid"
+                  border-width="1px"
+                  padding-left="100px"
+                  padding-right="100px"
+                  padding-bottom="20px"
+                  padding-top="20px"
+          ></mj-divider>
+      </mj-column>
+    </mj-section>
+    <mj-section
+      vertical-align="middle"
+      background-color="#FEFBEB"
+      full-width="full-width"
+    >
+      <mj-column width="50%" vertical-align="middle">
+        <mj-image
+          src="https://getravelandtours.com/uploads/destination/500/student_xjeLf.jpeg"
+          alt=""
+          padding-bottom="20px"
+          padding-top="20px"
+        ></mj-image>
+      </mj-column>
+      <mj-column width="50%" vertical-align="middle">
+        <mj-text
+          align="left"
+          color="#9da3a3"
+          font-size="11px"
+          padding-bottom="25px"
+          padding-top="25px"
+          ><span style="font-weight: bold; font-size: 14px; color: #45474e"
+            >School at United states of America , </span
+          ><br /><br />this August
+        </mj-text>
+        <mj-button
+          align="left"
+          background-color="#F69E0B"
+          color="#fff"
+          border-radius="24px"
+          font-size="11px"
+          href="https://getravelandtours.com/destination/c4b9f84a-2888-4dd4-ae50-6d9fe1fc571b"
+          font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif"
+          padding-bottom="45px"
+          padding-top="10px"
+          >READ MORE</mj-button
+        >
+      </mj-column>
+    </mj-section>
+    <mj-section full-width="full-width">
+      <mj-column width="100%" vertical-align="middle">
+        <mj-text
+          align="center"
+          font-size="11px"
+          padding-bottom="0px"
+          padding-top="0px"
+        >
+          <p style="font-size: 11px"><%= url %></p>
+        </mj-text>
+        <mj-text
+          align="center"
+          font-size="11px"
+          padding-bottom="0px"
+          padding-top="0px"
+        >
+          <p style="font-size: 11px">www.<%= phoneNumber %></p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
 </mjml>
