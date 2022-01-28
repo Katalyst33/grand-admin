@@ -11,6 +11,7 @@ export = {
   // name of app
   name: env.appName,
   url: env.appUrl,
+  phoneNumber: env.appPhoneNumber,
 
   // app environment
   env: env.NODE_ENV,

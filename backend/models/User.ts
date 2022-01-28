@@ -22,6 +22,7 @@ export interface UserDataType {
   lastSeenAt?: Date;
   createdAt: Date;
   role?: string;
+  username: string;
   reference: string;
   email: string;
   password: string;
@@ -55,6 +56,7 @@ class User extends MainModel {
     "email",
     "uuid",
     "role",
+    "username",
     "passwordReset",
     "reference",
     "createdAt",
@@ -68,6 +70,7 @@ class User extends MainModel {
     lastSeenAt: is.Date(),
     uuid: is.Uuid(4).required(),
     email: joi.string().email().required(),
+    username: joi.string().required(),
     password: joi.string(),
     role: is.InArray(userRoles, "user"),
     passwordReset: joi

@@ -1,10 +1,10 @@
 <mjml>
     <mj-body background-color="#d7dde5">
         <mj-section full-width="full-width">
-            <mj-column width="60%" vertical-align="middle">
+            <mj-column width="66.66666666666666%" vertical-align="middle">
                 <mj-text align="left" font-size="11px" padding-bottom="0px" padding-top="0"><span style="font-size: 11px"><%= appName %></span></mj-text>
             </mj-column>
-            <mj-column width="40%" vertical-align="middle">
+            <mj-column width="33.33333333333333%" vertical-align="middle">
                 <mj-text align="right" font-size="11px" padding-bottom="0px" padding-top="0"><span style="font-size: 11px"><a href="https://mjml.io" style="text-decoration: none; color: inherit;">contact@<%= url %></a></span></mj-text>
             </mj-column>
         </mj-section>
@@ -33,12 +33,12 @@
             <mj-column vertical-align="top" width="33.33333333333333%">
                 <mj-image src="https://cdn-icons-png.flaticon.com/512/3168/3168622.png" alt="" width="50px"></mj-image>
                 <mj-text align="center" color="#9da3a3" font-size="11px" padding-bottom="30px"><span style="font-size: 14px; color: #f69e0b">Higher rates</span><br /><br />We will check you into the best hotels around the word
-                </mj-text>
+                   </mj-text>
             </mj-column>
             <mj-column vertical-align="top" width="33.33333333333333%">
                 <mj-image src="http://191n.mj.am/img/191n/1t/hl.png" alt="" width="50px"></mj-image>
                 <mj-text align="center" color="#9da3a3" font-size="11px" padding-bottom="30px" padding-top="3px"><span style="font-size: 14px; color: #f69e0b">24/7 Support</span><br /><br />Guaranteed visa for over 50 destinations around the world
-                    .</mj-text>
+                  .</mj-text>
             </mj-column>
         </mj-section>
         <mj-section background-color="#F69E0B" vertical-align="middle" full-width="full-width">
@@ -54,7 +54,7 @@
             </mj-column>
             <mj-column width="50%" vertical-align="middle">
                 <mj-text align="left" color="#9da3a3" font-size="11px" padding-bottom="25px" padding-top="25px"><span style="font-weight: bold; font-size: 14px; color: #45474e">School at United states of America , </span><br /><br />this August
-                </mj-text>
+                   </mj-text>
                 <mj-button align="left" background-color="#F69E0B" color="#fff" border-radius="24px" font-size="11px" href="https://getravelandtours.com/destination/c4b9f84a-2888-4dd4-ae50-6d9fe1fc571b" font-family="Ubuntu, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif" padding-bottom="45px" padding-top="10px">READ  MORE</mj-button>
             </mj-column>
         </mj-section>

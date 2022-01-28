@@ -14,7 +14,13 @@ export = {
    * it also inherits namespace as name.
    */
   async onRegistration(user: any) {
-    const template = mjmlToHtmlConverter("welcome");
+    const template = mjmlToHtmlConverter("welcome", {
+      appName: config.name,
+      email: user.email,
+      username: user.username,
+      url: config.url,
+      phoneNumber: config.phoneNumber,
+    });
     await sendMailViaSmtp({
       to: user.email,
       subject: `Welcome to Grand Eagle`,

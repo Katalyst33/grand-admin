@@ -40,4 +40,5 @@ export = envLoader(pathToEnv, {
   fromEmail: string;
   emailPort: string;
   appUrl: string;
+  appPhoneNumber: string;
 };

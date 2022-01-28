@@ -31,6 +31,7 @@ export = <Controller.Object>{
       body = Joi.attempt(
         body,
         Joi.object({
+          username: Joi.string().required(),
           email: Joi.string().email().error(new Error("Email is not valid")),
           password: Joi.string()
             .pattern(/^[a-zA-Z0-9]{5,30}$/)
@@ -147,6 +148,12 @@ export = <Controller.Object>{
     console.log(userEmail);
 
     const user = (await User.findOne({ email: userEmail }))!;
+
+    if (!user) {
+      return http.status(400).send({
+        error: "This user does not exist",
+      });
+    }
     if (user.data.passwordReset) {
       const sentAt = moment(user.data.passwordReset.sentAt);
       const OneMinuteAgo = moment().subtract(1, "minute");
@@ -189,6 +196,7 @@ export = <Controller.Object>{
 
       const sentAt = moment(user.data.passwordReset.sentAt);
       const TenMinutesAgo = moment().subtract(10, "minutes");
+      console.log(sentAt, TenMinutesAgo);
 
       if (sentAt.isBefore(TenMinutesAgo)) {
         return e(`Reset code has expired!`);
