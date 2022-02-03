@@ -55,7 +55,7 @@ export = <
 
     const page = http.query("page", 1);
 
-    const perPage = 10;
+    const perPage = 9;
     const query = {} as Record<string, any>;
     if (search) {
       query.$or = [
