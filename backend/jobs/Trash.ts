@@ -1,6 +1,6 @@
 import JobHelper from "xpresser/src/Console/JobHelper";
-import { $ } from "../exports";
-const env = require("../../backend/configs/env");
+import { env } from "../configs/env";
+
 
 /**
  *  Job: Trash

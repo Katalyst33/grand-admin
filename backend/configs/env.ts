@@ -1,44 +1,26 @@
-import envLoader = require("@xpresser/env");
-import path = require("path");
-import session from "express-session";
+import { Env } from "@xpresser/env";
 
-const pathToEnv = path.resolve(
-  __filename.includes(".js")
-    ? `${__dirname}/../../../.env`
-    : `${__dirname}/../../.env`
-);
 
-export = envLoader(pathToEnv, {
-  castBoolean: true,
-  required: [
-    "NODE_ENV",
-    "appName",
-    "appPort",
-    "MongoServer",
-    "dbName",
-    "jwtSecret",
-    "sessionSecret",
-    "pdfPublicKey",
-    "pdfSecretKey",
-    "publicPath",
-  ],
-}) as {
-  NODE_ENV: string;
-  appName: string;
-  appDomain: string;
-  appPort: string;
-  MongoServer: string;
-  dbName: string;
-  jwtSecret: string;
-  sessionSecret: string;
-  pdfPublicKey: string;
-  pdfSecretKey: string;
-  publicPath: string;
-  emailUsername: string;
-  emailPassword: string;
-  emailHost: string;
-  fromEmail: string;
-  emailPort: string;
-  appUrl: string;
-  appPhoneNumber: string;
-};
+
+export const env = Env(".env", {
+  NODE_ENV: Env.is.string(),
+  appName: Env.is.string(),
+  appDomain: Env.is.string(),
+  appPort: Env.is.string(),
+  MongoServer: Env.is.string(),
+  dbName: Env.is.string(),
+  jwtSecret: Env.is.string(),
+  sessionSecret: Env.is.string(),
+  pdfPublicKey: Env.is.string(),
+  pdfSecretKey: Env.is.string(),
+  publicPath: Env.is.string(),
+  emailUsername: Env.is.string(),
+  emailPassword: Env.is.string(),
+  emailHost: Env.is.string(),
+  fromEmail: Env.is.string(),
+  emailPort: Env.is.string(),
+  appUrl: Env.is.string(),
+  appPhoneNumber: Env.is.string(),
+});
+
+export const isDev = env.NODE_ENV === "development";

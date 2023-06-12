@@ -2,8 +2,8 @@ import { getInstanceRouter } from "xpresser";
 /**
  * See https://xpresserjs.com/router/
  */
-import env from "./configs/env";
 import path from "path";
+import { env } from "./configs/env";
 
 const router = getInstanceRouter();
 router.path("/api", () => {

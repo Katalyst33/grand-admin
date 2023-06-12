@@ -1,8 +1,7 @@
 import { Controller, Http } from "xpresser/types/http";
+import { $ } from "../exports";
 import AppConfig from "../models/AppConfig";
 import User from "../models/User";
-import { $ } from "../exports";
-import JobHelper from "xpresser/dist/src/Console/JobHelper";
 
 const AppController = <Controller.Object>{
   /**
@@ -28,7 +27,14 @@ const AppController = <Controller.Object>{
     //get user from server state coming from middleware ^^
     let user: User | null = http.state.get("currentUser");
     return http.send({
-      appData,
+      appData: {
+        companyName: "Grand Eagle",
+        contact: {
+          phone: "+234 803 000 0000",
+          email: "home@gmail.com",
+          address: "No 1, Grand Eagle Street, Lagos, Nigeria",
+        },
+      },
       user: user?.toCollection().pick(["email", "role", "uuid"]),
     });
   },

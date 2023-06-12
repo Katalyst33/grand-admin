@@ -1,5 +1,5 @@
 import path = require("path");
-const env = require("./env");
+import { env } from "./env";
 const isDev = env.NODE_ENV === "development";
 const base = path.resolve(`${__dirname}/../../`);
 
@@ -25,10 +25,10 @@ export = {
     // Server Port
     port: env.appPort,
     ssl: {
-      enabled: env["SSL"],
+      enabled:"",
       files: {
-        cert: env["SSL_CERT"],
-        key: env["SSL_KEY"],
+        cert: "",
+        key: "",
       },
     },
 

@@ -1,11 +1,11 @@
-import ILovePDFApi from "@ilovepdf/ilovepdf-nodejs/ILovePDFApi";
 import ImagePdfTask from "@ilovepdf/ilovepdf-js-core/tasks/ImagePdfTask";
 import ILovePDFFile from "@ilovepdf/ilovepdf-js-core/utils/ILovePDFFile";
-import fs from "fs";
-import * as http from "http";
+import ILovePDFApi from "@ilovepdf/ilovepdf-nodejs/ILovePDFApi";
 import UploadedFile from "@xpresser/file-uploader/js/src/UploadedFile";
+import fs from "fs";
 
-const env = require("../configs/env");
+
+import { env } from "../configs/env";
 
 const instance = new ILovePDFApi(env.pdfPublicKey, env.pdfSecretKey);
 
