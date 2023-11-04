@@ -87,6 +87,7 @@ class User extends MainModel {
 
 User.on("create", async (user) => {
   const salt = await bcrypt.genSalt();
+  console.log(user)
   user.data.password = await bcrypt.hash(user.data.password, salt);
 });
 UseCollection(User, "users");

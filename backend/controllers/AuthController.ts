@@ -107,7 +107,7 @@ export = <Controller.Object>{
             lastSeenAt: new Date(),
           });
 
-          $.events.emit("mailer.onRegistration");
+          // $.events.emit("mailer.onRegistration");
 
           return http.send({
             token,

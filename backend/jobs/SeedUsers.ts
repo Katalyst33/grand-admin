@@ -1,8 +1,8 @@
 import JobHelper from "xpresser/src/Console/JobHelper";
 import User from "../models/User";
-import { is } from "xpress-mongo";
-import { randomInt } from "crypto";
 
+
+const chance = require("chance").Chance();
 /**
  *  Job: SeedUsers
  */
@@ -12,7 +12,8 @@ export = {
     // Your Job Here
     const allUserData = [
       {
-        _id: " 61322bef50d6885c1e408950",
+        _id: "61322bef50d6885c1e408950",
+        username: "user",
         updatedAt: "2021-09-03T14:06:39.281Z",
         createdAt: "2021-09-03T14:06:39.281Z",
         uuid: "1c5b7bbd-ec37-43e7-a06d-3709ec151712",
@@ -24,6 +25,7 @@ export = {
       },
       {
         _id: "6132675cdc6de17f142dba3c",
+        username: "user1",
         updatedAt: "2021-09-03T18:20:12.062Z",
         createdAt: "2021-09-03T18:20:12.062Z",
         uuid: "01d2c35c-7d54-4ab9-8e26-d8c78d0b588a",
@@ -35,6 +37,7 @@ export = {
       },
       {
         _id: "6132768e5297fc8a6dd8d783",
+        username: "user2",
         updatedAt: "2021-09-03T19:25:02.481Z",
         createdAt: "2021-09-03T19:25:02.481Z",
         uuid: "304b3c8c-0483-4f87-9faf-f2dc1feb83e1",
@@ -46,6 +49,7 @@ export = {
       },
       {
         _id: "616bc5994ec7e80d29bd3b9f",
+        username: "user3",
         updatedAt: "2021-10-17T06:41:29.656Z",
         createdAt: "2021-10-17T06:41:29.656Z",
         uuid: "a11d81fd-e4fe-408a-86d2-3a16278b51c5",
@@ -55,8 +59,10 @@ export = {
         password:
           "$2b$10$ezpFsKzK09zakUUabTY/tOyN1Y6sX4hxLnNTOEeoBKBw2CjgOQ5IC",
       },
+
       {
         _id: "61a883f0d69707c5d9fe826a",
+        username: "user4",
         updatedAt: "2021-12-02T08:29:36.798Z",
         createdAt: "2021-12-02T08:29:36.798Z",
         uuid: "41a70770-2aa9-4aae-b38d-b1ff8ac495d3",
@@ -67,30 +73,29 @@ export = {
       },
     ];
 
-    const emails = [
-      "admin@gmail.com",
-      "her@gmail.com",
-      "user@gmail.com",
-      "staff@gmail.com",
-      "him@gmail.com",
-    ];
+    // const emails = [
+    //   "admin@gmail.com",
+    //   "her@gmail.com",
+    //   "user@gmail.com",
+    //   "staff@gmail.com",
+    //   "him@gmail.com",
+    // ];
 
     await User.native().deleteMany({});
 
-    let count = 5;
-    count = Number(count);
-    let counter = 0;
+    const users = User.makeManyData(allUserData, {
+      validate: true,
+      stopOnError: true,
+      interceptor: (d) => {
+        d.data._id = User.id(d.data._id);
+        return d;
+      }
+    });
 
-    do {
-      const user = {
-        reference: "V1E0925279",
-        email: allUserData[randomInt(0, 6)],
-      };
-      await User.new(user);
-      counter++;
-    } while (counter < count);
+    await User.native().insertMany(users);
 
-    console.log(`${counter} Users have been Seeded`);
+
+    console.log(`${allUserData.length} Users have been Seeded`);
     // End current job process.
     return job.end();
   },
