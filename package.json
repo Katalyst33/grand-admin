@@ -12,7 +12,9 @@
     "build": "npx xjs @stack tsc",
     "ts-watch": "npx tsc --watch",
     "ts-dev": "npx ts-node-dev --respawn app.ts",
-    "js-dev": "npx nodemon build/app.js"
+    "js-dev": "npx nodemon build/app.js",
+    "dev:env": "npx jsonbank-env dev .env force"
+
   },
   "dependencies": {
     "@ilovepdf/ilovepdf-js": "^0.1.0",
@@ -28,6 +30,7 @@
     "cookie-parser": "^1.4.5",
     "cron-time-generator": "^1.2.0",
     "express-session": "^1.17.2",
+    "jsonbank-env": "^1.0.2",
     "jsonwebtoken": "^8.5.1",
     "mjml": "^4.11.0",
     "moment": "^2.29.1",
