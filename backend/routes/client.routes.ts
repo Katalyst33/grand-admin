@@ -2,6 +2,7 @@ import { getInstanceRouter } from "xpresser";
 
 const router = getInstanceRouter();
 
+
 router
   .path("/client/", () => {
     router.post("@register");
@@ -18,6 +19,10 @@ router
   .path("/client/", () => {
     router.get("@ping");
     router.post("@contactForm");
+
+    router.path("flights", () => {
+        router.post("@search");
+    }).controller("Flights");
   })
   .controller("App")
   .middlewares(["UserAuth.requireAuth", "UserAuth.getCurrentUser"]);

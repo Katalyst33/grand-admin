@@ -8,7 +8,6 @@ import xpresser = require("xpresser");
  * See https://xpresserjs.com/configuration/
  */
 import config = require("./configs/config");
-import env = require("./configs/env");
 import { Options } from "xpresser/types";
 
 export = (options: Options = { exposeDollarSign: false }) => {

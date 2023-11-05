@@ -1,4 +1,5 @@
 import { $ } from "./backend/exports";
-const env = require("./env");
+import env from "./backend/configs/env";
+
 console.log(env);
 console.log(env);

@@ -2,15 +2,15 @@ import { Controller, Http } from "xpresser/types/http";
 import Profile from "../../models/Profile";
 import slugify from "slugify";
 import moment from "moment";
-import { CompressPdf } from "../utilities";
 import { $, randomStr } from "../../exports";
 import ILovePDFApi from "@ilovepdf/ilovepdf-nodejs/ILovePDFApi";
 
 import Document, { DocumentDataType } from "../../models/Document";
 
 // declarations
+import env from "../../configs/env";
+
 const today = moment().format("DD-MM-YYYY");
-const env = require("../../configs/env");
 const uploadsFolder = $.path.storage("uploads/profile");
 const instance = new ILovePDFApi(env.pdfPublicKey, env.pdfSecretKey);
 

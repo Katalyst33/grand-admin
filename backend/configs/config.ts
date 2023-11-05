@@ -1,5 +1,5 @@
 import path = require("path");
-const env = require("./env");
+import env from "./env";
 const isDev = env.NODE_ENV === "development";
 const base = path.resolve(`${__dirname}/../../`);
 
