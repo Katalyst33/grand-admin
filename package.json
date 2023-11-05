@@ -37,6 +37,7 @@
     "promise-polyfill": "^8.2.1",
     "sharp": "^0.29.3",
     "slugify": "^1.6.2",
+    "ts-node": "^10.9.1",
     "xpress-mongo": "^2.1.0",
     "xpresser": "^0.26.11"
   },
