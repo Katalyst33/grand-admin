@@ -3,7 +3,7 @@ import { getInstanceRouter } from "xpresser";
  * See https://xpresserjs.com/router/
  */
 import path from "path";
-import { env } from "./configs/env";
+import env from "./configs/env";
 
 const router = getInstanceRouter();
 router.path("/api", () => {
@@ -21,4 +21,3 @@ router.routesAfterPlugins = () => {
   router.sendFile("/*", path.resolve(`${env.publicPath}/index.html`));
 };
 
-// console.log(path.resolve(`${env.publicPath}/index.html`), "resolve");
