@@ -12,7 +12,7 @@ import env from "../../configs/env";
 
 const today = moment().format("DD-MM-YYYY");
 const uploadsFolder = $.path.storage("uploads/profile");
-const instance = new ILovePDFApi(env.pdfPublicKey, env.pdfSecretKey);
+const instance = new ILovePDFApi(env.PDF_PUBLIC_KEY, env.PDF_SECRET_KEY);
 
 /**
  * ProfileController

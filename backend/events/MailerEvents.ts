@@ -15,7 +15,7 @@ export = {
    */
   async onRegistration(user: any) {
     const template = mjmlToHtmlConverter("welcome", {
-      appName: config.name,
+      APP_NAME: config.name,
       email: user.email,
       username: user.username,
       url: config.url,

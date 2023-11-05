@@ -7,7 +7,7 @@
           font-size="11px"
           padding-bottom="0px"
           padding-top="0"
-          ><span style="font-size: 11px"><%= appName %></span></mj-text
+          ><span style="font-size: 11px"><%= APP_NAME %></span></mj-text
         >
       </mj-column>
       <mj-column width="40%" vertical-align="middle">
@@ -71,7 +71,7 @@
           ><span style="font-size: 20px; line-height: 30px"
             >Welcome <%= username%> </span
           ><br /><br />Create
-          <span style="color: #f69e0b">Experiences</span> With <%=appName
+          <span style="color: #f69e0b">Experiences</span> With <%=APP_NAME
           %></mj-text
         >
         <mj-button
@@ -163,7 +163,7 @@
           font-size="15px"
           padding-bottom="25px"
         >
-          Thank you <%=  username%>, For Opening An Account With <%= appName %>,You Are Now
+          Thank you <%=  username%>, For Opening An Account With <%= APP_NAME %>,You Are Now
           Connected To Over 100 countries Around The World,In Store Or By
           Phone,The Benefits Of Working With Us Gives Our Customers An Easy
           Access To The World By Making Their Travel Plans Stress Free With

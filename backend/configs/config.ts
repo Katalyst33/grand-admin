@@ -9,9 +9,9 @@ const base = path.resolve(`${__dirname}/../../`);
  */
 export = {
   // name of app
-  name: env.appName,
-  url: env.appUrl,
-  phoneNumber: env.appPhoneNumber,
+  name: env.APP_NAME,
+  url: env.APP_URL,
+  phoneNumber: env.APP_PHONE_NUMBER,
 
   // app environment
   env: env.NODE_ENV,
@@ -20,10 +20,10 @@ export = {
    * By default xpresser sets this for you.
    */
   server: {
-    domain: env.appDomain,
+    domain: env.APP_DOMAIN,
 
     // Server Port
-    port: env.appPort,
+    port: env.APP_PORT,
     ssl: {
       enabled: env["SSL"],
       files: {
@@ -47,12 +47,12 @@ export = {
     provider: "smtp", // SMTP
     configs: {
       smtp: {
-        host: env.emailHost,
-        fromEmail: env.fromEmail,
-        port: env.emailPort,
+        host: env.EMAIL_HOST,
+        FROM_EMAIL: env.FROM_EMAIL,
+        port: env.EMAIL_PORT,
         auth: {
-          user: env.emailUsername,
-          pass: env.emailPassword,
+          user: env.EMAIL_USERNAME,
+          pass: env.EMAIL_PASSWORD,
         },
       },
     },
@@ -62,8 +62,8 @@ export = {
    */
   // Connection Config
   mongodb: {
-    url: env.MongoServer,
-    database: env.dbName,
+    url: env.MONGO_SERVER,
+    database: env.DB_NAME,
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -77,7 +77,7 @@ export = {
      * Best value for this is: __dirname
      */
     base,
-    public: path.resolve(env.publicPath),
+    public: path.resolve(env.PUBLIC_PATH),
     storage: "storage",
 
     /**
@@ -87,10 +87,10 @@ export = {
   },
   session: {
     startOnBoot: false,
-    secret: env.sessionSecret,
+    secret: env.SESSION_SECRET,
     cookie: {
       path: "/",
-      domain: env.appName,
+      domain: env.APP_NAME,
       maxAge: 5000 * 60 * 24,
     },
     resave: true,

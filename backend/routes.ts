@@ -16,9 +16,9 @@ router.path("/api", () => {
 
 router.routesAfterPlugins = () => {
   router.any("/api/*", "AppController@api404");
-  // console.log(path.resolve(`${env.publicPath}/index.html`));
+  // console.log(path.resolve(`${env.PUBLIC_PATH}/index.html`));
 
-  router.sendFile("/*", path.resolve(`${env.publicPath}/index.html`));
+  router.sendFile("/*", path.resolve(`${env.PUBLIC_PATH}/index.html`));
 };
 
-// console.log(path.resolve(`${env.publicPath}/index.html`), "resolve");
+// console.log(path.resolve(`${env.PUBLIC_PATH}/index.html`), "resolve");
