@@ -1,6 +1,6 @@
 // Import Xpresser
-import xpresser = require("xpresser");
-
+import { init } from "xpresser";
+import { Options } from "xpresser/types";
 /**
  * Boot Xpresser with your config.
  *
@@ -8,11 +8,8 @@ import xpresser = require("xpresser");
  * See https://xpresserjs.com/configuration/
  */
 import config = require("./configs/config");
-import { Options } from "xpresser/types";
 
-export = (options: Options = { exposeDollarSign: false }) => {
+export default (options: Options = { exposeDollarSign: false }) => {
   // Initialize Xpresser
-  const $ = xpresser.init(config, options);
-
-  return $;
+  return init(config, options);
 };

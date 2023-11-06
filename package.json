@@ -11,8 +11,8 @@
     "start": "npm run build && node build/app.js",
     "build": "npx xjs @stack tsc",
     "ts-watch": "npx tsc --watch",
-    "ts-dev": "npx ts-node-dev --respawn app.ts",
-    "js-dev": "npx nodemon build/app.js",
+    "ts-dev": "npx ts-node-dev --respawn --transpile-only app.ts",
+    "js-dev": "npx nodemon --trace-warnings build/app.js",
     "dev:env": "npx jsonbank-env dev .env force"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "@xpresser/file-uploader": "^2.0.4",
     "@xpresser/session": "^1.4.2",
     "@xpresser/xpress-mongo": "^1.1.8",
+    "amadeus": "^9.0.0",
     "bcrypt": "^5.0.1",
     "chance": "^1.1.7",
     "cookie-parser": "^1.4.5",
@@ -49,7 +50,7 @@
     "@types/sharp": "^0.29.4",
     "@xpresser/ngrok": "^2.2.1",
     "nodemon": "^2.0.15",
-    "ts-node-dev": "^1.1.6",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.5.3",
     "xjs-cli": "^1.1.3"
   }

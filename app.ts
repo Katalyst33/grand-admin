@@ -1,10 +1,7 @@
-// Import Xpresser
-import xpresser = require("xpresser");
-
-import instance = require("./backend/instance");
+import instance from "./backend/instance";
+import cookieParser from "cookie-parser";
 
 const $ = instance();
-const cookieParser = require("cookie-parser");
 
 $.initializeTypescript(__filename);
 

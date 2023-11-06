@@ -33,7 +33,7 @@ export default Env(pathToEnv, {
   SSL_CERT: Env.optional.string(),
   SSL_KEY: Env.optional.string(),
 
-  AMADEUS_MODE: Env.is.enum(["test", "live"], "test"),
+  AMADEUS_MODE: Env.is.enum(["test", "production"], "test"),
   AMADEUS_TEST_CLIENT_ID: Env.is.string(),
   AMADEUS_TEST_CLIENT_SECRET: Env.is.string(),
   AMADEUS_LIVE_CLIENT_ID: Env.is.string(),

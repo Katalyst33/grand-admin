@@ -10,6 +10,12 @@ const searchSchema = Joi.object({
     .required()
     .label("Trip Type"),
   departureDate: Joi.date().required().label("Departure Date"),
+  // arrivalDate is required if type is round-trip
+  arrivalDate: Joi.date().label("Arrival Date").when("type", {
+    is: "round-trip",
+    then: Joi.required(),
+  }),
+  adults: Joi.number().min(1).max(8).required().label("Adults"),
 });
 
 /**
@@ -27,7 +33,14 @@ export = <Controller.Object>{
    * @param http - Current Http Instance
    */
   async search(http) {
-    type body = { from: string; to: string; type: string };
+    type body = {
+      from: string;
+      to: string;
+      type: string;
+      departureDate: string;
+      arrivalDate?: string;
+      adults: number;
+    };
     const body = http.$body.all<body>();
 
     // validate body
@@ -36,17 +49,18 @@ export = <Controller.Object>{
 
     try {
       const data = await Amadeus.search({
-        from: body.from,
-        to: body.to,
-        adults: 1,
-        departureDate: "",
+        originLocationCode: body.from,
+        destinationLocationCode: body.to,
+        adults: body.adults,
+        departureDate: body.departureDate,
       });
 
       return {
         data,
       };
     } catch (e: any) {
-      return http.status(400).json({ error: e.message });
+      const err = e.response ? e.response.data : e.message;
+      return http.status(400).json({ error: err });
     }
   },
 };
