@@ -1,9 +1,5 @@
 import { Controller, Http } from "xpresser/types/http";
 import Deal from "../../models/Deal";
-import File from "../../models/File";
-import { $ } from "../../exports";
-import { log } from "util";
-
 /**
  * DealsController
  */
@@ -34,7 +30,7 @@ export = <
         { uuid: dealId },
         {
           projection: Deal.projectPublicFields(),
-        }
+        },
       );
       //
       if (!data.deal) {

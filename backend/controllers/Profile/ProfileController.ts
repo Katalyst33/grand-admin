@@ -2,13 +2,14 @@ import { Controller, Http } from "xpresser/types/http";
 import Profile from "../../models/Profile";
 import slugify from "slugify";
 import moment from "moment";
-import { $, randomStr } from "../../exports";
+import { randomStr } from "../../exports";
 import ILovePDFApi from "@ilovepdf/ilovepdf-nodejs/ILovePDFApi";
 
 import Document, { DocumentDataType } from "../../models/Document";
 
 // declarations
 import env from "../../configs/env";
+import { $ } from "../../instance";
 
 const today = moment().format("DD-MM-YYYY");
 const uploadsFolder = $.path.storage("uploads/profile");
@@ -36,7 +37,7 @@ export = <
         { reference: referenceId },
         {
           projection: Profile.projectPublicFields(),
-        }
+        },
       );
       //
       if (!data.profile) {

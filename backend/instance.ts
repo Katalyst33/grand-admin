@@ -9,7 +9,9 @@ import { Options } from "xpresser/types";
  */
 import config = require("./configs/config");
 
-export default (options: Options = { exposeDollarSign: false }) => {
-  // Initialize Xpresser
-  return init(config, options);
-};
+// Initialize Xpresser
+const $ = init(config);
+
+$.initializeTypescript(__filename);
+
+export { $ };

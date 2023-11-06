@@ -4,7 +4,10 @@
  */
 
 import moment from "moment";
-import { $ } from "../exports";
+import { $ } from "../instance";
+
+const folder = $.path.storage("cached-response");
+$.file.makeDirIfNotExist(folder);
 
 type DataFile = { date: Date; data: any };
 export async function FileApiRequest<T extends (...args: any) => Promise<any>>(
@@ -13,8 +16,7 @@ export async function FileApiRequest<T extends (...args: any) => Promise<any>>(
   func: T,
 ): Promise<ReturnType<T> | undefined> {
   // find file
-  const file = $.path.storage(`cached-response/${$file}`);
-  $.file.makeDirIfNotExist(file, true);
+  const file = `${folder}/${$file}`;
 
   let cachedData: any;
   const now = moment();

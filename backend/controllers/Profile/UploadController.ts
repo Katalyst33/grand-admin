@@ -1,9 +1,10 @@
 import { Controller, Http } from "xpresser/types/http";
-import { $ } from "../../exports";
+
 import slugify from "slugify";
 import moment from "moment";
 import { CompressPdf } from "../utilities";
 import Profile from "../../models/Profile";
+import { $ } from "../../instance";
 const uploadsFolder = $.path.storage("uploads");
 const today = moment().format("DD-MM-YYYY");
 const fileTypes = {
@@ -127,7 +128,7 @@ export = <Controller.Object>{
         files: 5,
         size: 1,
         mimetype: "image",
-      }
+      },
     );
 
     // Or save files to specific folder using conditions by passing a function
@@ -141,7 +142,7 @@ export = <Controller.Object>{
           name: `${profile.data.ownerId}`,
           prependExtension: true,
         };
-      }
+      },
     );
 
     images.filesWithoutError().forEach((i) => {
@@ -164,7 +165,7 @@ export = <Controller.Object>{
         const error = f.error()!;
         if (error.type === "mimetype") {
           errorMessage.push(
-            `${input} format not supported, upload image with (.png, .jpg, .jpeg)`
+            `${input} format not supported, upload image with (.png, .jpg, .jpeg)`,
           );
         } else if (error.type === "size") {
           errorMessage.push(`${input} is too large`);

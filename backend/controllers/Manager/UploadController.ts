@@ -1,8 +1,9 @@
 import { Controller, Http } from "xpresser/types/http";
 import File, { FileDataType } from "../../models/File";
 import sharp from "sharp";
-import { $, folderPath } from "../../exports";
+import { folderPath } from "../../exports";
 import Deal from "../../models/Deal";
+import { $ } from "../../instance";
 
 /**
  * UploadController
@@ -66,7 +67,7 @@ export = <Controller.Object>{
           // set full path
           (file.data.crop as any)[folder] = fullPath.replace(
             $.path.storage(),
-            ""
+            "",
           );
         }
       }
@@ -81,7 +82,7 @@ export = <Controller.Object>{
   async gallery(http: Http) {
     const images = await File.find(
       { for: "destination" },
-      { sort: { createdAt: -1 } }
+      { sort: { createdAt: -1 } },
     );
     return http.send(images);
   },

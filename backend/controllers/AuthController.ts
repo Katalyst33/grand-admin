@@ -1,10 +1,10 @@
 import { Controller, Http } from "xpresser/types/http";
 import Joi from "joi";
 import User, { UserDataType } from "../models/User";
-import Profile from "../models/Profile";
-import { $, createToken, maxAge } from "../exports";
+import { createToken } from "../exports";
 const bcrypt = require("bcrypt");
 import moment from "moment";
+import { $ } from "../instance";
 
 /**
  * AuthController
@@ -40,7 +40,7 @@ export = <Controller.Object>{
             .required()
             .valid(Joi.ref("password"))
             .error(new Error("password does not match")),
-        })
+        }),
       );
       //check for existing user or email
       const existingUser = await User.count({
@@ -161,7 +161,7 @@ export = <Controller.Object>{
       if (sentAt.isAfter(OneMinuteAgo)) {
         const secondsRemaining = sentAt.diff(OneMinuteAgo, "seconds");
         return e(
-          `Please wait for (${secondsRemaining}) seconds and try again.`
+          `Please wait for (${secondsRemaining}) seconds and try again.`,
         );
       }
     }

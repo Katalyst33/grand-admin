@@ -1,9 +1,5 @@
-import instance from "./backend/instance";
 import cookieParser from "cookie-parser";
-
-const $ = instance();
-
-$.initializeTypescript(__filename);
+import { $ } from "./backend/instance";
 
 $.on.expressInit((next) => {
   const express = require("express");
@@ -13,6 +9,7 @@ $.on.expressInit((next) => {
   $.app!.use(cookieParser());
   next();
 });
+
 $.boot();
 
 // END File

@@ -1,8 +1,7 @@
 import { Controller, Http } from "xpresser/types/http";
 import AppConfig from "../models/AppConfig";
 import User from "../models/User";
-import { $ } from "../exports";
-import JobHelper from "xpresser/dist/src/Console/JobHelper";
+import { $ } from "../instance";
 
 const AppController = <Controller.Object>{
   /**
@@ -22,7 +21,7 @@ const AppController = <Controller.Object>{
 
     const appData = await AppConfig.native().findOne(
       {},
-      { projection: { _id: 0, createdAt: 0 } }
+      { projection: { _id: 0, createdAt: 0 } },
     );
 
     //get user from server state coming from middleware ^^
@@ -67,7 +66,7 @@ const AppController = <Controller.Object>{
           message: eventResult.message,
           status: eventResult.status,
         });
-      }
+      },
     );
 
     /*setTimeout(() => {
@@ -83,7 +82,7 @@ const AppController = <Controller.Object>{
       {
         error: 404,
       },
-      404
+      404,
     );
   },
 };

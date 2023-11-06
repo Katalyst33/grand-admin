@@ -1,7 +1,6 @@
-import { is, XMongoSchema, XMongoModel } from "xpress-mongo";
+import { is, XMongoSchema } from "xpress-mongo";
 import { UseCollection } from "@xpresser/xpress-mongo";
-import { isString } from "util";
-import { $, randomStr } from "../exports";
+import { randomStr } from "../exports";
 import MainModel from "./MainModel";
 
 /**

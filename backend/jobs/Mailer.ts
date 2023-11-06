@@ -1,8 +1,6 @@
 import JobHelper from "xpresser/src/Console/JobHelper";
 import { sendMailViaSmtp } from "@techie04/xpresser-mailer/providers/SmtpProvider";
-import { $, mjmlToHtmlConverter } from "../exports";
-
-import mjml2html from "mjml";
+import { mjmlToHtmlConverter } from "../exports";
 
 /**
  *  Job: Mailer

@@ -1,14 +1,6 @@
-import {
-  joi,
-  is,
-  XMongoModel,
-  XMongoDataType,
-  omitIdAndPick,
-  XMongoSchema,
-} from "xpress-mongo";
-import { DBCollection, UseCollection } from "@xpresser/xpress-mongo";
-import { $ } from "../exports";
-import Deal from "./Deal";
+import { joi, is, XMongoSchema } from "xpress-mongo";
+import { UseCollection } from "@xpresser/xpress-mongo";
+
 import MainModel from "./MainModel";
 const bcrypt = require("bcrypt");
 
@@ -87,7 +79,7 @@ class User extends MainModel {
 
 User.on("create", async (user) => {
   const salt = await bcrypt.genSalt();
-  console.log(user)
+  console.log(user);
   user.data.password = await bcrypt.hash(user.data.password, salt);
 });
 UseCollection(User, "users");
