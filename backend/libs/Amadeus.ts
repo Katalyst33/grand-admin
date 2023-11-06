@@ -68,8 +68,8 @@ class Amadeus {
       method: "GET",
       params: {
         ...arg,
+        max: 20,
         currencyCode: "USD",
-        nonStop: true,
       },
     };
 

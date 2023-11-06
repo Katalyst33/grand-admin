@@ -15,7 +15,12 @@ const searchSchema = Joi.object({
     is: "round-trip",
     then: Joi.required(),
   }),
-  adults: Joi.number().min(1).max(8).required().label("Adults"),
+  adults: Joi.number().min(1).max(9).required().label("Adults"),
+  children: Joi.number().min(0).max(8).label("Children"),
+  infants: Joi.number().min(0).max(8).label("Infants"),
+  travelClass: Joi.string()
+    .allow("ECONOMY", "PREMIUM_ECONOMY", "BUSINESS", "FIRST")
+    .label("Trip Class"),
 });
 
 /**
@@ -40,6 +45,9 @@ export = <Controller.Object>{
       departureDate: string;
       arrivalDate?: string;
       adults: number;
+      children?: number;
+      infants?: number;
+      travelClass?: "ECONOMY" | "PREMIUM_ECONOMY" | "BUSINESS" | "FIRST";
     };
     const body = http.$body.all<body>();
 
@@ -53,6 +61,10 @@ export = <Controller.Object>{
         destinationLocationCode: body.to,
         adults: body.adults,
         departureDate: body.departureDate,
+        returnDate: body.arrivalDate,
+        children: body.children,
+        infants: body.infants,
+        travelClass: body.travelClass,
       });
 
       return {
